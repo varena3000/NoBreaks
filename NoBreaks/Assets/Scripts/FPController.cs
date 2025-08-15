@@ -7,6 +7,7 @@ public class FPController : MonoBehaviour
     public float walkSpeed = 5f;
     public float sprintSpeed = 9f;
     public float crouchSpeed = 2.5f;
+    public float jumpForce = 3f;
     public float gravity = -9.81f;
 
     [Header("Look Settings")]
@@ -14,7 +15,7 @@ public class FPController : MonoBehaviour
     public float lookSensitivity = 2f;
     public float verticalLookLimit = 90f;
 
-    [Header("Crouch Settings (Optional)")]
+    [Header("Crouch Settings")]
     public float crouchHeight = 1f;
     public float standingHeight = 2f;
     public float crouchTransitionSpeed = 8f;
@@ -32,7 +33,7 @@ public class FPController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
 
-        // Lock and hide cursor for FPS control
+        // Lock and hide cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -65,6 +66,14 @@ public class FPController : MonoBehaviour
     {
         if (context.started) // Toggle crouch
             isCrouching = !isCrouching;
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed && controller.isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+        }
     }
 
     #endregion

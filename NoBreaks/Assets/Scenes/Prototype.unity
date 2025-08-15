@@ -1253,6 +1253,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 317f128d-00ef-4205-9c78-1f9b7371b03f
     m_ActionName: 'OnFoot/Look[/Mouse/delta,/XInputControllerWindows/rightStick]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8323369447337096369}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3f795e79-514e-4be3-96ec-893215bae1c2
+    m_ActionName: 'OnFoot/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8323369447337096369}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 40463f66-2365-43d4-b472-be4dff9ca703
+    m_ActionName: 'OnFoot/Crouch[/Keyboard/ctrl,/XInputControllerWindows/buttonEast]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard and Mouse
   m_DefaultActionMap: OnFoot
@@ -1278,6 +1310,7 @@ MonoBehaviour:
   walkSpeed: 5
   sprintSpeed: 9
   crouchSpeed: 2.5
+  jumpForce: 3
   gravity: -9.81
   cameraTransform: {fileID: 8323369447337096368}
   lookSensitivity: 0.5
