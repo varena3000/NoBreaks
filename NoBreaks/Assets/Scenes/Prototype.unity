@@ -1310,7 +1310,7 @@ MonoBehaviour:
   walkSpeed: 5
   sprintSpeed: 9
   crouchSpeed: 2.5
-  jumpForce: 3
+  jumpForce: 1
   gravity: -9.81
   cameraTransform: {fileID: 8323369447337096368}
   lookSensitivity: 0.5
