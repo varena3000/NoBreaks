@@ -13,7 +13,7 @@ public class HUDController : MonoBehaviour
 
     public void EnableInteractionText(string text)
     {
-        interactionText.text = text + "(E)";
+        interactionText.text = text + "( E)";
         interactionText.gameObject.SetActive(true);
     }
 
