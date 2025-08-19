@@ -6,13 +6,13 @@ public class Interactable : MonoBehaviour
     Outline outline;
     public string message;
 
-    pubic UnityEvent onInteraction;
+    public UnityEvent onInteraction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         outline = GetComponent<Outline>();
-        DisableOutline()
+        DisableOutline();
     }
 
     public void Interact()
@@ -25,7 +25,7 @@ public class Interactable : MonoBehaviour
         outline.enabled = false;
     }
 
-    pubic void EnableOutline()
+    public void EnableOutline()
     {
         outline.enabled = true;
     }
