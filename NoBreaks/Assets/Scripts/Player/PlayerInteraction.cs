@@ -5,7 +5,6 @@ public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
     Interactable currentInteractable;
-    bool isInteracting = false;
 
     // Update is called once per frame
     void Update()

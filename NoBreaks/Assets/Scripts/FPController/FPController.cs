@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +21,12 @@ public class FPController : MonoBehaviour
     public float standingHeight = 2f;
     public float crouchTransitionSpeed = 8f;
 
+    [Header("Pickup")]
+    public float pickupRange = 3f;
+    public Transform holdPoint;
+    public PickUpObject heldObject;
+
+
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -28,6 +35,7 @@ public class FPController : MonoBehaviour
 
     private bool isSprinting = false;
     private bool isCrouching = false;
+    private bool hasCheckedPickUp = false;
 
     private void Awake()
     {
@@ -38,11 +46,16 @@ public class FPController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void Update()
+    public void Update()
     {
         HandleMovement();
         HandleLook();
         HandleCrouchTransition();
+
+        if (heldObject != null)
+        {
+            heldObject.MoveToHoldPoint(holdPoint.position);
+        }
     }
 
     #region Input Callbacks
@@ -78,7 +91,7 @@ public class FPController : MonoBehaviour
 
     #endregion
 
-    private void HandleMovement()
+    public void HandleMovement()
     {
         float currentSpeed = isCrouching ? crouchSpeed : (isSprinting ? sprintSpeed : walkSpeed);
 
@@ -93,7 +106,7 @@ public class FPController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private void HandleLook()
+    public void HandleLook()
     {
         float mouseX = lookInput.x * lookSensitivity;
         float mouseY = lookInput.y * lookSensitivity;
@@ -114,4 +127,43 @@ public class FPController : MonoBehaviour
             controller.height = Mathf.Lerp(controller.height, targetHeight, crouchTransitionSpeed * Time.deltaTime);
         }
     }
+
+    #region 
+
+    public void OnPickUp(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (!hasCheckedPickUp)
+            {
+                if (heldObject == null)
+                {
+                    hasCheckedPickUp = true;
+                    Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+                    if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
+                    {
+                        PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
+                        if (pickUp != null)
+                        {
+                            pickUp.PickUp(holdPoint);
+                            heldObject = pickUp;
+                        }
+                    }
+                }
+
+                else
+                {
+                    heldObject.Drop();
+                    heldObject = null;
+                }
+            }
+        }
+        else
+        {
+            hasCheckedPickUp = false;
+        }
+        
+    }
+    
+    #endregion
 }
