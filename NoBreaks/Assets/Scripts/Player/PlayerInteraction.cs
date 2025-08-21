@@ -1,19 +1,25 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
     Interactable currentInteractable;
+    bool isInteracting = false;
 
     // Update is called once per frame
     void Update()
     {
         CheckInteraction();
-        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
-        {
+    }
+    
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed  && currentInteractable != null){
             currentInteractable.Interact();
         }
     }
+    
 
     void CheckInteraction()
     {
