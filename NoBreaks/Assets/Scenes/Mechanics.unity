@@ -639,7 +639,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788663881}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -827,7 +827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &854595351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,7 +1049,6 @@ GameObject:
   - component: {fileID: 1219760864}
   - component: {fileID: 1219760863}
   - component: {fileID: 1219760862}
-  - component: {fileID: 1219760866}
   - component: {fileID: 1219760865}
   - component: {fileID: 1219760868}
   - component: {fileID: 1219760869}
@@ -1157,24 +1156,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1219760866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219760860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1219760868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,7 +1229,6 @@ GameObject:
   - component: {fileID: 1331036471}
   - component: {fileID: 1331036470}
   - component: {fileID: 1331036469}
-  - component: {fileID: 1331036468}
   m_Layer: 0
   m_Name: InteractableObject (1)
   m_TagString: Interactable
@@ -1271,24 +1251,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 88483829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1331036468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331036466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1331036469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,7 +1475,6 @@ GameObject:
   - component: {fileID: 1455634397}
   - component: {fileID: 1455634396}
   - component: {fileID: 1455634395}
-  - component: {fileID: 1455634394}
   m_Layer: 0
   m_Name: InteractableObject (2)
   m_TagString: Interactable
@@ -1536,24 +1497,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 88483829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1455634394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455634392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1455634395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1674,7 +1617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1523084533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1745,7 +1688,6 @@ GameObject:
   - component: {fileID: 1590027636}
   - component: {fileID: 1590027635}
   - component: {fileID: 1590027633}
-  - component: {fileID: 1590027632}
   - component: {fileID: 1590027638}
   - component: {fileID: 1590027640}
   - component: {fileID: 1590027641}
@@ -1756,24 +1698,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1590027632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590027631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1590027633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2185,7 +2109,6 @@ GameObject:
   - component: {fileID: 1933505817}
   - component: {fileID: 1933505816}
   - component: {fileID: 1933505815}
-  - component: {fileID: 1933505814}
   m_Layer: 0
   m_Name: InteractableObject (4)
   m_TagString: Interactable
@@ -2208,24 +2131,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 88483829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1933505814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933505812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1933505815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2342,7 +2247,6 @@ GameObject:
   - component: {fileID: 1946815262}
   - component: {fileID: 1946815261}
   - component: {fileID: 1946815260}
-  - component: {fileID: 1946815259}
   m_Layer: 0
   m_Name: InteractableObject (3)
   m_TagString: Interactable
@@ -2365,24 +2269,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 88483829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1946815259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1946815257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1946815260
 MonoBehaviour:
   m_ObjectHideFlags: 0
