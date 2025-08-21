@@ -1,18 +1,16 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
     Interactable currentInteractable;
+    private Rigidbody rb;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Awake()
     {
-        CheckInteraction();
-        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
-        {
-            currentInteractable.Interact();
-        }
+        rb = GetComponent<Rigidbody>();
     }
 
     void CheckInteraction()
@@ -72,4 +70,68 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractable = null;
         }
     }
+
+    public void Interaction(Transform holdPoint)
+    {
+        rb.useGravity = false;
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        transform.SetParent(holdPoint);
+        transform.localPosition = Vector3.zero;
+    }
+
+    public void Drop()
+    {
+        rb.useGravity = true;
+        transform.SetParent(null);
+    }
+
+
+
+    public void MoveToHoldPoint(Vector3 targetPostion)
+    {
+        rb.MovePosition(targetPostion);
+    }
+
+    #region Callback
+
+    public void OnInteraction(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        if (heldObject == null)
+        {
+            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hit, interactionRange))
+            {
+                PlayerInteraction interaction = hit.collider.GetComponent<PlayerInteraction>();
+                if (interaction != null)
+                {
+                    interaction.Interaction(holdPoint);
+                    heldObject = interaction;
+                }
+            }
+        }
+
+        else
+        {
+            heldObject.Drop();
+            heldObject = null;
+        }
+    }
+    #endregion
+
+    // Update is called once per frame
+    private void Update()
+    {
+        HandleMovement();
+        HandleLook();
+
+        if (heldObject != null)
+        {
+            heldObject.MoveToHoldPoint(holdPoint.position);
+        }
+    }
+
 }

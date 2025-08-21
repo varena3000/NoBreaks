@@ -20,6 +20,11 @@ public class FPController : MonoBehaviour
     public float standingHeight = 2f;
     public float crouchTransitionSpeed = 8f;
 
+    [Header("Interact Settings")]
+    public float interactionRange = 3f;
+    public Transform holdPoint;
+    private PlayerInteraction heldObject;
+
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
