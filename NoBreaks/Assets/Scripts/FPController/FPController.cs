@@ -36,6 +36,12 @@ public class FPController : MonoBehaviour
     private bool isSprinting = false;
     private bool isCrouching = false;
     private bool hasCheckedPickUp = false;
+    private bool isInteracting = false;
+
+    public bool GetIsInteracting()
+    {
+        return isInteracting;
+    }
 
     private void Awake()
     {
@@ -87,6 +93,11 @@ public class FPController : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        isInteracting = context.performed;
     }
 
     #endregion
