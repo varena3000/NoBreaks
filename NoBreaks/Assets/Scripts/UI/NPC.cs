@@ -7,6 +7,14 @@ using Unity.VisualScripting;
 using NUnit.Framework;
 using UnityEditor.MPE;
 
+// Title: UNITY 2D NPC DIALOGUE SYSTEM TUTORIAL
+//Author: diving_squid
+//Date: 22 August 2025
+//Platform: Youtube
+//Code version: Unknown
+//Availability: https://youtu.be/1nFNOyCalzo?si=gx8LNragL5Rp4cGJ
+
+
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
@@ -64,7 +72,7 @@ public class NPC : MonoBehaviour
                     dialoguePanel.SetActive(true);
                     typingMethod = StartCoroutine(Typing());
                 }
-            }  
+            }
         }
         else
         {
@@ -131,7 +139,7 @@ public class NPC : MonoBehaviour
             fPController = null;
             isInteracting = false;
         }
-         if (other.gameObject.tag == "Key")
+        if (other.gameObject.tag == "Key")
         {
             hasObject = false;
         }

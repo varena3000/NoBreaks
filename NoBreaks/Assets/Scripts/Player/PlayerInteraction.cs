@@ -1,6 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Title: FIRST PERSON INTERACTION in Unity!
+//Author: Kabungus
+//Date: 19 August 2025
+//Platform: Youtube
+//Code version: Unknown
+//Availability: https://youtu.be/b7Yf6BFx6js?si=nstQjibMHoaiIcXp
+
+
+
 public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
@@ -11,15 +20,15 @@ public class PlayerInteraction : MonoBehaviour
     {
         CheckInteraction();
     }
-    
+
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed  && currentInteractable != null)
+        if (context.performed && currentInteractable != null)
         {
             currentInteractable.Interact();
         }
     }
-    
+
 
     void CheckInteraction()
     {
