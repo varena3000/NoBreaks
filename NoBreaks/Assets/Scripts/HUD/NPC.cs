@@ -5,7 +5,6 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using NUnit.Framework;
-using UnityEditor.MPE;
 
 // Title: UNITY 2D NPC DIALOGUE SYSTEM TUTORIAL
 //Author: diving_squid
