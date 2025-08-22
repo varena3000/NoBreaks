@@ -9,7 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CheckInteraction();
     }
     
     public void OnInteract(InputAction.CallbackContext context)
@@ -65,7 +65,7 @@ public class PlayerInteraction : MonoBehaviour
     void SetNewCurrentInteractable(Interactable newInteractable)
     {
         currentInteractable = newInteractable;
-        currentInteractable.EnableOutline();
+        //currentInteractable.EnableOutline();
         HUDController.instance.EnableInteractionText(currentInteractable.message);
     }
 
@@ -74,7 +74,7 @@ public class PlayerInteraction : MonoBehaviour
         HUDController.instance.DisableInteractionText();
         if (currentInteractable)
         {
-            currentInteractable.DisableOutline();
+            //currentInteractable.DisableOutline();
             currentInteractable = null;
         }
     }
