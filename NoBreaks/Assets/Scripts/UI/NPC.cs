@@ -11,10 +11,18 @@ public class NPC : MonoBehaviour
     public string[] dialogue;
     private int index;
 
+    public GameObject ContButton;
     public float wordSpeed;
     public bool playerIsClose;
 
     // Update is called once per frame
+    void Update()
+    {
+        if (dialogueText.text == dialogue[index])
+        {
+            ContButton.SetActive(true);
+        }
+    }
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed && playerIsClose)
@@ -42,6 +50,9 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
+
+        ContButton.SetActive(false);
+        
         if (index < dialogue.Length - 1)
         {
             index++;

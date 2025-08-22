@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour
     void Start()
     {
         //outline = GetComponent<Outline>();
-        DisableOutline();
+        //DisableOutline();
     }
 
     public void Interact()
