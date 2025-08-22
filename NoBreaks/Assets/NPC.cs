@@ -15,9 +15,9 @@ public class NPC : MonoBehaviour
     public bool playerIsClose;
 
     // Update is called once per frame
-    void Update()
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        //if (context.performed && playerIsClose != null)
+        if (context.performed && playerIsClose)
         {
             if (dialoguePanel.activeInHierarchy)
             {
