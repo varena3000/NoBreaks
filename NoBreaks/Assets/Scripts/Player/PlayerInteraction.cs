@@ -9,12 +9,13 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckInteraction();
+
     }
     
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed  && currentInteractable != null){
+        if (context.performed  && currentInteractable != null)
+        {
             currentInteractable.Interact();
         }
     }
