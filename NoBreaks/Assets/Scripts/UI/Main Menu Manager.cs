@@ -18,17 +18,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnApplicationQuit()
     {
-        //Message to console as quit will not occur in unity editor
-        Debug.Log("Application is quitting...");
-
         // Close the program
         Application.Quit();
-
-        if (Application.isEditor)
-        {
-            // Only for testing funtionality in Editor
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
     }
 }
 
