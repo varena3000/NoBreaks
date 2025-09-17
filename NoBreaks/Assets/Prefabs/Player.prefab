@@ -150,7 +150,6 @@ GameObject:
   - component: {fileID: 3391495863284916310}
   - component: {fileID: 6749758376053547058}
   - component: {fileID: 65502108689055660}
-  - component: {fileID: 812329800096250751}
   - component: {fileID: 8228109980407415259}
   m_Layer: 0
   m_Name: Player
@@ -280,7 +279,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 812329800096250751}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FPController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -296,7 +295,7 @@ MonoBehaviour:
     m_ActionName: 'OnFoot/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 812329800096250751}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FPController, Assembly-CSharp
         m_MethodName: OnSprint
         m_Mode: 0
@@ -316,7 +315,7 @@ MonoBehaviour:
     m_ActionName: Driving/Movement
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 812329800096250751}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FPController, Assembly-CSharp
         m_MethodName: OnLook
         m_Mode: 0
@@ -332,7 +331,7 @@ MonoBehaviour:
     m_ActionName: 'OnFoot/Look[/Mouse/delta,/XInputControllerWindows/rightStick]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 812329800096250751}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FPController, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
@@ -348,7 +347,7 @@ MonoBehaviour:
     m_ActionName: 'OnFoot/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 812329800096250751}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FPController, Assembly-CSharp
         m_MethodName: OnCrouch
         m_Mode: 0
@@ -367,29 +366,6 @@ MonoBehaviour:
   m_DefaultActionMap: OnFoot
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &812329800096250751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5723707515874565125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88fcf42dd2c0a5648974f5a2afc4ecce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 5
-  sprintSpeed: 9
-  crouchSpeed: 2.5
-  jumpForce: 1
-  gravity: -9.81
-  cameraTransform: {fileID: 3650077563984603746}
-  lookSensitivity: 0.5
-  verticalLookLimit: 90
-  crouchHeight: 1
-  standingHeight: 2
-  crouchTransitionSpeed: 8
 --- !u!114 &8228109980407415259
 MonoBehaviour:
   m_ObjectHideFlags: 0
