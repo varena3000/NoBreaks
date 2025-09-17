@@ -119,6 +119,7 @@ public class FPController : MonoBehaviour
 
     public void HandleLook()
     {
+        //Mouse
         float mouseX = lookInput.x * lookSensitivity;
         float mouseY = lookInput.y * lookSensitivity;
 
@@ -127,6 +128,7 @@ public class FPController : MonoBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+
     }
 
     private void HandleCrouchTransition()
