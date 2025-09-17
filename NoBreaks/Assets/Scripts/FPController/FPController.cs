@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class FPController : MonoBehaviour
 {
@@ -38,6 +39,14 @@ public class FPController : MonoBehaviour
     private bool hasCheckedPickUp = false;
     private bool isInteracting = false;
 
+    public static event Action OnFirstJump; // event for SparkStep script
+    private bool hasJumped = false;
+
+    public static event Action OnFirstCrouch; // event for SparkStep script
+    private bool hasCrouched = false;
+
+    public static event Action OnFirstMove; // event for SparkStep script
+    private bool hasMoved = false;
     public bool GetIsInteracting()
     {
         return isInteracting;
@@ -69,6 +78,12 @@ public class FPController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+
+        if (!hasMoved && moveInput.magnitude > 0.1f)
+        {
+            hasMoved = true;
+            OnFirstMove?.Invoke(); // notify quest system
+        }
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -85,6 +100,12 @@ public class FPController : MonoBehaviour
     {
         if (context.started) // Toggle crouch
             isCrouching = !isCrouching;
+
+        if (isCrouching && !hasCrouched)
+        {
+            hasCrouched = true;
+            OnFirstCrouch?.Invoke(); // notify quest system
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -92,6 +113,12 @@ public class FPController : MonoBehaviour
         if (context.performed && controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+
+            if (!hasJumped)
+            {
+                hasJumped = true;
+                OnFirstJump?.Invoke(); // notify quest system
+            }
         }
     }
 
