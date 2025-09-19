@@ -1,5 +1,6 @@
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PlayerInteractor : MonoBehaviour
@@ -11,12 +12,19 @@ public class PlayerInteractor : MonoBehaviour
     private Collider[] buffer = new Collider[32];
     private IInteractable focused;
 
+    private InputAction onInteract;
+
+    void Awake()
+    {
+        onInteract = InputSystem.actions.FindAction("Interact");
+    }
+
     private void Update()
     {
         IInteractable nearest = FindNearestInteractablle();
         UpdateFocus(nearest);
 
-        if(focused != null && Input.GetKeyDown(KeyCode.E))
+        if(focused != null && onInteract.IsPressed())
         {
             if (focused.CanInteract()) focused.Interact();
         }
