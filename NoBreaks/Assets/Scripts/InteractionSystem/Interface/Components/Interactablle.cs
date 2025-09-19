@@ -12,10 +12,18 @@ public class Interactablle : MonoBehaviour, IInteractable
     [SerializeField]
     private UnityEvent onInteract;
 
-
     public string DisplayName => displayName;
-
     public bool CanInteract() => isEnabled;
+    private Outline outline;
+
+     private void Awake()
+    {
+        outline = gameObject.AddComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineVisible;
+        outline.OutlineColor = Color.green;
+        outline.OutlineWidth = 1f;
+        outline.enabled = false;
+    }
    
 
     public void Interact()
@@ -25,11 +33,11 @@ public class Interactablle : MonoBehaviour, IInteractable
 
     public void OnfocusGained()
     {
-        throw new System.NotImplementedException();
+        outline.enabled = true;
     }
 
     public void OnfocusLost()
     {
-        throw new System.NotImplementedException();
+        outline.enabled = false;
     }
 }
