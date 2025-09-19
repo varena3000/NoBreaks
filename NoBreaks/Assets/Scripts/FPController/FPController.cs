@@ -98,8 +98,11 @@ public class FPController : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         isInteracting = context.performed;
+    }
 
-          if (context.performed)
+    public void OnPickUp(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             if (!hasCheckedPickUp)
             {
@@ -129,11 +132,7 @@ public class FPController : MonoBehaviour
         {
             hasCheckedPickUp = false;
         }
-    }
 
-    public void OnPickUp(InputAction.CallbackContext context)
-    {
-      
     }
     #endregion
     
