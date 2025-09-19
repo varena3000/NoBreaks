@@ -9,7 +9,7 @@ using UnityEngine.Events;
 //Availability: https://youtu.be/b7Yf6BFx6js?si=nstQjibMHoaiIcXp
 
 
-public class Interactable : MonoBehaviour
+public class InteractableOBJ : MonoBehaviour
 {
     //Outline outline;
     public string message;

@@ -13,7 +13,7 @@ using UnityEngine.InputSystem;
 public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
-    Interactable currentInteractable;
+    InteractableOBJ currentInteractable;
 
     // Update is called once per frame
     void Update()
@@ -40,7 +40,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.collider.tag == "Interactable") //if looking at an interactable object
             {
-                Interactable newInteractable = hit.collider.GetComponent<Interactable>();
+                InteractableOBJ newInteractable = hit.collider.GetComponent<InteractableOBJ>();
 
                 //if there is a currentInteractable and it is not the newInteractable
                 if (currentInteractable && newInteractable != currentInteractable)
@@ -71,7 +71,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    void SetNewCurrentInteractable(Interactable newInteractable)
+    void SetNewCurrentInteractable(InteractableOBJ newInteractable)
     {
         currentInteractable = newInteractable;
         //currentInteractable.EnableOutline();
