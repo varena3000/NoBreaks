@@ -21,7 +21,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private void Update()
     {
-        IInteractable nearest = FindNearestInteractablle();
+        IInteractable nearest = FindNearestInteractable();
         UpdateFocus(nearest);
 
         if(focused != null && onInteract.IsPressed())
@@ -30,7 +30,7 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    private IInteractable FindNearestInteractablle()
+    private IInteractable FindNearestInteractable()
     {
         int count = Physics.OverlapSphereNonAlloc(transform.position, radius, buffer, interactableLayers, QueryTriggerInteraction.Collide);
         IInteractable nearest = null;
@@ -40,14 +40,14 @@ public class PlayerInteractor : MonoBehaviour
         {
             Collider col = buffer[i];
             if (col == null) continue;
-            IInteractable interactablle = col.GetComponentInParent<IInteractable>();
-            if (interactablle == null) continue;
-            if (!interactablle.CanInteract()) continue;
+            IInteractable interactable = col.GetComponentInParent<IInteractable>();
+            if (interactable == null) continue;
+            if (!interactable.CanInteract()) continue;
             float distSq = (col.transform.position - transform.position).sqrMagnitude;
             if (distSq < bestDistSq)
             {
                 bestDistSq = distSq;
-                nearest = interactablle;
+                nearest = interactable;
             }
         }
         return nearest;

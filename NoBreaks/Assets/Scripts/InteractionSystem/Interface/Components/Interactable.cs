@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactablle : MonoBehaviour, IInteractable
+public class Interactable : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private string displayName = "Interact";
