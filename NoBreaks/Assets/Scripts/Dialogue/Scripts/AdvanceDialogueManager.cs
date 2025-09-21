@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
+using NUnit.Framework;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -20,14 +24,33 @@ public class AdvanceDialogueManager : MonoBehaviour
     private Sprite currentPortrait;
 
     public ActorSO[] actorSO;
+    public AdvancedDialogueSO[] specificConversationsSO;
+
+    //Typewriter effect
+    [SerializeField]
+    private float typingSpeed = 0.02f;
+    private Coroutine typeWriterRoutine;
+    private bool canContinueText = true;
+
+    //Specific Conversations
+    private bool hasQuestObject = false;
+    private AdvancedDialogueSO specificConversations;
+
+    /*
+        HUD to Deactivate
+        private GameObject HUDCanvas;
+    */
+
+    //Player Freeze
+    private FPController playerMove;
 
     //Input Action
     private InputAction onInteract;
-     //private PlayerInput playerInput;
+    //private PlayerInput playerInput;
 
     void Awake()
     {
-        //playerInput = GetComponent<PlayerInput>();
+        //Find button
         onInteract = InputSystem.actions.FindAction("Interact");
     }
 
@@ -35,6 +58,14 @@ public class AdvanceDialogueManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        /*
+            Access the HUD you want to turn off
+            HUDCanvas = GameObject.Find("HUDCanvas");
+        */
+
+        //Find player FP Controller
+        playerMove = GameObject.Find("Player").GetComponent<FPController>();
+
         dialogueCanvas = GameObject.Find("DialogueCanvas");
         actor = GameObject.Find("ActorText").GetComponent<TMP_Text>();
         portrait = GameObject.Find("Portrait").GetComponent<Image>();
@@ -47,10 +78,20 @@ public class AdvanceDialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dialogueActivated && onInteract.WasPerformedThisFrame())
+        if (dialogueActivated && onInteract.WasPerformedThisFrame() && canContinueText)
         {
+            /*
+                Deactivate HUD
+                HUDCanvas.SetActive(false);
+            */
+
+            //Freeze player
+            playerMove.enabled = false;
+
             //Cancel dialogue if there are no lines of dialogue remaining
-            if (stepNum >= currentConversation.actors.Length)
+            AdvancedDialogueSO activeConversation = hasQuestObject ? specificConversations : currentConversation;
+
+            if (stepNum >= activeConversation.actors.Length)
                 TurnOffDialogue();
 
             //Continue dialogue
@@ -63,25 +104,72 @@ public class AdvanceDialogueManager : MonoBehaviour
     {
         SetActorInfo();
 
+        // Decide which conversation to use
+        AdvancedDialogueSO activeConversation = hasQuestObject ? specificConversations : currentConversation;
+
         //Display Dialogue
         actor.text = currentSpeaker;
         portrait.sprite = currentPortrait;
 
-        dialogueText.text = currentConversation.Dialogue[stepNum];
+        //Keep the routine from running multiple times at the same time.
+        if (typeWriterRoutine != null)
+            StopCoroutine(typeWriterRoutine);
+
+        if (stepNum < activeConversation.Dialogue.Length)
+            typeWriterRoutine = StartCoroutine(TypeWriterEffect(dialogueText.text = activeConversation.Dialogue[stepNum]));
+
         dialogueCanvas.SetActive(true);
         stepNum += 1;
     }
-    
+
     void SetActorInfo()
     {
-            for (int i = 0; i < actorSO.Length; i++)
+        AdvancedDialogueSO activeConversation = hasQuestObject ? specificConversations : currentConversation;
+
+        for (int i = 0; i < actorSO.Length; i++)
+        {
+            if (actorSO[i].name == activeConversation.actors[stepNum].ToString())
             {
-                if(actorSO[i].name == currentConversation.actors[stepNum].ToString())
-                {
-                    currentSpeaker = actorSO[i].actorName;
-                    currentPortrait = actorSO[i].actorPortrait;
-                }
+                currentSpeaker = actorSO[i].actorName;
+                currentPortrait = actorSO[i].actorPortrait;
             }
+        }
+    }
+
+    private IEnumerator TypeWriterEffect(string line)
+    {
+        dialogueText.text = "";
+        canContinueText = false;
+        bool addingRichTextTag = false;
+        yield return new WaitForSeconds(.5f);
+
+        foreach (char letter in line.ToCharArray())
+        {
+            if (onInteract.WasPerformedThisFrame())
+            {
+                dialogueText.text = line;
+                break;
+            }
+
+            //Check to see if we are working with rich text tags
+            if (letter == '<' || addingRichTextTag)
+            {
+                addingRichTextTag = true;
+                dialogueText.text += letter;
+
+                if (letter == '>')
+                    addingRichTextTag = false;
+            }
+
+            //If not using rich text tags
+            else
+            {
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(typingSpeed);
+            }
+
+            canContinueText = true;
+        }
     }
 
     public void InitiateDialogue(NPCDialogue npcDialogue)
@@ -98,8 +186,34 @@ public class AdvanceDialogueManager : MonoBehaviour
 
         dialogueActivated = false;
         dialogueCanvas.SetActive(false);
+
+        /*
+                Activate HUD
+                HUDCanvas.SetActive(True);
+        */
+
+        //Unfreeze player
+        playerMove.enabled = true;
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("QuestObject"))
+        {
+            hasQuestObject = true;
+            specificConversations = specificConversationsSO[0]; // or choose based on object
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.CompareTag("QuestObject"))
+        {
+            hasQuestObject = false;
+        }
     }
 }
+
 
 public enum DialogueActors
 {

@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class NPCDialogue : MonoBehaviour
 {
-    
+
     public AdvancedDialogueSO[] conversation;
+    public AdvancedDialogueSO[] specificConversations;
 
     private AdvanceDialogueManager advanceDialogueManager;
 

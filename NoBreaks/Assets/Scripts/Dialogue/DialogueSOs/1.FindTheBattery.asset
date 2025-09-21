@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actors: 000000000000000000000000
   Dialogue:
-  - Hey There! Mind giving me a hand?
-  - My car seems to have some problems, there should be a battery somewhere in this
-    room.
-  - Find one and bring it back to me!
+  - Hey <color="blue"><b> There! <color="black"></b> Mind giving me a hand?
+  - My car seems to have some problems, there should be a  <i><b><color="green"><size=50>
+    battery  </i></b></color></size> somewhere in this room.
+  - Find one and bring it back to <b><color="red>me!</b></color>
