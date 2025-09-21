@@ -89,23 +89,23 @@ public class AdvanceDialogueManager : MonoBehaviour
             playerMove.enabled = false;
 
             //Cancel dialogue if there are no lines of dialogue remaining
-            AdvancedDialogueSO activeConversation = hasQuestObject ? specificConversations : currentConversation;
-
-            if (stepNum >= activeConversation.actors.Length)
+            if (stepNum >= currentConversation.actors.Length)
                 TurnOffDialogue();
 
             //Continue dialogue
             else
                 PlayDialogue();
+                
+            /*Play specific dialogue
+            if (hasQuestObject == true)
+                PlaySpecificDialouge();
+            */
         }
     }
 
     void PlayDialogue()
     {
         SetActorInfo();
-
-        // Decide which conversation to use
-        AdvancedDialogueSO activeConversation = hasQuestObject ? specificConversations : currentConversation;
 
         //Display Dialogue
         actor.text = currentSpeaker;
@@ -115,20 +115,29 @@ public class AdvanceDialogueManager : MonoBehaviour
         if (typeWriterRoutine != null)
             StopCoroutine(typeWriterRoutine);
 
-        if (stepNum < activeConversation.Dialogue.Length)
-            typeWriterRoutine = StartCoroutine(TypeWriterEffect(dialogueText.text = activeConversation.Dialogue[stepNum]));
+        if (stepNum < currentConversation.Dialogue.Length)
+            typeWriterRoutine = StartCoroutine(TypeWriterEffect(dialogueText.text = currentConversation.Dialogue[stepNum]));
+
+        /*if has object == true play specific conversation
+        if(stepNum < specificConversations.Dialogue.Length && hasQuestObject == true)
+            typeWriterRoutine = StartCoroutine(TypeWriterEffect(dialogueText.text = specificConversations.Dialogue[stepNum]));
+        */
 
         dialogueCanvas.SetActive(true);
         stepNum += 1;
     }
 
+    //for when condition is met
+    void PlaySpecificDialouge()
+    {
+        specificConversations = specificConversationsSO[0];
+    }
+
     void SetActorInfo()
     {
-        AdvancedDialogueSO activeConversation = hasQuestObject ? specificConversations : currentConversation;
-
         for (int i = 0; i < actorSO.Length; i++)
         {
-            if (actorSO[i].name == activeConversation.actors[stepNum].ToString())
+            if (actorSO[i].name == currentConversation.actors[stepNum].ToString())
             {
                 currentSpeaker = actorSO[i].actorName;
                 currentPortrait = actorSO[i].actorPortrait;
@@ -196,21 +205,14 @@ public class AdvanceDialogueManager : MonoBehaviour
         playerMove.enabled = true;
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
-        if (collision.CompareTag("QuestObject"))
+        if (collision.gameObject.tag == "QuestObject")
         {
             hasQuestObject = true;
-            specificConversations = specificConversationsSO[0]; // or choose based on object
         }
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        if (collision.CompareTag("QuestObject"))
-        {
+        else
             hasQuestObject = false;
-        }
     }
 }
 
