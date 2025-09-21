@@ -11,6 +11,7 @@ public class AdvanceDialogueManager : MonoBehaviour
 {
     //The NPC DIALOGUE we are currently stepping through
     private AdvancedDialogueSO currentConversation;
+    public int conversationID = 0;
     private int stepNum;
     private bool dialogueActivated;
 
@@ -32,9 +33,11 @@ public class AdvanceDialogueManager : MonoBehaviour
     private Coroutine typeWriterRoutine;
     private bool canContinueText = true;
 
-    //Specific Conversations
-    private bool hasQuestObject = false;
-    private AdvancedDialogueSO specificConversations;
+    
+        //Specific Conversations
+        private bool hasQuestObject = false;
+        private AdvancedDialogueSO specificConversations;
+    
 
     /*
         HUD to Deactivate
@@ -127,11 +130,18 @@ public class AdvanceDialogueManager : MonoBehaviour
         stepNum += 1;
     }
 
-    //for when condition is met
+    /*public void setConversationID(int idIn)
+    {
+        conversationID = idIn;
+    }
+    */
+
+    /*for when condition is met
     void PlaySpecificDialouge()
     {
         specificConversations = specificConversationsSO[0];
     }
+    */
 
     void SetActorInfo()
     {
@@ -184,7 +194,7 @@ public class AdvanceDialogueManager : MonoBehaviour
     public void InitiateDialogue(NPCDialogue npcDialogue)
     {
         //the array we are currently stepping through
-        currentConversation = npcDialogue.conversation[0];
+        currentConversation = npcDialogue.conversation[conversationID];
 
         dialogueActivated = true;
     }
@@ -205,14 +215,20 @@ public class AdvanceDialogueManager : MonoBehaviour
         playerMove.enabled = true;
     }
 
-    private void OnTriggerStay(Collider collision)
+   private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "QuestObject")
         {
+            Debug.Log("isworking");
             hasQuestObject = true;
+            conversationID = 1;
         }
         else
+        {
             hasQuestObject = false;
+            conversationID = 0;
+        }
+            
     }
 }
 
