@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Quest Dialogue.unity
     guid: a8fcc3693906b50449693672f7bbc8e7
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Level1Draft.unity
     guid: dc5f37ed65379c645a7abd063ea3c428
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 421362c6f29c7dc40aa5189d9bbc69ee, type: 3}
