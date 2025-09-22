@@ -1,7 +1,6 @@
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System;
 
 public class FPController : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class FPController : MonoBehaviour
     public float sprintSpeed = 9f;
     public float crouchSpeed = 2.5f;
     public float jumpForce = 3f;
-    public float gravity = -9.81f;
+    public float gravity = -9.8f;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -25,7 +24,7 @@ public class FPController : MonoBehaviour
     [Header("Pickup")]
     public float pickupRange = 3f;
     public Transform holdPoint;
-    public PickUpObject heldObject;
+    private PickUpObject heldObject;
 
 
     private CharacterController controller;
@@ -38,19 +37,6 @@ public class FPController : MonoBehaviour
     private bool isCrouching = false;
     private bool hasCheckedPickUp = false;
     private bool isInteracting = false;
-
-    public static event Action OnFirstJump; // event for SparkStep script
-    private bool hasJumped = false;
-
-    public static event Action OnFirstCrouch; // event for SparkStep script
-    private bool hasCrouched = false;
-
-    public static event Action OnFirstMove; // event for SparkStep script
-    private bool hasMoved = false;
-    public bool GetIsInteracting()
-    {
-        return isInteracting;
-    }
 
     private void Awake()
     {
@@ -73,17 +59,16 @@ public class FPController : MonoBehaviour
         }
     }
 
+    public bool GetIsInteracting()
+    {
+        return isInteracting;
+    }
+
     #region Input Callbacks
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-
-        if (!hasMoved && moveInput.magnitude > 0.1f)
-        {
-            hasMoved = true;
-            OnFirstMove?.Invoke(); // notify quest system
-        }
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -100,12 +85,6 @@ public class FPController : MonoBehaviour
     {
         if (context.started) // Toggle crouch
             isCrouching = !isCrouching;
-
-        if (isCrouching && !hasCrouched)
-        {
-            hasCrouched = true;
-            OnFirstCrouch?.Invoke(); // notify quest system
-        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -113,12 +92,6 @@ public class FPController : MonoBehaviour
         if (context.performed && controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-
-            if (!hasJumped)
-            {
-                hasJumped = true;
-                OnFirstJump?.Invoke(); // notify quest system
-            }
         }
     }
 
@@ -126,47 +99,6 @@ public class FPController : MonoBehaviour
     {
         isInteracting = context.performed;
     }
-
-    #endregion
-
-    public void HandleMovement()
-    {
-        float currentSpeed = isCrouching ? crouchSpeed : (isSprinting ? sprintSpeed : walkSpeed);
-
-        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
-        controller.Move(move * currentSpeed * Time.deltaTime);
-
-        // Gravity
-        if (controller.isGrounded && velocity.y < 0)
-            velocity.y = -2f;
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-    }
-
-    public void HandleLook()
-    {
-        float mouseX = lookInput.x * lookSensitivity;
-        float mouseY = lookInput.y * lookSensitivity;
-
-        verticalRotation -= mouseY;
-        verticalRotation = Mathf.Clamp(verticalRotation, -verticalLookLimit, verticalLookLimit);
-
-        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
-    }
-
-    private void HandleCrouchTransition()
-    {
-        float targetHeight = isCrouching ? crouchHeight : standingHeight;
-
-        if (controller.height != targetHeight)
-        {
-            controller.height = Mathf.Lerp(controller.height, targetHeight, crouchTransitionSpeed * Time.deltaTime);
-        }
-    }
-
-    #region 
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
@@ -200,8 +132,50 @@ public class FPController : MonoBehaviour
         {
             hasCheckedPickUp = false;
         }
-        
+
     }
-    
     #endregion
+    
+    #region Handle
+
+    public void HandleMovement()
+    {
+        float currentSpeed = isCrouching ? crouchSpeed : (isSprinting ? sprintSpeed : walkSpeed);
+
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        controller.Move(move * currentSpeed * Time.deltaTime);
+
+        // Gravity
+        if (controller.isGrounded && velocity.y < 0)
+            velocity.y = -2f;
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+    }
+
+    public void HandleLook()
+    {
+        //Mouse
+        float mouseX = lookInput.x * lookSensitivity;
+        float mouseY = lookInput.y * lookSensitivity;
+
+        verticalRotation -= mouseY;
+        verticalRotation = Mathf.Clamp(verticalRotation, -verticalLookLimit, verticalLookLimit);
+
+        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * mouseX);
+
+    }
+
+    private void HandleCrouchTransition()
+    {
+        float targetHeight = isCrouching ? crouchHeight : standingHeight;
+
+        if (controller.height != targetHeight)
+        {
+            controller.height = Mathf.Lerp(controller.height, targetHeight, crouchTransitionSpeed * Time.deltaTime);
+        }
+    }
+    #endregion
+
 }
