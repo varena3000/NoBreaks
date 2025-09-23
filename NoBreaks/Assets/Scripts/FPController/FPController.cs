@@ -26,6 +26,8 @@ public class FPController : MonoBehaviour
     public Transform holdPoint;
     private PickUpObject heldObject;
 
+    [Header("Imbue")]
+    public Camera characterCamera;
 
     private CharacterController controller;
     private Vector2 moveInput;
@@ -49,14 +51,18 @@ public class FPController : MonoBehaviour
 
     public void Update()
     {
-        HandleMovement();
-        HandleLook();
-        HandleCrouchTransition();
+        if (!enabled) return;
+        
+            HandleMovement();
+            HandleLook();
+            HandleCrouchTransition();
 
-        if (heldObject != null)
-        {
-            heldObject.MoveToHoldPoint(holdPoint.position);
-        }
+            if (heldObject != null)
+            {
+                 heldObject.MoveToHoldPoint(holdPoint.position);
+            }
+        
+        
     }
 
     public bool GetIsInteracting()

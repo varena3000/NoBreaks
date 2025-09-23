@@ -355,57 +355,80 @@ MonoBehaviour:
     - '???: I need your help! '
     - Your eyes slowly focus on what appears to be a... fairy?
     - '???: I''m not a fairy! I''m far more powerful than Tooth or Bel - I''ll have
-      you know'
+      you know. '
     - 'You: Who are you?'
-    - 'Not-Fairy: It doesn''t matter. I need you to get up right now.'
+    - 'Not-Fairy: Just call me Yota for now. I need you to get up right now.'
     - 'You: It''s a Saturday. I usually sleep in - you know?'
-    - 'Not-Fairy: You''re a rat, for Toys'' sake! You have no concept of a weekend.'
+    - 'Yota: You''re a rat, for Toys'' sake! You have no concept of a weekend.'
     - 'You: Fair point. What do you want, o powerful Not-Fairy?'
-    - 'Not-Fairy: You know who''s room you''re living in - don''t you? I know rats
-      aren''t the brightest... or the cleanest or the nicest or the - '
+    - 'Yota: You know who''s room you''re living in - don''t you? I know rats aren''t
+      the brightest... or the cleanest or the nicest or the - '
     - 'You: What''s your point?'
-    - 'Not-Fairy: Right, sorry. Stupid mouth, stupid mouth.'
+    - 'Yota: Right, sorry. Stupid mouth, stupid mouth.'
     - 'You: I thought I wasn''t the brightest.'
-    - 'Not-Fairy: I never said I was either but that''s beside''s the point! Stop
-      distracting me! I need your help with fixing something.'
+    - 'Yota: I never said I was either but that''s beside''s the point! Stop distracting
+      me! I need your help with fixing something.'
     - 'You: I don''t know if you remember but I''m not the brightest and I''m not
       exactly the most dextrous either.'
-    - Not-Fairy:That's why I'm here! The little girl who's room you're living in
-      - remember her? Well her toy car broke down. Now, she can't play with it anymore
-      and Jenni has nothing to drive.
-    - 'You: Jenni?'
-    - 'Not-Fairy: Don''t you sneak in here to watch TV? How do you live in her room
-      and not know who Jenni is?'
+    - Yota:That's why I'm here! The little girl who's room you're living in - remember
+      her? Well her toy world is disappearing. That poor girl must be going through
+      something that's destroying her imagination.
+    - 'You: Toy world? Uh-huh.'
+    - 'Yota: Don''t you sneak in here and look at her stuff? How do you live in her
+      room and not know what toys are?'
     - 'You: I''m-'
-    - 'Not-Fairy: Right, right, not the brightest. Never mind. Point is you have
-      to help me - only you can. '
+    - 'Yota: Right, right, not the brightest. Never mind. Point is you have to help
+      me - only you can. '
     - 'You: Why me?'
-    - 'Not-Fairy: Because! You''re from this world! The others are from the toy world
-      - they can''t touch anything in this world and well, I''m not exactly dextrous
-      either. I can''t pick up a pin let alone the things we need to fix Jenni''s
-      car.'
+    - 'Yota: Because! When the toy world disappears it fractures and leaks into the
+      real world until nothing is left. The others are from the toy world - they
+      can''t touch anything in this world and well, I''m not exactly dextrous either,
+      so enter Rat...'
     - 'You: Hmm. I get it. So, I''m the chosen hero that the whole of the toy world
       depends on?'
-    - 'Not-Fairy: Yes! Exactly! Well, not exactly - just Jenni''s team, not the whole
-      of the toy world. They have me for that, hehe.'
+    - 'Yota: Yes! Exactly! Well, not exactly - just this little girl''s toy world,
+      not the whole of the toy world. They have me for that, hehe.'
     - 'You: Well, that''s wonderful except I''m no hero, dust mite. What''s in it
       for me?'
-    - 'Not-Fairy: I''ll pretend I didn''t hear the "dust mite." '
+    - 'Dust Mite?: I''ll pretend I didn''t hear the "dust mite." '
     - 'You: Just answer the question.'
-    - 'Not-Fairy: You''ve never wanted to go out there? Look at this place - you
-      barely have any room to breathe let alone live! You don''t have any friends
-      or family and I can bet a wing and ring that you''re afraid of her. When was
-      the last you looked at anything else other than these three corners and a block
-      of cheese?'
+    - 'Not-Dust-Mite-Just-Yota: You''ve never wanted to go out there? Look at this
+      place - you barely have any room to breathe let alone live! You don''t have
+      any friends or family and I can bet a wing and ring that you''re afraid of
+      her. When was the last you looked at anything else other than these three corners
+      and a block of cheese?'
     - 'You: I''ll pretend i didn''t hear the "cheese'' stereotype. That''s for mice
       by the way.'
-    - 'Not-Fairy: Just answer the question.'
-    - 'You: All right. All right. You might not be so bright, Not-Fairy but you''ve
-      got keen observation skills. I''ll help you'
-    - 'Not-Fairy: Yes! Thank you! If you weren''t a disease infested rodent and I
-      wasn''t a holy celestial being I''d kiss you!'
+    - 'Yota: Someone is avoiding the question, hehe.'
+    - 'You: All right. All right. You might not be so bright, Yota but you''ve got
+      keen observation skills. I''ll help you'
+    - 'Yota: Yes! Thank you! If you weren''t a disease infested rodent and I wasn''t
+      a holy celestial being I''d kiss you!'
     - 'You: Sure, thanks. Let''s just go before i change my mind.'
-    - 'Not-Fairy: Right. It''s now or never while she''s outside. Come on.'
+    - 'Yota: Here''s what you have to do. Her toy Jenni figurine: her toy spirit 
+      has already fractured into 5 pieces and leaked into the real world. You have
+      to find all of her and bring her back to where her toy spirit was born'
+    - 'You: Where her toy spirirt was born?'
+    - 'Yota: I don''t know what it''s called in the real world but it''s where she
+      stopped being just a toy and became part of a child''s imagination. Without
+      that imagination there would be no toy world. Think of it as the place where
+      Jenni first came out of so that our little girl and play with her for the first
+      time.'
+    - 'Yota: Once you''ve done that you need to help the mechanic. He''s fractured
+      too but luckily he''s still in the toy world so you wont be able to talk to
+      touch him unless you''re a toy. I''ll use my powers to help you Imbue her'
+    - 'Rat: So, what you''re gonna use your Not-Fairy magic and turn me into a toy?'
+    - 'Yota: You''re sarcastic but you''re not far off-
+
+      You: What?'
+    - 'Yota: Once you return Jenni''s spirit to her place of birth I''ll use my magic
+      to help you "imbue" her. Your true form will remain untouched and you''ll likely
+      want to go back to it when you need to make contact with anything in the real
+      world. Just go back to the birth place when you need to change.'
+    - 'Yota: Remember, rats cannot interact with the toy world; everything will just
+      look like an inamnimate object to you. As Jenni you also won''t be able to
+      venture out of the barrier I set up to protect what''s left of the world. '
+    - 'You: Collect Right. It''s now or never while she''s outside. Come on. '
     - And so your journey begins...
 --- !u!114 &438422627
 MonoBehaviour:
