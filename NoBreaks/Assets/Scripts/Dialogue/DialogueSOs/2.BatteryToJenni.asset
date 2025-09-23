@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
   m_Name: 2.BatteryToJenni
   m_EditorClassIdentifier: 
-  actors: 00000000
+  actors: 0000000000000000
   Dialogue:
-  - Good Job!
-  - Now I can fix my car and get it running again!
+  - <size=50><color="Blue">Good Job!</size></color>
+  - Now I can<size=50><color="Green"> fix </size></color> my car and get it running
+    again!
