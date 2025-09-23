@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour, IInteractable
     private bool isEnabled = true;
 
     [SerializeField]
-    private UnityEvent onInteract;
+    public UnityEvent onInteract;
 
     public string DisplayName => displayName;
     public bool CanInteract() => isEnabled;

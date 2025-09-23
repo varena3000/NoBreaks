@@ -1,119 +1,142 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerSwapManager : MonoBehaviour
 {
-    [Header("Controllers")]
+    [Header("Player Controllers (root GameObjects!)")]
     public FPController ratController;
     public FPController jenniController;
 
-    [Header("Interactors")]
-    public MonoBehaviour ratInteractor;    // assign PlayerInteractor script on Rat
-    public MonoBehaviour jenniInteractor;  // assign PlayerInteractor script on Jenni
+    [Header("Interactors (scripts on player)")]
+    public MonoBehaviour ratInteractor;
+    public MonoBehaviour jenniInteractor;
 
-    private FPController activeController;
+    [Header("Scene Settings")]
+    public int targetSceneIndexForAutoLoad = 2;
 
-    void Start()
+    [HideInInspector]
+    public FPController activeController;
+
+    public event Action OnActiveCharacterChanged;
+
+    // Static ensures last active character persists across scenes
+    private static string lastActiveCharacter = "Rat";
+
+    private void Awake()
     {
-        SetActiveCharacter(ratController);
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (ratController.transform.parent != null || jenniController.transform.parent != null)
+            Debug.LogWarning("Player controllers must be root GameObjects for DontDestroyOnLoad to work!");
     }
 
-    private void SwapCharacter()
+    private void OnDestroy()
     {
-        if (activeController == ratController)
-            SetActiveCharacter(jenniController);
-        else
-            SetActiveCharacter(ratController);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    private void Start()
+    {
+        // Initialize the active player on first scene load
+        FPController toActivate = (lastActiveCharacter == "Jenni") ? jenniController : ratController;
+        SetActiveCharacter(toActivate);
+    }
+
+    /// <summary>
+    /// Swaps the active player
+    /// </summary>
+    public void SwapCharacter()
+    {
+        FPController toActivate = (activeController == ratController) ? jenniController : ratController;
+        SetActiveCharacter(toActivate);
+
+        // Auto-load next scene if Jenni is active and scene matches
+        if (activeController == jenniController)
+        {
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            if (currentScene == targetSceneIndexForAutoLoad)
+            {
+                SceneManager.LoadScene(currentScene + 1);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Activates the selected controller and disables the other
+    /// </summary>
     private void SetActiveCharacter(FPController controller)
     {
-        // Disable both controllers
-        ratController.enabled = false;
-        jenniController.enabled = false;
+        if (activeController == controller) return; // Already active, no changes needed
 
-        // Disable both cameras
-        if (ratController.characterCamera != null)
-            ratController.characterCamera.gameObject.SetActive(false);
-        if (jenniController.characterCamera != null)
-            jenniController.characterCamera.gameObject.SetActive(false);
-
-        // Disable AudioListeners
-        if (ratController.characterCamera != null)
-        {
-            var audio = ratController.characterCamera.GetComponent<AudioListener>();
-            if (audio) audio.enabled = false;
-        }
-        if (jenniController.characterCamera != null)
-        {
-            var audio = jenniController.characterCamera.GetComponent<AudioListener>();
-            if (audio) audio.enabled = false;
-        }
-
-        // Disable interactors
-        if (ratInteractor != null) ratInteractor.enabled = false;
-        if (jenniInteractor != null) jenniInteractor.enabled = false;
-
-        // Enable chosen controller
         activeController = controller;
+        lastActiveCharacter = (controller == ratController) ? "Rat" : "Jenni";
+
+        // Enable controller
+        activeController.gameObject.SetActive(true);
         activeController.enabled = true;
 
-        // Enable camera + AudioListener
+        // Enable camera & audio
         if (activeController.characterCamera != null)
         {
             activeController.characterCamera.gameObject.SetActive(true);
             var audio = activeController.characterCamera.GetComponent<AudioListener>();
-            if (audio) audio.enabled = true;
+            if (audio != null) audio.enabled = true;
         }
 
-        // Enable correct interactor
-        if (activeController == ratController && ratInteractor != null)
-            ratInteractor.enabled = true;
-        else if (activeController == jenniController && jenniInteractor != null)
-            jenniInteractor.enabled = true;
+        // Enable correct interactor, disable the other
+        if (activeController == ratController)
+        {
+            if (ratInteractor != null) ratInteractor.enabled = true;
+            if (jenniInteractor != null) jenniInteractor.enabled = false;
+            jenniController.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (jenniInteractor != null) jenniInteractor.enabled = true;
+            if (ratInteractor != null) ratInteractor.enabled = false;
+            ratController.gameObject.SetActive(false);
+        }
+
+        // Make active player persistent
+        DontDestroyOnLoad(activeController.gameObject);
+
+        // Fire event for other systems (barriers, UI, etc.)
+        OnActiveCharacterChanged?.Invoke();
     }
 
     #region Input Callbacks
-    public void OnMove(InputAction.CallbackContext ctx)
-    {
-        if (activeController != null)
-            activeController.OnMove(ctx);
-    }
-
-    public void OnLook(InputAction.CallbackContext ctx)
-    {
-        if (activeController != null)
-            activeController.OnLook(ctx);
-    }
-
-    public void OnSprint(InputAction.CallbackContext ctx)
-    {
-        if (activeController != null)
-            activeController.OnSprint(ctx);
-    }
-
-    public void OnCrouch(InputAction.CallbackContext ctx)
-    {
-        if (activeController != null)
-            activeController.OnCrouch(ctx);
-    }
-
-    public void OnJump(InputAction.CallbackContext ctx)
-    {
-        if (activeController != null)
-            activeController.OnJump(ctx);
-    }
-
-    public void OnPickUp(InputAction.CallbackContext ctx)
-    {
-        if (activeController != null)
-            activeController.OnPickUp(ctx);
-    }
-
-    public void OnInteract(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-            SwapCharacter();
-    }
+    public void OnMove(InputAction.CallbackContext ctx) => activeController?.OnMove(ctx);
+    public void OnLook(InputAction.CallbackContext ctx) => activeController?.OnLook(ctx);
+    public void OnSprint(InputAction.CallbackContext ctx) => activeController?.OnSprint(ctx);
+    public void OnCrouch(InputAction.CallbackContext ctx) => activeController?.OnCrouch(ctx);
+    public void OnJump(InputAction.CallbackContext ctx) => activeController?.OnJump(ctx);
+    public void OnPickUp(InputAction.CallbackContext ctx) => activeController?.OnPickUp(ctx);
+    public void OnInteract(InputAction.CallbackContext ctx) => activeController?.OnInteract(ctx);
     #endregion
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Determine which controller should be active
+        FPController toActivate = (lastActiveCharacter == "Jenni") ? jenniController : ratController;
+
+        // Only swap if needed
+        if (activeController != toActivate)
+        {
+            SetActiveCharacter(toActivate);
+        }
+
+        // Move the active player to the spawn point if it exists
+        if (activeController != null)
+        {
+            GameObject spawn = GameObject.Find("PlayerSpawnPoint");
+            if (spawn != null)
+            {
+                activeController.transform.position = spawn.transform.position;
+                activeController.transform.rotation = spawn.transform.rotation;
+            }
+        }
+    }
 }
