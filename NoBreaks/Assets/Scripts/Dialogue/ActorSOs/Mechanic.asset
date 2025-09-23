@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mechanic
   m_EditorClassIdentifier: 
   actorName: Mechanic
-  actorPortrait: {fileID: 0}
+  actorPortrait: {fileID: 21300000, guid: da16f45363ac2f84b8413b0d28fcd9e6, type: 3}
