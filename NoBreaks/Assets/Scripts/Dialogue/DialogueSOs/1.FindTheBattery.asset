@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
   m_Name: 1.FindTheBattery
   m_EditorClassIdentifier: 
-  actors: 000000000000000000000000
+  actors: 020000000200000002000000
   Dialogue:
   - Hey <color="blue"><b> There! <color="black"></b> Mind giving me a hand?
   - My car seems to have some problems, there should be a  <i><b><color="green"><size=50>
