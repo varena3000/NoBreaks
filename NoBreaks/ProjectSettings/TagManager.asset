@@ -6,14 +6,15 @@ TagManager:
   tags:
   - Interactable
   - QuestObject
+  - ratMainCamera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerRat
   - Water
   - UI
-  - 
+  - JenniOnlyBarrier
   - 
   - 
   - 

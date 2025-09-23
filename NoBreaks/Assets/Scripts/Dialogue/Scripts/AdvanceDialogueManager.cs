@@ -2,20 +2,19 @@ using System;
 using System.Collections;
 using NUnit.Framework;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class AdvanceDialogueManager : MonoBehaviour
 {
-    //The NPC DIALOGUE we are currently stepping through
+    // The NPC dialogue we are currently stepping through
     private AdvancedDialogueSO currentConversation;
     public int conversationID = 0;
     private int stepNum;
     private bool dialogueActivated;
 
-    //UI References
+    // UI References
     public GameObject dialogueCanvas;
     private TMP_Text actor;
     private Image portrait;
@@ -27,124 +26,110 @@ public class AdvanceDialogueManager : MonoBehaviour
     public ActorSO[] actorSO;
     public AdvancedDialogueSO[] specificConversationsSO;
 
-    //Typewriter effect
-    [SerializeField]
-    private float typingSpeed = 0.02f;
+    [SerializeField] private float typingSpeed = 0.02f;
     private Coroutine typeWriterRoutine;
     private bool canContinueText = true;
 
-    
-        //Specific Conversations
-        private bool hasQuestObject = false;
-        private AdvancedDialogueSO specificConversations;
-    
+    // Specific Conversations
+    private bool hasQuestObject = false;
+    private AdvancedDialogueSO specificConversations;
 
-    /*
-        HUD to Deactivate
-        private GameObject HUDCanvas;
-    */
-
-    //Player Freeze
+    // Player Freeze
     private FPController playerMove;
 
-    //Input Action
+    // Input Action
     private InputAction onInteract;
-    //private PlayerInput playerInput;
 
-    void Awake()
+    // Reference to the PlayerSwapManager
+    private PlayerSwapManager swapManager;
+
+    private void Awake()
     {
-        //Find button
+        // Find the "Interact" action
         onInteract = InputSystem.actions.FindAction("Interact");
+
+        // Find PlayerSwapManager in scene
+        swapManager = UnityEngine.Object.FindAnyObjectByType<PlayerSwapManager>();
+        if (swapManager == null)
+            Debug.LogError("AdvanceDialogueManager: PlayerSwapManager not found in scene!");
     }
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        /*
-            Access the HUD you want to turn off
-            HUDCanvas = GameObject.Find("HUDCanvas");
-        */
+        if (swapManager == null) return;
 
-        //Find player FP Controller
-        playerMove = GameObject.Find("Player").GetComponent<FPController>();
+        // Get the active player from swap manager
+        playerMove = swapManager.activeController;
 
+        // Assign UI elements
         dialogueCanvas = GameObject.Find("DialogueCanvas");
-        actor = GameObject.Find("ActorText").GetComponent<TMP_Text>();
-        portrait = GameObject.Find("Portrait").GetComponent<Image>();
-        dialogueText = GameObject.Find("DialogueText").GetComponent<TMP_Text>();
+        if (dialogueCanvas == null)
+        {
+            Debug.LogError("AdvanceDialogueManager: DialogueCanvas not found!");
+            return;
+        }
+
+        actor = GameObject.Find("ActorText")?.GetComponent<TMP_Text>();
+        portrait = GameObject.Find("Portrait")?.GetComponent<Image>();
+        dialogueText = GameObject.Find("DialogueText")?.GetComponent<TMP_Text>();
 
         dialogueCanvas.SetActive(false);
-
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (dialogueActivated && onInteract.WasPerformedThisFrame() && canContinueText)
+        if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
+
+        IUpdateDialogue();
+    }
+
+    private void IUpdateDialogue()
+    {
+        if (dialogueActivated && onInteract != null && onInteract.WasPerformedThisFrame() && canContinueText)
         {
-            /*
-                Deactivate HUD
-                HUDCanvas.SetActive(false);
-            */
+            // Freeze player movement
+            if (playerMove != null)
+                playerMove.enabled = false;
 
-            //Freeze player
-            playerMove.enabled = false;
-
-            //Cancel dialogue if there are no lines of dialogue remaining
+            // End dialogue if finished
             if (stepNum >= currentConversation.actors.Length)
+            {
                 TurnOffDialogue();
-
-            //Continue dialogue
+            }
             else
+            {
                 PlayDialogue();
-                
-            /*Play specific dialogue
-            if (hasQuestObject == true)
-                PlaySpecificDialouge();
-            */
+            }
         }
     }
 
-    void PlayDialogue()
+    private void PlayDialogue()
     {
+        if (currentConversation == null) return;
+
         SetActorInfo();
 
-        //Display Dialogue
-        actor.text = currentSpeaker;
-        portrait.sprite = currentPortrait;
+        // Display dialogue
+        if (actor != null) actor.text = currentSpeaker;
+        if (portrait != null) portrait.sprite = currentPortrait;
 
-        //Keep the routine from running multiple times at the same time.
+        // Stop previous typewriter
         if (typeWriterRoutine != null)
             StopCoroutine(typeWriterRoutine);
 
-        if (stepNum < currentConversation.Dialogue.Length)
-            typeWriterRoutine = StartCoroutine(TypeWriterEffect(dialogueText.text = currentConversation.Dialogue[stepNum]));
-
-        /*if has object == true play specific conversation
-        if(stepNum < specificConversations.Dialogue.Length && hasQuestObject == true)
-            typeWriterRoutine = StartCoroutine(TypeWriterEffect(dialogueText.text = specificConversations.Dialogue[stepNum]));
-        */
+        if (stepNum < currentConversation.Dialogue.Length && dialogueText != null)
+        {
+            typeWriterRoutine = StartCoroutine(TypeWriterEffect(currentConversation.Dialogue[stepNum]));
+        }
 
         dialogueCanvas.SetActive(true);
-        stepNum += 1;
+        stepNum++;
     }
 
-    /*public void setConversationID(int idIn)
+    private void SetActorInfo()
     {
-        conversationID = idIn;
-    }
-    */
+        if (currentConversation == null) return;
 
-    /*for when condition is met
-    void PlaySpecificDialouge()
-    {
-        specificConversations = specificConversationsSO[0];
-    }
-    */
-
-    void SetActorInfo()
-    {
         for (int i = 0; i < actorSO.Length; i++)
         {
             if (actorSO[i].name == currentConversation.actors[stepNum].ToString())
@@ -157,85 +142,76 @@ public class AdvanceDialogueManager : MonoBehaviour
 
     private IEnumerator TypeWriterEffect(string line)
     {
+        if (dialogueText == null) yield break;
+
         dialogueText.text = "";
         canContinueText = false;
         bool addingRichTextTag = false;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(0.5f);
 
         foreach (char letter in line.ToCharArray())
         {
-            if (onInteract.WasPerformedThisFrame())
+            if (onInteract != null && onInteract.WasPerformedThisFrame())
             {
                 dialogueText.text = line;
                 break;
             }
 
-            //Check to see if we are working with rich text tags
             if (letter == '<' || addingRichTextTag)
             {
                 addingRichTextTag = true;
                 dialogueText.text += letter;
-
                 if (letter == '>')
                     addingRichTextTag = false;
             }
-
-            //If not using rich text tags
             else
             {
                 dialogueText.text += letter;
                 yield return new WaitForSeconds(typingSpeed);
             }
-
-            canContinueText = true;
         }
+
+        canContinueText = true;
     }
 
     public void InitiateDialogue(NPCDialogue npcDialogue)
     {
-        //the array we are currently stepping through
-        currentConversation = npcDialogue.conversation[conversationID];
+        if (npcDialogue == null || swapManager == null) return;
+        if (swapManager.activeController != swapManager.jenniController) return;
 
+        currentConversation = npcDialogue.conversation[conversationID];
         dialogueActivated = true;
+        stepNum = 0;
     }
 
     public void TurnOffDialogue()
     {
         stepNum = 0;
-
         dialogueActivated = false;
-        dialogueCanvas.SetActive(false);
 
-        /*
-                Activate HUD
-                HUDCanvas.SetActive(True);
-        */
+        if (dialogueCanvas != null)
+            dialogueCanvas.SetActive(false);
 
-        //Unfreeze player
-        playerMove.enabled = true;
+        if (playerMove != null)
+            playerMove.enabled = true;
     }
 
-   private void OnTriggerStay(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.tag == "QuestObject")
+        if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
+
+        if (collision != null && collision.CompareTag("QuestObject"))
         {
-            Debug.Log("isworking");
             hasQuestObject = true;
             conversationID = 1;
+            Debug.Log("Is working");
         }
-        else
-        {
-            hasQuestObject = false;
-            conversationID = 0;
-        }
-            
     }
 }
-
 
 public enum DialogueActors
 {
     Jenni,
     Rat,
-    Fairy,
-};
+    Mechanic,
+}
