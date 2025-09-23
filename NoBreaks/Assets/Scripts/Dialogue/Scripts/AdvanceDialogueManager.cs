@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -203,11 +204,7 @@ public class AdvanceDialogueManager : MonoBehaviour
         {
             hasQuestObject = true;
             conversationID = 1;
-        }
-        else
-        {
-            hasQuestObject = false;
-            conversationID = 0;
+            Debug.Log("Is working");
         }
     }
 }
@@ -216,5 +213,5 @@ public enum DialogueActors
 {
     Jenni,
     Rat,
-    Fairy,
+    Mechanic,
 }

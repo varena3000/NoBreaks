@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - QuestObject
+  - ratMainCamera
   layers:
   - Default
   - TransparentFX
