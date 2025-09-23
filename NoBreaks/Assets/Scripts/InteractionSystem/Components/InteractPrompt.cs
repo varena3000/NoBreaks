@@ -29,29 +29,41 @@ public class InteractPrompt : MonoBehaviour
         {
             label.gameObject.SetActive(true);
         }
-        Vector3 wordPos = target.position + worldOffset;
-        Vector3 screenPos = cam.WorldToScreenPoint(wordPos);
+
+        Vector3 worldPos = target.position + worldOffset;
+        Vector3 screenPos = cam.WorldToScreenPoint(worldPos);
+
         Camera uiCam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : cam;
-        if(RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPos, uiCam, out Vector2 localPoint))
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPos, uiCam, out Vector2 localPoint))
         {
             labelRect.anchoredPosition = localPoint;
         }
     }
 
-    public void Show(IInteractable interactablle)
+    public void Show(IInteractable interactable)
     {
-        if (interactablle == null)
+        if (interactable == null)
         {
             Hide();
             return;
         }
-        target = interactablle.transform;
-        label.text = $"{keyHint}{interactablle.DisplayName}";
-        label.gameObject.SetActive(true);
+
+        if (interactable is MonoBehaviour mb)
+        {
+            target = mb.transform;
+            label.text = $"{keyHint}{interactable.DisplayName}";
+            label.gameObject.SetActive(true);
+        }
+        else
+        {
+            // Not a MonoBehaviour, can't follow it in world space
+            Hide();
+        }
     }
+
     public void Hide()
     {
         label.gameObject.SetActive(false);
-        target = null; 
+        target = null;
     }
 }
