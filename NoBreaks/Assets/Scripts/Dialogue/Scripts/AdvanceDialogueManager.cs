@@ -31,8 +31,8 @@ public class AdvanceDialogueManager : MonoBehaviour
     private bool canContinueText = true;
 
     // Specific Conversations
-    private bool hasQuestObject = false;
-    private AdvancedDialogueSO specificConversations;
+    //private bool hasQuestObject = false;
+    //private AdvancedDialogueSO specificConversations;
 
     // Player Freeze
     private FPController playerMove;
@@ -200,12 +200,13 @@ public class AdvanceDialogueManager : MonoBehaviour
     {
         if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
 
-        if (collision != null && collision.CompareTag("QuestObject"))
+        /*if (collision != null && collision.CompareTag("QuestObject"))
         {
             hasQuestObject = true;
             conversationID = 1;
             Debug.Log("Is working");
         }
+        */
     }
 }
 
