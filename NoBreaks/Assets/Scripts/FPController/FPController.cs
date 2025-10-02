@@ -40,8 +40,13 @@ public class FPController : MonoBehaviour
     private bool hasCheckedPickUp = false;
     private bool isInteracting = false;
 
+    [HideInInspector]
+    public StaminaController _staminaController;
+
     private void Awake()
     {
+        _staminaController = GetComponent<StaminaController>();
+
         controller = GetComponent<CharacterController>();
 
         // Lock and hide cursor
@@ -57,12 +62,14 @@ public class FPController : MonoBehaviour
             HandleLook();
             HandleCrouchTransition();
 
-            if (heldObject != null)
-            {
-                 heldObject.MoveToHoldPoint(holdPoint.position);
-            }
+        if (heldObject != null)
+        {
+            heldObject.MoveToHoldPoint(holdPoint.position);
+        }
         
-        
+        //calling Stamina drain
+        if (isSprinting)
+        _staminaController.Sprinting();    
     }
 
     public bool GetIsInteracting()
@@ -84,7 +91,16 @@ public class FPController : MonoBehaviour
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        isSprinting = context.ReadValueAsButton();
+        if (context.started)
+        {
+            isSprinting = true;
+            _staminaController.weAreSprinting = true;
+        }
+        else if (context.canceled)
+        {
+            isSprinting = false;
+            _staminaController.weAreSprinting = false;
+        }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
@@ -181,6 +197,11 @@ public class FPController : MonoBehaviour
         {
             controller.height = Mathf.Lerp(controller.height, targetHeight, crouchTransitionSpeed * Time.deltaTime);
         }
+    }
+
+    public void SetSprintSpeed(float speed)
+    {
+        sprintSpeed = speed;
     }
     #endregion
 

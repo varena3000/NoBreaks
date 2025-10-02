@@ -131,6 +131,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7139125673075980912, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
+      propertyPath: sprintSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7139125673075980912, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
       propertyPath: characterCamera
       value: 
       objectReference: {fileID: 6171291378834764089}
@@ -197,6 +201,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7629106223853730624, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7557255151698132619}
+    - targetCorrespondingSourceObject: {fileID: 7629106223853730624, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3299353978055256945}
   m_SourcePrefab: {fileID: 100100000, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
 --- !u!4 &934201878119464324 stripped
 Transform:
@@ -258,6 +265,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3299353978055256945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177318204972203705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5281ecdb97fa4a44a51ff24a41ef044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStamina: 100
+  maxStamina: 100
+  hasRegenerated: 1
+  weAreSprinting: 0
+  staminaDrain: 50
+  staminaRegen: 20
+  slowedRunSpeed: 6
+  normalRunSpeed: 15
+  staminaProgressUI: {fileID: 0}
+  sliderCanvasGroup: {fileID: 0}
 --- !u!20 &6171291378834764089 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2482521472845640896, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
