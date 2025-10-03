@@ -51,11 +51,6 @@ public class NPC : MonoBehaviour
             NextLine();
         }
 
-        if (playerIsClose)
-        {
-            isInteracting = fPController.GetIsInteracting();
-        }
-
         OnInteract();
     }
 

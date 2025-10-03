@@ -66,15 +66,25 @@ public class FPController : MonoBehaviour
         {
             heldObject.MoveToHoldPoint(holdPoint.position);
         }
-        
+
         //calling Stamina drain
         if (isSprinting)
-        _staminaController.Sprinting();    
-    }
+            _staminaController.Sprinting();
 
-    public bool GetIsInteracting()
-    {
-        return isInteracting;
+        //stop stamiba drain when !sprinting and crouching
+        if (walkSpeed <= 0 || isCrouching)
+        {
+            _staminaController.weAreSprinting = false;
+            _staminaController.hasRegenerated = false;
+        }
+            
+        else
+        {
+            _staminaController.hasRegenerated = true;
+        }
+            
+            
+    
     }
 
     #region Input Callbacks

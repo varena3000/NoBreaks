@@ -87,6 +87,7 @@ public class StaminaController : MonoBehaviour
             playerStamina = 0;
     }
     
+    
     void UpdateStamina(int value)
     {
         staminaProgressUI.fillAmount = playerStamina / maxStamina;
