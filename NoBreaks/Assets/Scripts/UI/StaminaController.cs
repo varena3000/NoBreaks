@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class StaminaController : MonoBehaviour
 {
     [Header("Stamina Main Parameters")]
-    public float playerStamina = 100.0f;
+    [Range(0, 100)]public float playerStamina = 100.0f;
     [SerializeField]
     private float maxStamina = 100.0f;
     [HideInInspector]
@@ -38,6 +38,7 @@ public class StaminaController : MonoBehaviour
 
     private void Update()
     {
+
         if (!weAreSprinting)
         {
             if (playerStamina <= maxStamina - 0.01f)
@@ -53,6 +54,9 @@ public class StaminaController : MonoBehaviour
                 }
             }
         }
+
+        if (playerStamina < 0)
+            MinStamina();
     }
 
     public void Sprinting()
@@ -69,12 +73,18 @@ public class StaminaController : MonoBehaviour
                 playerController.SetSprintSpeed(slowedRunSpeed);
                 sliderCanvasGroup.alpha = 0;
             }
-            else 
+            else
             {
                 weAreSprinting = true;
                 playerController.SetSprintSpeed(normalRunSpeed);
             }
-        }  
+        }
+    }
+
+    void MinStamina()
+    {
+        if (playerStamina < 0)
+            playerStamina = 0;
     }
     
     void UpdateStamina(int value)
