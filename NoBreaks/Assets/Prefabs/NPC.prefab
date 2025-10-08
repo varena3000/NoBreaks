@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3389567902225246409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6935840298644240109}
+  - component: {fileID: 4007132534906350894}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6935840298644240109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389567902225246409}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.8802133, y: -0.46736583, z: -5.2766438}
+  m_LocalScale: {x: 0.005310957, y: 0.005310957, z: 0.005310957}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2810663207026522370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4007132534906350894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389567902225246409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6609f56b34e8d1b4b803848d9b67434d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversationID: 0
+  dialogueCanvas: {fileID: 0}
+  actorSO: []
+  specificConversationsSO: []
+  typingSpeed: 0.02
 --- !u!1 &5513000592403103963
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +62,7 @@ GameObject:
   - component: {fileID: 2751340165618737123}
   - component: {fileID: 3455396186869468572}
   m_Layer: 0
-  m_Name: NPCJenni
+  m_Name: NPC
   m_TagString: Interactable
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -31,7 +80,8 @@ Transform:
   m_LocalPosition: {x: -8.956604, y: -2.0959997, z: 11.667608}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6935840298644240109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5380591716289564798

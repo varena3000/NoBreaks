@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f471e2831e5b7f4697d50faf5800486, type: 3}
-  m_Name: Jenni
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Global Volume Profile
   m_EditorClassIdentifier: 
-  actorName: Jenni
-  actorPortrait: {fileID: 21300000, guid: 0e0e5cecccb21a540863c6d8f9823a86, type: 3}
+  components: []
