@@ -56,7 +56,8 @@ public class FPController : MonoBehaviour
 
     public void Update()
     {
-        if (!enabled) return;
+        if (!enabled) 
+            return;
         
             HandleMovement();
             HandleLook();
@@ -68,16 +69,17 @@ public class FPController : MonoBehaviour
         }
 
         //calling Stamina drain
-        if (isSprinting)
+        if (isSprinting && moveInput.magnitude > 0.1f)
             _staminaController.Sprinting();
+        else
+            _staminaController.weAreSprinting = false;
 
         //stop stamiba drain when !sprinting and crouching
-        if (walkSpeed <= 0 || isCrouching)
+        if (isCrouching)
         {
             _staminaController.weAreSprinting = false;
             _staminaController.hasRegenerated = false;
         }
-            
         else
         {
             _staminaController.hasRegenerated = true;
@@ -101,7 +103,7 @@ public class FPController : MonoBehaviour
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && moveInput.magnitude > 0.1f)
         {
             isSprinting = true;
             _staminaController.weAreSprinting = true;
