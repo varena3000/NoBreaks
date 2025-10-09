@@ -24,7 +24,9 @@ public class InteractPrompt : MonoBehaviour
 
     void LateUpdate()
     {
-        if (target == null) return;
+        if (target == null)
+            return;
+            
         if (!label.gameObject.activeSelf)
         {
             label.gameObject.SetActive(true);
@@ -32,7 +34,6 @@ public class InteractPrompt : MonoBehaviour
 
         Vector3 worldPos = target.position + worldOffset;
         Vector3 screenPos = cam.WorldToScreenPoint(worldPos);
-
         Camera uiCam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : cam;
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPos, uiCam, out Vector2 localPoint))
         {
@@ -47,18 +48,10 @@ public class InteractPrompt : MonoBehaviour
             Hide();
             return;
         }
+        target = interactable.transform;
+        label.text = $"{keyHint}{interactable.DisplayName}";
+        label.gameObject.SetActive(true);
 
-        if (interactable is MonoBehaviour mb)
-        {
-            target = mb.transform;
-            label.text = $"{keyHint}{interactable.DisplayName}";
-            label.gameObject.SetActive(true);
-        }
-        else
-        {
-            // Not a MonoBehaviour, can't follow it in world space
-            Hide();
-        }
     }
 
     public void Hide()

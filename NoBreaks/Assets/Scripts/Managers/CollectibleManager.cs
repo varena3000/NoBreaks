@@ -28,7 +28,7 @@ public class CollectibleManager : MonoBehaviour
 
     private void HandleItemCollected()
     {
-        collectedItemCount++;
+        collectedItemCount += 1;
         Debug.Log($"Collected {collectedItemCount}/{itemsNeededToTrigger} items.");
 
         if (collectedItemCount >= itemsNeededToTrigger)
