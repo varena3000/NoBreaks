@@ -4,9 +4,9 @@ public class NPCDialogue : MonoBehaviour
 {
 
     public AdvancedDialogueSO[] conversation;
+    private int conversationIndex = 0;
 
     private AdvanceDialogueManager advanceDialogueManager;
-
     private bool dialogueInitiated;
 
 
@@ -26,7 +26,7 @@ public class NPCDialogue : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && !dialogueInitiated)
         {
-            advanceDialogueManager.InitiateDialogue(this);
+            advanceDialogueManager.InitiateDialogue(this, conversationIndex);
             dialogueInitiated = true;
         }
     }
@@ -36,6 +36,11 @@ public class NPCDialogue : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             advanceDialogueManager.TurnOffDialogue();
+            conversationIndex++;
+
+            if (conversationIndex >= conversation.Length)
+                conversationIndex = 0;
+
             dialogueInitiated = false;
         }
     }

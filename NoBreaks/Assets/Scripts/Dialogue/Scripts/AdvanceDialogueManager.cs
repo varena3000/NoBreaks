@@ -10,7 +10,6 @@ public class AdvanceDialogueManager : MonoBehaviour
 {
     // The NPC dialogue we are currently stepping through
     private AdvancedDialogueSO currentConversation;
-    public int conversationIndex = 0;
     private int stepNum;
     private bool dialogueActivated;
 
@@ -32,6 +31,7 @@ public class AdvanceDialogueManager : MonoBehaviour
     private bool canContinueText = true;
 
     // Player Freeze
+    [SerializeField]
     private FPController playerMove;
 
     // Input Action
@@ -39,7 +39,7 @@ public class AdvanceDialogueManager : MonoBehaviour
 
     // Reference to the PlayerSwapManager
     private PlayerSwapManager swapManager;
-    private FPController _swapManager;
+    private FPController activePlayer;
 
 
     private void Awake()
@@ -49,18 +49,16 @@ public class AdvanceDialogueManager : MonoBehaviour
 
         // Find PlayerSwapManager in scene
         swapManager = UnityEngine.Object.FindAnyObjectByType<PlayerSwapManager>();
-        if (swapManager == null)
-            Debug.LogError("AdvanceDialogueManager: PlayerSwapManager not found in scene!");
     }
 
     private void Start()
     {
 
         // Get the active player from swap manager
-        _swapManager = swapManager.activeController;
+        activePlayer = swapManager.activeController;
 
         //Find player FP Controller
-        playerMove = GameObject.FindWithTag("Player").GetComponent<FPController>();
+        playerMove = swapManager.activeController.GetComponent<FPController>();
 
         dialogueCanvas = GameObject.Find("DialogueCanvas");
         actor = GameObject.Find("ActorText")?.GetComponent<TMP_Text>();
@@ -159,13 +157,19 @@ public class AdvanceDialogueManager : MonoBehaviour
         }
     }
 
-    public void InitiateDialogue(NPCDialogue npcDialogue)
+    public void InitiateDialogue(NPCDialogue npcDialogue, int convoIndex)
     {
         if (npcDialogue == null || swapManager == null) return;
         if (swapManager.activeController != swapManager.jenniController) return;
 
-        currentConversation = npcDialogue.conversation[conversationIndex];
+        if (convoIndex >= 0 && convoIndex < npcDialogue.conversation.Length)
+        currentConversation = npcDialogue.conversation[convoIndex];
+    else
+        currentConversation = npcDialogue.conversation[0];
+
         dialogueActivated = true;
+
+        playerMove = swapManager.activeController.GetComponent<FPController>();
     }
 
     public void TurnOffDialogue()
