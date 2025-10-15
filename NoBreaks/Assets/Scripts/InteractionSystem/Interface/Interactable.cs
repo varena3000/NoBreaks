@@ -5,6 +5,7 @@ public class Interactable : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private string displayName = "Interact";
+    [SerializeField] private string keyHint = "[E]";
 
     [SerializeField]
     private bool isEnabled = true;
@@ -13,6 +14,7 @@ public class Interactable : MonoBehaviour, IInteractable
     public UnityEvent onInteract;
 
     public string DisplayName => displayName;
+    public string KeyHint => keyHint;
     public bool CanInteract() => isEnabled;
     private Outline outline;
 

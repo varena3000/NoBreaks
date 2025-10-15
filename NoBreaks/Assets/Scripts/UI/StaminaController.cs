@@ -86,8 +86,8 @@ public class StaminaController : MonoBehaviour
         if (playerStamina < 0)
             playerStamina = 0;
     }
-    
-    
+
+
     void UpdateStamina(int value)
     {
         staminaProgressUI.fillAmount = playerStamina / maxStamina;
@@ -98,4 +98,9 @@ public class StaminaController : MonoBehaviour
             sliderCanvasGroup.alpha = 1;
     }
 
+    private void OnDisable()
+    {
+        if (sliderCanvasGroup != null)
+            sliderCanvasGroup.alpha = 0; // Hide stamina bar when inactive
+    }
 }

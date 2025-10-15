@@ -5,7 +5,6 @@ public class InteractPrompt : MonoBehaviour
 {
     [SerializeField] private TMP_Text label;
     [SerializeField] private Vector3 worldOffset = new(0f, 1f, 0f);
-    [SerializeField] private string keyHint = "[E]";
 
     private Camera cam;
     private Transform target;
@@ -49,7 +48,7 @@ public class InteractPrompt : MonoBehaviour
             return;
         }
         target = interactable.transform;
-        label.text = $"{keyHint}{interactable.DisplayName}";
+        label.text = $"{interactable.KeyHint}{interactable.DisplayName}";
         label.gameObject.SetActive(true);
 
     }

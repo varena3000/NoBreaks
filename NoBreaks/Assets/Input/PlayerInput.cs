@@ -154,6 +154,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Imbue"",
+                    ""type"": ""Button"",
+                    ""id"": ""42639058-9d84-479b-8533-5b9ba3dd2268"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -380,7 +389,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4ec450bb-21a7-40e4-857c-bfa3afdfb484"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard and Mouse"",
@@ -391,11 +400,33 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d1457671-7680-4e37-b695-eda15fe4bbc4"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
                     ""action"": ""PickUP"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""117ef1be-ccdd-4d64-b324-2dbbac992514"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard and Mouse"",
+                    ""action"": ""Imbue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""428d0cb9-70a3-46a3-a1c3-f609b0e2d777"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Imbue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -469,6 +500,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_OnFoot_Crouch = m_OnFoot.FindAction("Crouch", throwIfNotFound: true);
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
         m_OnFoot_PickUP = m_OnFoot.FindAction("PickUP", throwIfNotFound: true);
+        m_OnFoot_Imbue = m_OnFoot.FindAction("Imbue", throwIfNotFound: true);
         // Driving
         m_Driving = asset.FindActionMap("Driving", throwIfNotFound: true);
         m_Driving_Movement = m_Driving.FindAction("Movement", throwIfNotFound: true);
@@ -560,6 +592,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Crouch;
     private readonly InputAction m_OnFoot_Interact;
     private readonly InputAction m_OnFoot_PickUP;
+    private readonly InputAction m_OnFoot_Imbue;
     /// <summary>
     /// Provides access to input actions defined in input action map "OnFoot".
     /// </summary>
@@ -599,6 +632,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "OnFoot/PickUP".
         /// </summary>
         public InputAction @PickUP => m_Wrapper.m_OnFoot_PickUP;
+        /// <summary>
+        /// Provides access to the underlying input action "OnFoot/Imbue".
+        /// </summary>
+        public InputAction @Imbue => m_Wrapper.m_OnFoot_Imbue;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -646,6 +683,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @PickUP.started += instance.OnPickUP;
             @PickUP.performed += instance.OnPickUP;
             @PickUP.canceled += instance.OnPickUP;
+            @Imbue.started += instance.OnImbue;
+            @Imbue.performed += instance.OnImbue;
+            @Imbue.canceled += instance.OnImbue;
         }
 
         /// <summary>
@@ -678,6 +718,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @PickUP.started -= instance.OnPickUP;
             @PickUP.performed -= instance.OnPickUP;
             @PickUP.canceled -= instance.OnPickUP;
+            @Imbue.started -= instance.OnImbue;
+            @Imbue.performed -= instance.OnImbue;
+            @Imbue.canceled -= instance.OnImbue;
         }
 
         /// <summary>
@@ -889,6 +932,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPickUP(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Imbue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnImbue(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Driving" which allows adding and removing callbacks.

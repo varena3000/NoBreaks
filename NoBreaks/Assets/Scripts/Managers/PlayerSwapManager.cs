@@ -13,6 +13,10 @@ public class PlayerSwapManager : MonoBehaviour
     public MonoBehaviour ratInteractor;
     public MonoBehaviour jenniInteractor;
 
+    [Header("Stamina (scripts on player)")]
+    public StaminaController jenniStamina;
+    public StaminaController ratStamina;
+
     [Header("Scene Settings")]
     public int targetSceneIndexForAutoLoad = 2;
 
@@ -28,9 +32,6 @@ public class PlayerSwapManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
-
-        if (ratController.transform.parent != null || jenniController.transform.parent != null)
-            Debug.LogWarning("Player controllers must be root GameObjects for DontDestroyOnLoad to work!");
     }
 
     private void OnDestroy()
@@ -45,9 +46,8 @@ public class PlayerSwapManager : MonoBehaviour
         SetActiveCharacter(toActivate);
     }
 
-    /// <summary>
-    /// Swaps the active player
-    /// </summary>
+    
+    // Swaps the active player
     public void SwapCharacter()
     {
         FPController toActivate = (activeController == ratController) ? jenniController : ratController;
@@ -64,9 +64,7 @@ public class PlayerSwapManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Activates the selected controller and disables the other
-    /// </summary>
+    // Activates the selected controller and disables the other
     private void SetActiveCharacter(FPController controller)
     {
         if (activeController == controller) return; // Already active, no changes needed
@@ -77,6 +75,27 @@ public class PlayerSwapManager : MonoBehaviour
         // Enable controller
         activeController.gameObject.SetActive(true);
         activeController.enabled = true;
+
+        // Enable and disable the correct FPController
+        if (activeController == ratController)
+        {
+            if (ratController != null)
+                ratController.enabled = true;
+                
+            if (jenniController != null)
+                jenniController.enabled = false;
+                
+            jenniController.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (jenniController != null) 
+                jenniController.enabled = true;
+            if (ratController!= null)
+                ratController.enabled = false;
+                
+            ratController.gameObject.SetActive(false);
+        }
 
         // Enable camera & audio
         if (activeController.characterCamera != null)
@@ -89,14 +108,50 @@ public class PlayerSwapManager : MonoBehaviour
         // Enable correct interactor, disable the other
         if (activeController == ratController)
         {
-            if (ratInteractor != null) ratInteractor.enabled = true;
-            if (jenniInteractor != null) jenniInteractor.enabled = false;
+            if (ratInteractor != null)
+                ratInteractor.enabled = true;
+
+            if (jenniInteractor != null)
+                jenniInteractor.enabled = false;
+
             jenniController.gameObject.SetActive(false);
         }
         else
         {
-            if (jenniInteractor != null) jenniInteractor.enabled = true;
-            if (ratInteractor != null) ratInteractor.enabled = false;
+            if (jenniInteractor != null)
+                jenniInteractor.enabled = true;
+            if (ratInteractor != null)
+                ratInteractor.enabled = false;
+
+            ratController.gameObject.SetActive(false);
+        }
+
+        //Enable and disable the correct PlayerStamina script
+        if (activeController == ratController)
+        {
+            if (ratStamina != null)
+            {
+                ratStamina.enabled = true;
+                jenniStamina.playerStamina = 100.0f;
+            }
+                
+            if (jenniStamina != null)
+                jenniStamina.enabled = false;
+
+            jenniController.gameObject.SetActive(false);
+            
+        }
+        else
+        {
+            if (jenniStamina != null)
+            {
+                jenniStamina.enabled = true;
+                ratStamina.playerStamina = 100.0f;
+            }
+                
+            if (ratStamina != null)
+                ratStamina.enabled = false;
+
             ratController.gameObject.SetActive(false);
         }
 

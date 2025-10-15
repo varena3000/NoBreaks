@@ -68,6 +68,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Imbue",
+                    "type": "Button",
+                    "id": "42639058-9d84-479b-8533-5b9ba3dd2268",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -294,7 +303,7 @@
                 {
                     "name": "",
                     "id": "4ec450bb-21a7-40e4-857c-bfa3afdfb484",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard and Mouse",
@@ -305,11 +314,33 @@
                 {
                     "name": "",
                     "id": "d1457671-7680-4e37-b695-eda15fe4bbc4",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "PickUP",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "117ef1be-ccdd-4d64-b324-2dbbac992514",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse",
+                    "action": "Imbue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "428d0cb9-70a3-46a3-a1c3-f609b0e2d777",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Imbue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
