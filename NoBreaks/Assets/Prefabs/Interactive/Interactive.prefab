@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6498424899317388509}
   - component: {fileID: 7404962448521917158}
   - component: {fileID: 4437221154109455730}
-  - component: {fileID: 2522819674849172452}
   m_Layer: 0
   m_Name: Interactive
   m_TagString: QuestObject
@@ -155,15 +154,3 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2522819674849172452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038456454771407097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd61cf5e23c0ea4989d96b894843f84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
