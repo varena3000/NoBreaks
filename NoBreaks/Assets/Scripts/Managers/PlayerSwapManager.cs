@@ -194,13 +194,4 @@ public class PlayerSwapManager : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if(collision.gameObject.name == "Battery")
-        {
-            Destroy(collision.gameObject);
-            SceneManager.LoadScene(targetSceneIndexForAutoLoad);
-        }
-    }
 }
