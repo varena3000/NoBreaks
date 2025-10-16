@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
   m_Name: 2.BatteryToJenni
   m_EditorClassIdentifier: 
-  actors: 0200000002000000
+  actors: 020000000300000001000000020000000100000002000000010000000200000001000000020000000100000002000000020000000200000001000000
   Dialogue:
-  - <size=50><color="Blue">Good Job!</size></color>
-  - Now I can<size=50><color="Green"> fix </size></color> my car and get it running
-    again!
+  - Oh my Divine Yota! Oh, excuse me Yota.
+  - It's all right little one.
+  - (How's he the little one between the to o' you?)
+  - "It's just- You actually found it. I\u2019m almost impressed."
+  - Yeah, crazy. I know.
+  - "Don\u2019t get smart with me. Daftness suits you quite\r\n"
+  - Why, I got no what you mean, preppy.
+  - "Mhmm. Well, it also seems you\u2019ve found the right one so I\u2019ll just
+    slot this in, start the car and see what\u2019s wrong."
+  - Well?
+  - J-just give me some space!
+  - "Don\u2019t be dramatic."
+  - 'I am not! '
+  - The mechanic does just as he said and the car comes to life with a high-pitched
+    hum. The mechanic rounds the car, checking this and that before returning.
+  - "I\u2019ll have you know I\u2019ve discovered the problem. The car it has\u2026
+    \nNo Breaks."
+  - No... Breaks?

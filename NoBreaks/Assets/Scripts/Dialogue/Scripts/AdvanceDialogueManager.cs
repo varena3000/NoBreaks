@@ -214,4 +214,5 @@ public enum DialogueActors
     Jenni,
     Rat,
     Mechanic,
+    Yota,
 }
