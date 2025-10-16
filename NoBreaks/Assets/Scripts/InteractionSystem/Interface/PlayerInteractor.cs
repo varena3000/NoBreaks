@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(PlayerInput))]
 public class PlayerInteractor : MonoBehaviour
 {
     [SerializeField] private float radius = 2f;
@@ -12,11 +13,21 @@ public class PlayerInteractor : MonoBehaviour
     private Collider[] buffer = new Collider[32];
     private IInteractable focused;
 
+    private ImbueStation imbue;
+
+    //PlayerInputs
+    [SerializeField]
+    private InputActionAsset input;
     private InputAction onInteract;
+    private InputAction onImbue;
 
     void Awake()
     {
-        onInteract = InputSystem.actions.FindAction("Interact");
+        imbue = FindAnyObjectByType<ImbueStation>();
+
+        var map = input.FindActionMap("OnFoot", true);
+        onInteract = map.FindAction("Interact", true);
+        onImbue = map.FindAction("Imbue", true);
     }
 
     private void Update()
@@ -24,10 +35,22 @@ public class PlayerInteractor : MonoBehaviour
         IInteractable nearest = FindNearestInteractable();
         UpdateFocus(nearest);
 
-        if(focused != null && onInteract.IsPressed())
+        #region Inputs for interactions
+
+        if (focused != null && onInteract.IsPressed())
         {
-            if (focused.CanInteract()) focused.Interact();
+            if (focused.CanInteract())
+                focused.Interact();
         }
+        if (focused != null && focused is MonoBehaviour mb && mb.gameObject.name == "Imbue" && onImbue.triggered)
+        {
+            if (mb.TryGetComponent<ImbueStation>(out var station))
+            {
+                station.HandleImbue();
+            }
+        }
+        
+        #endregion
     }
 
     private IInteractable FindNearestInteractable()
@@ -67,6 +90,5 @@ public class PlayerInteractor : MonoBehaviour
         {
             prompt.Hide();
         }
-
     }
 }

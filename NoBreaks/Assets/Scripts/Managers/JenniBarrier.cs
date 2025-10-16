@@ -5,6 +5,7 @@ using UnityEngine;
 public class JenniBarrier : MonoBehaviour
 {
     private PlayerSwapManager playerSwapManager;
+    [SerializeField]
     private Collider barrierCollider;
 
     private void Awake()

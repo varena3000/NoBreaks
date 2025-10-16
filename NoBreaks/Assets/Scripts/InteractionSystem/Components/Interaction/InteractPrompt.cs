@@ -1,3 +1,4 @@
+using System.Reflection.Emit;
 using TMPro;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class InteractPrompt : MonoBehaviour
     [SerializeField] private TMP_Text label;
     [SerializeField] private Vector3 worldOffset = new(0f, 1f, 0f);
 
+    [SerializeField]
     private Camera cam;
     private Transform target;
     private Canvas canvas;
@@ -14,10 +16,11 @@ public class InteractPrompt : MonoBehaviour
 
     void Awake()
     {
-        cam = Camera.main;
+        cam = FindAnyObjectByType<Camera>();
         labelRect = label.rectTransform;
         canvas = label.GetComponentInParent<Canvas>();
         canvasRect = canvas.GetComponent<RectTransform>();
+
         Hide();
     }
 
@@ -25,6 +28,11 @@ public class InteractPrompt : MonoBehaviour
     {
         if (target == null)
             return;
+        
+        if(cam == null || !cam.gameObject.activeInHierarchy)
+        {
+            cam = FindAnyObjectByType<Camera>();
+        }
             
         if (!label.gameObject.activeSelf)
         {
@@ -33,6 +41,22 @@ public class InteractPrompt : MonoBehaviour
 
         Vector3 worldPos = target.position + worldOffset;
         Vector3 screenPos = cam.WorldToScreenPoint(worldPos);
+
+        // Hide if behind camera
+        if (screenPos.z < 0f)
+        {
+            if (label.gameObject.activeSelf)
+            {
+                label.gameObject.SetActive(false);
+            }
+            return;
+        }
+        
+        if (!label.gameObject.activeSelf)
+        {
+            label.gameObject.SetActive(true);
+        }
+
         Camera uiCam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : cam;
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPos, uiCam, out Vector2 localPoint))
         {
