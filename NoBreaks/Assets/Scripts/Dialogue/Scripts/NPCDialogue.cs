@@ -1,47 +1,56 @@
+using NUnit.Framework;
+using TMPro;
 using UnityEngine;
 
 public class NPCDialogue : MonoBehaviour
 {
 
     public AdvancedDialogueSO[] conversation;
-    private int conversationIndex = 0;
+    public int conversationIndex = 0;
 
     private AdvanceDialogueManager advanceDialogueManager;
-    private bool dialogueInitiated;
+    public bool dialogueInitiated;
 
+     //Conditions
+    public bool hasBattery = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         advanceDialogueManager = GameObject.Find("DialogueManager").GetComponent<AdvanceDialogueManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay(Collider Playercollision)
     {
-
-    }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        if (collision.gameObject.tag == "Player" && !dialogueInitiated)
+        if (Playercollision.gameObject.tag == "Player" && !dialogueInitiated)
         {
             advanceDialogueManager.InitiateDialogue(this, conversationIndex);
+            
+            if (hasBattery == true)
+            {
+                conversationIndex = 2;
+            }
+
             dialogueInitiated = true;
         }
     }
 
-    private void OnTriggerExit(Collider collision)
+    private void OnTriggerExit(Collider Playercollision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (Playercollision.gameObject.tag == "Player")
         {
-            advanceDialogueManager.TurnOffDialogue();
-            conversationIndex++;
-
-            if (conversationIndex >= conversation.Length)
-                conversationIndex = 0;
-
             dialogueInitiated = false;
         }
     }
+
+    #region Conditions for dialogue to continue
+
+    private void OnTriggerEnter(Collider Batterycollision)
+    {
+        if(Batterycollision.gameObject.name == "Battery")
+        {
+            hasBattery = true;
+        }
+    }
+    
+    #endregion
 }
