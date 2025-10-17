@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using NUnit.Framework;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -118,7 +119,14 @@ public class AdvanceDialogueManager : MonoBehaviour
         stepNum += 1;
 
         if (npc.conversationIndex == 2 && npc.hasBattery == true)
-            Destroy(Battery);
+        {
+            if(Battery != null)
+            {
+                Battery.SetActive(false);
+                Battery = null;
+            }
+        }
+            
 
     }
 
@@ -193,7 +201,6 @@ public class AdvanceDialogueManager : MonoBehaviour
         stepNum = 0;
         dialogueActivated = false;
         dialogueCanvas.SetActive(false);
-        npc.conversationIndex++;
 
         //Unfreeze player
         playerMove.enabled = true;
@@ -203,6 +210,15 @@ public class AdvanceDialogueManager : MonoBehaviour
         {
             npc.conversationIndex = 0;
         }
+        else
+            npc.conversationIndex++;
+            
+        /*else if (npc.conversationIndex == 2 && npc.hasBattery == true && Battery == null)
+        {
+            npc.conversationIndex++;
+        }
+        */
+        
     }
 
     private void OnTriggerStay(Collider collision)

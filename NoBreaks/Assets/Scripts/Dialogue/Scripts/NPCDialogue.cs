@@ -24,11 +24,12 @@ public class NPCDialogue : MonoBehaviour
         if (Playercollision.gameObject.tag == "Player" && !dialogueInitiated)
         {
             advanceDialogueManager.InitiateDialogue(this, conversationIndex);
-            
-            if (hasBattery == true)
+
+            if (hasBattery == true && conversationIndex < 2)
             {
                 conversationIndex = 2;
             }
+
 
             dialogueInitiated = true;
         }
