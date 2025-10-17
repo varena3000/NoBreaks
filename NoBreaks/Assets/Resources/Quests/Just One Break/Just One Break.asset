@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
+  m_Name: Just One Break
+  m_EditorClassIdentifier: 
+  actors: 010000000300000001000000030000000100000003000000010000000300000001000000030000000100000003000000010000000300000001000000030000000100000003000000010000000300000001000000030000000300000001000000030000000300000001000000030000000300000001000000030000000100000003000000030000000100000003000000030000000100000003000000010000000300000001000000030000000100000003000000030000000100000003000000010000000300000003000000010000000300000001000000030000000300000001000000030000000100000003000000010000000300000003000000030000000100000003000000010000000300000003000000010000000100000003000000
+  Dialogue:
+  - W-what? Why did I suddenly change back?
+  - "I-I\u2019m too weak. Between maintaining the barrier and you in Jenni\u2019s
+    form I-"
+  - "All right, gum drop, don\u2019t overwork yourself."
+  - But-
+  - 'Nah, no buts. Car might not have any breaks - doesn''t mean we can''t
+
+'
+  - "\u2026"
+  - "Why don\u2019t you tell me a bit more about what\u2019s happening?"
+  - "It\u2019s hard to explain. "
+  - "I know I\u2019m not the brightest but try me."
+  - "You\u2019re not going to let that go - are you?"
+  - Not a chance, half-pint.
+  - '*sigh * Well, the truth is something terrible is happening here.'
+  - "Yeah, you mentioned that, but I don\u2019t see anythin\u2019\r\n"
+  - "Obviously not. You\u2019re not a Toy. What\u2019s happening right now is paramount
+    to the end of the world.\r\n"
+  - An apocalypse?
+  - Is that what they call it?
+  - "I think I\u2019ve heard \u2018em use the tern once or twice."
+  - "Then, yeah, it\u2019s like an apoca- apoca- Ugh, whatever the word."
+  - ...
+  - "It\u2019s mostly children but anybody can have a Toy World. The only thing you
+    need is an imagination. Imagination is the foundation of any Toy World. If that\u2019s
+    lost the world crumbles.\r\n"
+  - "Is that what\u2019s happening now? The little girl is losing her imagination?"
+  - "Yota's drawn out pause says you\u2019re right but they can\u2019t bear to say
+    it aloud.\r\n"
+  - "I don\u2019t know what happened but she must have experienced something heartbreaking."
+  - 'How do you know?
+
+'
+  - "Toy worlds fade all the time. I mean, everyone grows up - right?  But it\u2019s
+    usually a quiet and natural process."
+  - 'This is destructive - painful - so much so that it roused me from my slumber.
+    When I caught wind of what was happening I had to come fix it.
+
+'
+  - "You came all the way for just this world. I bet this isn\u2019t the only one
+    going through this.\r\n"
+  - "You\u2019re right - it\u2019s not. The form you see me in now is only one of
+    my numerous entities around the world doing the same thing for different Toy
+    Worlds. "
+  - "This isn\u2019t my true form; I\u2019ve split up into many smaller versions
+    to handle everything at once.\r\n"
+  - Wow.
+  - "Not really, because for this world I was too late. Which is why I needed your
+    help. I-I\u2019m afraid we might\u2019ve already lost Jenni.\r"
+  - Not there yet, pipsqueak.
+  - "Yota sighs as if they\u2019re abandoning an argument that had been on the tip
+    of they're tongue.\r"
+  - Maybe. But we have to fix everything before we can be so sure. I can already
+    feel the Miasma approaching.
+  - The miasma?
+  - "Sometimes when people experience a tragedy they produce miasma. Miasma make
+    them feel terrible and sad but most of all, they destroy someone\u2019s imagination.
+    They\u2019re like a cancer to all Toy Worlds.\r\n"
+  - 'They are like a cancer to all Toy Worlds.
+
+'
+  - "And they\u2019re here right now? "
+  - "Yes, I can see them. They\u2019re trying to break the barrier but they won\u2019t
+    be able to for now."
+  - "What do they look like? I can\u2019t see them.\r\n"
+  - "Not even toys can see them. They\u2019re apparitions only I can see. These ones
+    are blue, so dark they\u2019re almost black."
+  - These ones?
+  - 'They look different based on what events triggered their appearance. '
+  - And a "blue so dark it's almost black" means...
+  - "Grief and\u2026 longing. "
+  - She must've lost something. Whatever it was it meant the world to her.
+  - Like the toy car. Is that why I'm runnin' around to fix that thing?
+  - Oh no, that isn't what she lost...
+  - Then why?
+  - '*sigh* Saving the world is complicated. Especially a Toy World.'
+  - What you're doing right now, with Jenni's car is kind of like restoring a balance.
+    Toy's break all the time but when Anchor Toys break they disrupt everything.
+  - Anchor Toys?
+  - Yes, an Anchor Toy is the toy from which the rest of the Toy World sprouted.
+    A cornerstone or foundation of sorts.
+  - I'm guessin' a broken foundation isn't good.
+  - Not at all. Everyone's existence here, the mechanic, Jenni and others you've
+    yet to meet - it all revolves around their Anchor.
+  - Without the Anchor they're all susceptible to disappearing.
+  - Like what happened to Jenni and the mech.
+  - Turns out you're quite bright after all.
+  - So fixing the car is like an extra layer of defence for everything?
+  - Correct, again. You should keep a score, heh.
+  - You know what happened to it - why it's broken?
+  - ...
+  - My guess is that she might've broken it. Kids can get excited and rough so it's
+    not uncommon. Besides the Anchor is quite old.
+  - I don't think she's used it in a long while.
+  - How do you reckon that?
+  - I have a  sense of every Toy's age. That car is almost 5 years old - almost as
+    old as her. A girl like her, getting toys every year, she probably moves on very
+    quickly.
+  - When you put it like that I actually feel bad for the thing.
+  - 'Children are always captured by novelty and rarely reminisce. They just keep
+    going and growing without stoping to look back. '
+  - 'Precisely why I find the car''s sudden emergence quite odd. No, something truly
+    terrible-  '
+  - All right, all right, that's enough "end of the world" talk for now. You gotta
+    rest, sour grape.
+  - Do your kind sleep? If that's a thing for you do that. I'll look around and see
+    what I can find out.
+  - I- Thank you... truly.
