@@ -300,7 +300,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe535a0d8fce01d46a0836a7555d2c44, type: 2}
+  - {fileID: 2100000, guid: 5c9f790c0acb40b45b23dbca6ed93431, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -652,7 +652,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dd404b1ffc20eb04097f5a0e527f9282, type: 2}
+  - {fileID: 2100000, guid: 5c9f790c0acb40b45b23dbca6ed93431, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1352,7 +1352,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dd404b1ffc20eb04097f5a0e527f9282, type: 2}
+  - {fileID: 2100000, guid: d6efb3f23cc81c14481ca3e669c8454d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1704,7 +1704,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dd404b1ffc20eb04097f5a0e527f9282, type: 2}
+  - {fileID: 2100000, guid: d6efb3f23cc81c14481ca3e669c8454d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2500,7 +2500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5397083756592601739}
   m_Layer: 0
-  m_Name: Panels (2)
+  m_Name: OpenBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4625,7 +4625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8405649149466307654}
   m_Layer: 0
-  m_Name: Panels (1)
+  m_Name: OpenBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4952,7 +4952,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe535a0d8fce01d46a0836a7555d2c44, type: 2}
+  - {fileID: 2100000, guid: d6efb3f23cc81c14481ca3e669c8454d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
