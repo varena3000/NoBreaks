@@ -13,6 +13,8 @@ public class AdvanceDialogueManager : MonoBehaviour
     private AdvancedDialogueSO currentConversation;
     private int stepNum;
     private bool dialogueActivated;
+    public bool DialogueActivated => dialogueActivated;
+
 
     // UI References
     public GameObject dialogueCanvas;
@@ -49,6 +51,11 @@ public class AdvanceDialogueManager : MonoBehaviour
         // Find the "Interact" action
         onInteract = InputSystem.actions.FindAction("Interact");
 
+        dialogueCanvas = GameObject.Find("DialogueCanvas");
+        actor = GameObject.Find("ActorText")?.GetComponent<TMP_Text>();
+        portrait = GameObject.Find("Portrait")?.GetComponent<Image>();
+        dialogueText = GameObject.Find("DialogueText")?.GetComponent<TMP_Text>();
+        
         // Find PlayerSwapManager in scene
         swapManager = UnityEngine.Object.FindAnyObjectByType<PlayerSwapManager>();
     }
@@ -64,14 +71,8 @@ public class AdvanceDialogueManager : MonoBehaviour
         //Find player FP Controller
         playerMove = swapManager.activeController.GetComponent<FPController>();
 
-        dialogueCanvas = GameObject.Find("DialogueCanvas");
-        actor = GameObject.Find("ActorText")?.GetComponent<TMP_Text>();
-        portrait = GameObject.Find("Portrait")?.GetComponent<Image>();
-        dialogueText = GameObject.Find("DialogueText")?.GetComponent<TMP_Text>();
-
-        dialogueCanvas.SetActive(false);
-
-        if (swapManager == null) return;
+        if (dialogueCanvas != null)
+            dialogueCanvas.SetActive(false);
     }
 
     private void Update()
@@ -86,7 +87,7 @@ public class AdvanceDialogueManager : MonoBehaviour
             if (stepNum >= currentConversation.actors.Length)
             {
                 TurnOffDialogue();
-                npc.dialogueInitiated = false;
+                npc.DialogueInitiated = false;
             }
 
             //Continue dialogue
@@ -99,7 +100,7 @@ public class AdvanceDialogueManager : MonoBehaviour
         if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
     }
 
-    private void PlayDialogue()
+    public void PlayDialogue()
     {
 
         SetActorInfo();
@@ -118,7 +119,7 @@ public class AdvanceDialogueManager : MonoBehaviour
         dialogueCanvas.SetActive(true);
         stepNum += 1;
 
-        if (npc.conversationIndex == 2 && npc.hasBattery == true)
+        if (npc.ConversationIndex == 2 && npc.HasBattery == true)
         {
             if(Battery != null)
             {
@@ -126,12 +127,15 @@ public class AdvanceDialogueManager : MonoBehaviour
                 Battery = null;
             }
         }
-            
 
     }
 
     private void SetActorInfo()
     {
+
+        if (currentConversation == null || currentConversation.actors == null || stepNum >= currentConversation.actors.Length)
+            return;
+        
         for (int i = 0; i < actorSO.Length; i++)
         {
             if (actorSO[i].name == currentConversation.actors[stepNum].ToString())
@@ -140,6 +144,7 @@ public class AdvanceDialogueManager : MonoBehaviour
                 currentPortrait = actorSO[i].actorPortrait;
             }
         }
+        
     }
 
     private IEnumerator TypeWriterEffect(string line)
@@ -147,11 +152,18 @@ public class AdvanceDialogueManager : MonoBehaviour
         dialogueText.text = "";
         canContinueText = false;
         bool addingRichTextTag = false;
+        bool skip = false;
+
         yield return new WaitForSeconds(.5f);
 
         foreach (char letter in line.ToCharArray())
         {
-            if (onInteract.WasPerformedThisFrame())
+            if (!skip && onInteract.WasPerformedThisFrame())
+            {
+                skip = true;
+            }
+
+            if (skip)
             {
                 dialogueText.text = line;
                 break;
@@ -174,15 +186,16 @@ public class AdvanceDialogueManager : MonoBehaviour
                 yield return new WaitForSeconds(typingSpeed);
             }
 
-            canContinueText = true;
         }
+
+        canContinueText = true;
     }
 
     public void InitiateDialogue(NPCDialogue npcDialogue, int convoIndex)
     {
-        if (npcDialogue == null || swapManager == null) 
+        if (npcDialogue == null || swapManager == null)
             return;
-        if (swapManager.activeController != swapManager.jenniController) 
+        if (swapManager.activeController != swapManager.jenniController)
             return;
 
         if (convoIndex >= 0 && convoIndex < npcDialogue.conversation.Length)
@@ -190,10 +203,31 @@ public class AdvanceDialogueManager : MonoBehaviour
 
         else
             currentConversation = npcDialogue.conversation[0];
-        
+
         dialogueActivated = true;
 
         playerMove = swapManager.activeController.GetComponent<FPController>();
+    }
+    
+    public void InitiateDialogueWithoutPlayer(AdvancedDialogueSO dialogue)
+    {
+        if (dialogue == null) return;
+
+        currentConversation = dialogue;
+        stepNum = 0;
+        dialogueActivated = true;
+
+        if (dialogueCanvas != null)
+            dialogueCanvas.SetActive(true);
+
+        // Ensure player is frozen
+        if (swapManager != null && swapManager.activeController != null)
+        {
+            playerMove = swapManager.activeController.GetComponent<FPController>();
+            playerMove.enabled = false;
+        }
+
+        PlayDialogue();
     }
 
     public void TurnOffDialogue()
@@ -206,24 +240,13 @@ public class AdvanceDialogueManager : MonoBehaviour
         playerMove.enabled = true;
 
         // Dialogue conditions
-        if (npc.conversationIndex == 2 && npc.hasBattery == false)
+        if (npc.ConversationIndex == 1 && npc.HasBattery == false)
         {
-            npc.conversationIndex = 0;
+            npc.ConversationIndex = 0;
         }
         else
-            npc.conversationIndex++;
-            
-        /*else if (npc.conversationIndex == 2 && npc.hasBattery == true && Battery == null)
-        {
-            npc.conversationIndex++;
-        }
-        */
+            npc.ConversationIndex++;
         
-    }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
     }
 
     #region Conditions for dialogue to continue
@@ -236,6 +259,7 @@ public class AdvanceDialogueManager : MonoBehaviour
 public enum DialogueActors
 {
     Jenni,
-    Rat,
+    Yota,
+    Mochi,
     Mechanic,
 }

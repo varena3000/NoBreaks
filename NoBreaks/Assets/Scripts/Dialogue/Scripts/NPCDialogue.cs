@@ -6,13 +6,29 @@ public class NPCDialogue : MonoBehaviour
 {
 
     public AdvancedDialogueSO[] conversation;
-    public int conversationIndex = 0;
+    private int conversationIndex = 0;
+    public int ConversationIndex
+    {
+        get => conversationIndex;
+        set => conversationIndex = value;
+    }
 
     private AdvanceDialogueManager advanceDialogueManager;
-    public bool dialogueInitiated;
+    private bool dialogueInitiated;
+    public bool DialogueInitiated
+    {
+        get => dialogueInitiated;
+        set => dialogueInitiated = value;
+    }
 
-     //Conditions
-    public bool hasBattery = false;
+
+    //Conditions
+    private bool hasBattery = false;
+    public bool HasBattery
+    {
+        get => hasBattery;
+        set => hasBattery = value;
+    }
 
     void Start()
     {
