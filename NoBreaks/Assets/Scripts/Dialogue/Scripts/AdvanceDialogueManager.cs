@@ -87,15 +87,19 @@ public class AdvanceDialogueManager : MonoBehaviour
             //Continue dialogue
             else
                 PlayDialogue();
-
-            //if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
             
         }
     }
 
     public void PlayDialogue()
     {
-
+        if (swapManager.jenniStamina != null)
+        {
+            swapManager.jenniStamina.enabled = false;
+            swapManager.jenniStamina.playerStamina = 100.0f;
+        }
+            
+        
         SetActorInfo();
 
         //Display Dialogue
@@ -181,16 +185,17 @@ public class AdvanceDialogueManager : MonoBehaviour
 
         }
 
+        yield return new WaitForSeconds(1f);  
         canContinueText = true;
     }
 
     public void InitiateDialogue(NPCDialogue npcDialogue, int convoIndex)
     {
         if (npcDialogue == null || swapManager == null)
-            return; Debug.Log("Swap");
+            return; 
             
         if (swapManager.activeController != swapManager.jenniController)
-            return;  Debug.Log("Show");
+            return; 
 
         if (convoIndex >= 0 && convoIndex < npcDialogue.conversation.Length)
             currentConversation = npcDialogue.conversation[convoIndex];
@@ -223,6 +228,9 @@ public class AdvanceDialogueManager : MonoBehaviour
 
     public void TurnOffDialogue()
     {
+        if (swapManager.jenniStamina.enabled == false)
+            swapManager.jenniStamina.enabled = true;
+
         stepNum = 0;
         dialogueActivated = false;
         dialogueCanvas.SetActive(false);

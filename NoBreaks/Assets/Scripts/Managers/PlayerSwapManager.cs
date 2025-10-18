@@ -20,7 +20,6 @@ public class PlayerSwapManager : MonoBehaviour
     [Header("Scene Settings")]
     public int targetSceneIndexForAutoLoad = 2;
 
-    [HideInInspector]
     public FPController activeController;
 
     public event Action OnActiveCharacterChanged;
@@ -78,7 +77,29 @@ public class PlayerSwapManager : MonoBehaviour
         activeController.gameObject.SetActive(true);
         activeController.enabled = true;
 
-        // Enable and disable the correct FPController
+        // Enable camera & audio
+        if (activeController.characterCamera != null)
+        {
+            activeController.characterCamera.gameObject.SetActive(true);
+            var audio = activeController.characterCamera.GetComponent<AudioListener>();
+            if (audio != null) audio.enabled = true;
+        }
+
+        DisableFPController();
+
+        DisableInteractor();
+
+        DisableStamina();
+
+        // Make active player persistent
+        DontDestroyOnLoad(activeController.gameObject);
+
+        // Fire event for other systems (barriers, UI, etc.)
+        OnActiveCharacterChanged?.Invoke();
+    }
+
+    private void DisableFPController()
+    {
         if (activeController == ratController)
         {
             if (ratController != null)
@@ -98,16 +119,10 @@ public class PlayerSwapManager : MonoBehaviour
 
             ratController.gameObject.SetActive(false);
         }
+    }
 
-        // Enable camera & audio
-        if (activeController.characterCamera != null)
-        {
-            activeController.characterCamera.gameObject.SetActive(true);
-            var audio = activeController.characterCamera.GetComponent<AudioListener>();
-            if (audio != null) audio.enabled = true;
-        }
-
-        // Enable correct interactor, disable the other
+    private void DisableInteractor()
+    {
         if (activeController == ratController)
         {
             if (ratInteractor != null)
@@ -127,18 +142,20 @@ public class PlayerSwapManager : MonoBehaviour
 
             ratController.gameObject.SetActive(false);
         }
-
-        //Enable and disable the correct PlayerStamina script
+    }
+    
+    public void DisableStamina()
+    {
         if (activeController == ratController)
         {
             if (ratStamina != null)
-            {
                 ratStamina.enabled = true;
-                jenniStamina.playerStamina = 100.0f;
-            }
 
             if (jenniStamina != null)
+            {
                 jenniStamina.enabled = false;
+                jenniStamina.playerStamina = 100.0f;
+            }
 
             jenniController.gameObject.SetActive(false);
 
@@ -146,22 +163,17 @@ public class PlayerSwapManager : MonoBehaviour
         else
         {
             if (jenniStamina != null)
-            {
                 jenniStamina.enabled = true;
-                ratStamina.playerStamina = 100.0f;
-            }
 
             if (ratStamina != null)
+            {
                 ratStamina.enabled = false;
+                ratStamina.playerStamina = 100.0f;
+            }
+              
 
             ratController.gameObject.SetActive(false);
         }
-
-        // Make active player persistent
-        DontDestroyOnLoad(activeController.gameObject);
-
-        // Fire event for other systems (barriers, UI, etc.)
-        OnActiveCharacterChanged?.Invoke();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
