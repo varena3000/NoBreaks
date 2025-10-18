@@ -13,7 +13,12 @@ public class AdvanceDialogueManager : MonoBehaviour
     private AdvancedDialogueSO currentConversation;
     private int stepNum;
     private bool dialogueActivated;
-    public bool DialogueActivated => dialogueActivated;
+    public bool DialogueActivated
+    {
+        get => dialogueActivated;
+        set => dialogueActivated = value;
+    }
+    
 
 
     // UI References
@@ -33,15 +38,11 @@ public class AdvanceDialogueManager : MonoBehaviour
     private Coroutine typeWriterRoutine;
     private bool canContinueText = true;
 
-    // Player Freeze
-    private FPController playerMove;
-
     // Input Action
     private InputAction onInteract;
 
-    // Reference to the PlayerSwapManager
+    // Reference to the PlayerSwapManager and player freeze
     private PlayerSwapManager swapManager;
-    private FPController activePlayer;
 
     private NPCDialogue npc;
     private GameObject Battery;
@@ -65,12 +66,6 @@ public class AdvanceDialogueManager : MonoBehaviour
         Battery = GameObject.Find("Battery");
         npc = FindAnyObjectByType<NPCDialogue>();
 
-        // Get the active player from swap manager
-        activePlayer = swapManager.activeController;
-
-        //Find player FP Controller
-        playerMove = swapManager.activeController.GetComponent<FPController>();
-
         if (dialogueCanvas != null)
             dialogueCanvas.SetActive(false);
     }
@@ -79,9 +74,8 @@ public class AdvanceDialogueManager : MonoBehaviour
     {
         if (dialogueActivated && onInteract.WasPerformedThisFrame() && canContinueText)
         {
-
             //Freeze player
-            playerMove.enabled = false;
+            swapManager.activeController.enabled = false;
 
             //Cancel dialogue if there are no lines of dialogue remaining
             if (stepNum >= currentConversation.actors.Length)
@@ -93,11 +87,10 @@ public class AdvanceDialogueManager : MonoBehaviour
             //Continue dialogue
             else
                 PlayDialogue();
+
+            //if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
+            
         }
-        
-
-
-        if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
     }
 
     public void PlayDialogue()
@@ -194,9 +187,10 @@ public class AdvanceDialogueManager : MonoBehaviour
     public void InitiateDialogue(NPCDialogue npcDialogue, int convoIndex)
     {
         if (npcDialogue == null || swapManager == null)
-            return;
+            return; Debug.Log("Swap");
+            
         if (swapManager.activeController != swapManager.jenniController)
-            return;
+            return;  Debug.Log("Show");
 
         if (convoIndex >= 0 && convoIndex < npcDialogue.conversation.Length)
             currentConversation = npcDialogue.conversation[convoIndex];
@@ -205,8 +199,6 @@ public class AdvanceDialogueManager : MonoBehaviour
             currentConversation = npcDialogue.conversation[0];
 
         dialogueActivated = true;
-
-        playerMove = swapManager.activeController.GetComponent<FPController>();
     }
     
     public void InitiateDialogueWithoutPlayer(AdvancedDialogueSO dialogue)
@@ -223,8 +215,7 @@ public class AdvanceDialogueManager : MonoBehaviour
         // Ensure player is frozen
         if (swapManager != null && swapManager.activeController != null)
         {
-            playerMove = swapManager.activeController.GetComponent<FPController>();
-            playerMove.enabled = false;
+            swapManager.activeController.enabled = false;
         }
 
         PlayDialogue();
@@ -237,7 +228,7 @@ public class AdvanceDialogueManager : MonoBehaviour
         dialogueCanvas.SetActive(false);
 
         //Unfreeze player
-        playerMove.enabled = true;
+        swapManager.activeController.enabled = true;
 
         // Dialogue conditions
         if (npc.ConversationIndex == 1 && npc.HasBattery == false)

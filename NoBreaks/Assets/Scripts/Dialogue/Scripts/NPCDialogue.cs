@@ -56,6 +56,7 @@ public class NPCDialogue : MonoBehaviour
         if (Playercollision.gameObject.tag == "Player")
         {
             dialogueInitiated = false;
+            advanceDialogueManager.DialogueActivated = false;
         }
     }
 

@@ -46,6 +46,8 @@ public class PlayerSwapManager : MonoBehaviour
         SetActiveCharacter(toActivate);
     }
 
+
+
     
     // Swaps the active player
     public void SwapCharacter()
@@ -81,19 +83,19 @@ public class PlayerSwapManager : MonoBehaviour
         {
             if (ratController != null)
                 ratController.enabled = true;
-                
+
             if (jenniController != null)
                 jenniController.enabled = false;
-                
+
             jenniController.gameObject.SetActive(false);
         }
         else
         {
-            if (jenniController != null) 
+            if (jenniController != null)
                 jenniController.enabled = true;
-            if (ratController!= null)
+            if (ratController != null)
                 ratController.enabled = false;
-                
+
             ratController.gameObject.SetActive(false);
         }
 
@@ -134,12 +136,12 @@ public class PlayerSwapManager : MonoBehaviour
                 ratStamina.enabled = true;
                 jenniStamina.playerStamina = 100.0f;
             }
-                
+
             if (jenniStamina != null)
                 jenniStamina.enabled = false;
 
             jenniController.gameObject.SetActive(false);
-            
+
         }
         else
         {
@@ -148,7 +150,7 @@ public class PlayerSwapManager : MonoBehaviour
                 jenniStamina.enabled = true;
                 ratStamina.playerStamina = 100.0f;
             }
-                
+
             if (ratStamina != null)
                 ratStamina.enabled = false;
 
@@ -161,16 +163,6 @@ public class PlayerSwapManager : MonoBehaviour
         // Fire event for other systems (barriers, UI, etc.)
         OnActiveCharacterChanged?.Invoke();
     }
-
-    #region Input Callbacks
-    public void OnMove(InputAction.CallbackContext ctx) => activeController?.OnMove(ctx);
-    public void OnLook(InputAction.CallbackContext ctx) => activeController?.OnLook(ctx);
-    public void OnSprint(InputAction.CallbackContext ctx) => activeController?.OnSprint(ctx);
-    public void OnCrouch(InputAction.CallbackContext ctx) => activeController?.OnCrouch(ctx);
-    public void OnJump(InputAction.CallbackContext ctx) => activeController?.OnJump(ctx);
-    public void OnPickUp(InputAction.CallbackContext ctx) => activeController?.OnPickUp(ctx);
-    public void OnInteract(InputAction.CallbackContext ctx) => activeController?.OnInteract(ctx);
-    #endregion
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -194,4 +186,16 @@ public class PlayerSwapManager : MonoBehaviour
             }
         }
     }
+
+    #region Input Callbacks
+    
+    public void OnMove(InputAction.CallbackContext ctx) => activeController?.OnMove(ctx);
+    public void OnLook(InputAction.CallbackContext ctx) => activeController?.OnLook(ctx);
+    public void OnSprint(InputAction.CallbackContext ctx) => activeController?.OnSprint(ctx);
+    public void OnCrouch(InputAction.CallbackContext ctx) => activeController?.OnCrouch(ctx);
+    public void OnJump(InputAction.CallbackContext ctx) => activeController?.OnJump(ctx);
+    public void OnPickUp(InputAction.CallbackContext ctx) => activeController?.OnPickUp(ctx);
+    public void OnInteract(InputAction.CallbackContext ctx) => activeController?.OnInteract(ctx);
+    
+    #endregion
 }
