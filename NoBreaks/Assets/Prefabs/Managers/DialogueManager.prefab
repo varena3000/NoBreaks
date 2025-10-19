@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: 0
-  dialogueCanvas: {fileID: 0}
+  dialogueCanvas: {fileID: 7865382341694939845, guid: 7ae6dafe18170194daa4ac952f69b2ce, type: 3}
   actorSO:
+  - {fileID: 11400000, guid: 4f53c000a95ee8842a2cb825eac76404, type: 2}
+  - {fileID: 11400000, guid: 0d157bab89903d944bae2df6151b16a3, type: 2}
   - {fileID: 11400000, guid: 416aade2e570a4e499692c32e47ef887, type: 2}
-  specificConversationsSO:
-  - {fileID: 11400000, guid: 62dcd4c9c5b153b45a53e4e9e6896154, type: 2}
+  - {fileID: 11400000, guid: a28fc26147e86324fbb2ba6c3715bcbd, type: 2}
+  specificConversationsSO: []
   typingSpeed: 0.02

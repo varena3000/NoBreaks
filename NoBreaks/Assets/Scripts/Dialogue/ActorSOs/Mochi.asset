@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f471e2831e5b7f4697d50faf5800486, type: 3}
-  m_Name: Rat
+  m_Name: Mochi
   m_EditorClassIdentifier: 
-  actorName: Rat
+  actorName: Mochi
   actorPortrait: {fileID: 21300000, guid: 64d51eb1cc6d1cb4e93026b620c08dec, type: 3}

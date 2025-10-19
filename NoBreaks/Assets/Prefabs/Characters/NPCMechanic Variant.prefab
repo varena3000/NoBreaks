@@ -81,9 +81,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5513000592403103963, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8753308549649425561}
-    - targetCorrespondingSourceObject: {fileID: 5513000592403103963, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6727220602389098264}
   m_SourcePrefab: {fileID: 100100000, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
 --- !u!1 &6164616654309203479 stripped
 GameObject:
@@ -154,21 +151,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversation:
   - {fileID: 11400000, guid: 1ee354089656b114ea73b5d9333079f7, type: 2}
---- !u!114 &6727220602389098264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6164616654309203479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e921787f35b486242aa2cc3f6efa2948, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ratController: {fileID: 0}
-  jenniController: {fileID: 0}
-  ratInteractor: {fileID: 0}
-  jenniInteractor: {fileID: 0}
-  targetSceneIndexForAutoLoad: 4
-  activeController: {fileID: 0}

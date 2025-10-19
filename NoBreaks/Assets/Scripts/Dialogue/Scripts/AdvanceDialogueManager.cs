@@ -61,14 +61,7 @@ public class AdvanceDialogueManager : MonoBehaviour
         // Get the active player from swap manager
         playerMove = swapManager.activeController;
 
-        // Assign UI elements
-        dialogueCanvas = GameObject.Find("DialogueCanvas");
-        if (dialogueCanvas == null)
-        {
-            Debug.LogError("AdvanceDialogueManager: DialogueCanvas not found!");
-            return;
-        }
-
+       
         actor = GameObject.Find("ActorText")?.GetComponent<TMP_Text>();
         portrait = GameObject.Find("Portrait")?.GetComponent<Image>();
         dialogueText = GameObject.Find("DialogueText")?.GetComponent<TMP_Text>();
@@ -212,7 +205,7 @@ public class AdvanceDialogueManager : MonoBehaviour
 public enum DialogueActors
 {
     Jenni,
-    Rat,
+    Mochi,
     Mechanic,
     Yota,
 }

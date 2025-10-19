@@ -16,7 +16,7 @@ public class PlayerSwapManager : MonoBehaviour
     [Header("Scene Settings")]
     public int targetSceneIndexForAutoLoad = 2;
 
-    [HideInInspector]
+   // [HideInInspector]
     public FPController activeController;
 
     public event Action OnActiveCharacterChanged;
@@ -29,8 +29,11 @@ public class PlayerSwapManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        if (ratController.transform.parent != null || jenniController.transform.parent != null)
+        if (ratController.transform.parent != null)
             Debug.LogWarning("Player controllers must be root GameObjects for DontDestroyOnLoad to work!");
+
+        if (jenniController.transform.parent != null)
+            Debug.LogWarning("Player controllers must be root GameObjects for DontDestroyOnLoad!");
     }
 
     private void OnDestroy()
