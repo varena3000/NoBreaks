@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4437221154109455730}
   m_Layer: 0
   m_Name: Interactive
-  m_TagString: QuestObject
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: PIckUP/Drop
+  keyHint: '[E]'
   isEnabled: 1
   onInteract:
     m_PersistentCalls:

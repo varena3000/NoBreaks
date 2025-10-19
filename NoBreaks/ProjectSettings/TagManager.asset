@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Interactable
-  - QuestObject
-  - ratMainCamera
+  - Inspectable
   layers:
   - Default
   - TransparentFX

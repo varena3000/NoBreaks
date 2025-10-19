@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 5676598354433901913}
   - component: {fileID: 2498134469323839809}
   - component: {fileID: 5335023485231211856}
-  - component: {fileID: 2071585920248298790}
   m_Layer: 0
   m_Name: Collectible
   m_TagString: Untagged
@@ -345,20 +344,3 @@ MonoBehaviour:
   rotationSpeedX: 0
   rotationSpeedY: 180
   rotationSpeedZ: 0
---- !u!114 &2071585920248298790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2705410750555806730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612508a05c65d5a46a897ad5fe886191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsNeededToTrigger: 5
-  collectedText: {fileID: 0}
-  OnRequiredItemsCollected:
-    m_PersistentCalls:
-      m_Calls: []

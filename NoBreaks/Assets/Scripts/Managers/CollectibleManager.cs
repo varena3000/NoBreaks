@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 using UnityEngine.Events;
 
 public class CollectibleManager : MonoBehaviour
@@ -7,12 +8,23 @@ public class CollectibleManager : MonoBehaviour
     [Tooltip("Number of items needed to trigger the event")]
     public int itemsNeededToTrigger = 5;
 
-    private int collectedItemCount = 0;
+    private int remainingItems;
     public TMP_Text collectedText;
 
-    // UnityEvent to be invoked when required number of items collected.
+    [Header("SoundEffects")]
+    public AudioSource audioSource;
+    public AudioClip[] collectSounds;
+    private int currentSoundIndex = 0;
+
     [Tooltip("Configure events to trigger once required items collected")]
     public UnityEvent OnRequiredItemsCollected;
+
+    private void Start()
+    {
+        PlayNextSound();
+        remainingItems = itemsNeededToTrigger;
+        UpdateCounterUI();
+    }
 
     private void OnEnable()
     {
@@ -22,22 +34,41 @@ public class CollectibleManager : MonoBehaviour
     private void OnDisable()
     {
         CollectibleItem.OnItemCollected -= HandleItemCollected;
-        //Counter
-        collectedText.text = "Collected " + collectedItemCount;
     }
 
     private void HandleItemCollected()
     {
-        collectedItemCount += 1;
-        Debug.Log($"Collected {collectedItemCount}/{itemsNeededToTrigger} items.");
+        if (remainingItems <= 0)
+            return;
 
-        if (collectedItemCount >= itemsNeededToTrigger)
+        remainingItems--;
+        Debug.Log($"Remaining items: {remainingItems}/{itemsNeededToTrigger}");
+
+        PlayNextSound();
+        UpdateCounterUI();
+
+        if (remainingItems <= 0)
         {
             Debug.Log("Collected required number of items!");
             OnRequiredItemsCollected?.Invoke();
+        }
+    }
 
-            // Optional: Reset count if you want to trigger the event multiple times
-            // collectedItemCount = 0;
+    private void PlayNextSound()
+    {
+        if(audioSource != null && collectSounds.Length > 0)
+        {
+            audioSource.PlayOneShot(collectSounds[currentSoundIndex]);
+
+            currentSoundIndex = (currentSoundIndex + 1) % collectSounds.Length;
+        }
+    }
+
+    private void UpdateCounterUI()
+    {
+        if (collectedText != null)
+        {
+            collectedText.text = $"Remaining: {remainingItems}";
         }
     }
 }

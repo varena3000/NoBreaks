@@ -6,16 +6,16 @@ public class CollectibleItem : MonoBehaviour
     public delegate void ItemCollectedHandler();
     public static event ItemCollectedHandler OnItemCollected;
 
+    private bool collected = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the player collided with the collectible
+        if (collected) return;
+
         if (other.CompareTag("Player"))
         {
-            // Notify the collector system an item was collected
+            collected = true;
             OnItemCollected?.Invoke();
-
-            // Disable or destroy the collected item
-            // Here we destroy it, but disabling is an option too
             Destroy(gameObject);
         }
     }

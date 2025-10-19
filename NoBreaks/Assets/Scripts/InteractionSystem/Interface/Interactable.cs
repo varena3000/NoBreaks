@@ -16,6 +16,7 @@ public class Interactable : MonoBehaviour, IInteractable
     public string DisplayName => displayName;
     public string KeyHint => keyHint;
     public bool CanInteract() => isEnabled;
+
     private Outline outline;
 
      private void Awake()
