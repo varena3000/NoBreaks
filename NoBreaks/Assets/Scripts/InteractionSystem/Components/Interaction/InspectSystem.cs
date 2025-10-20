@@ -34,7 +34,16 @@ public class InspectSystem : MonoBehaviour
 
     void Start()
     {
+        if (input == null)
+        {
+            return;
+        }
+
         var map = input.FindActionMap("OnFoot", true);
+        if (map == null)
+        {
+            return;
+        }
         onInteract = map.FindAction("Interact", true);
         lookAction = map.FindAction("Look", true);
 
@@ -44,7 +53,6 @@ public class InspectSystem : MonoBehaviour
         prompt = FindAnyObjectByType<InteractPrompt>();
 
         targetObject = GameObject.Find("PlayerRat Variant");
-        Debug.Log("found");
     }
 
     void OnEnable()
@@ -62,7 +70,7 @@ public class InspectSystem : MonoBehaviour
     void Update()
     {
         // Toggle examine mode when interact is pressed
-        if (onInteract.WasPressedThisFrame())
+        if (onInteract != null && onInteract.WasPressedThisFrame())
         {
             HandleInteraction();
         }

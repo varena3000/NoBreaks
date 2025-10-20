@@ -7,7 +7,6 @@ public class InteractPrompt : MonoBehaviour
     [SerializeField] private TMP_Text label;
     [SerializeField] private Vector3 worldOffset = new(0f, 1f, 0f);
 
-    [SerializeField]
     private Camera cam;
     private Transform target;
     private Canvas canvas;
