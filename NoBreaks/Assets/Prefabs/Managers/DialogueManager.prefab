@@ -44,12 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6609f56b34e8d1b4b803848d9b67434d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversationID: 0
   dialogueCanvas: {fileID: 7865382341694939845, guid: 7ae6dafe18170194daa4ac952f69b2ce, type: 3}
   actorSO:
   - {fileID: 11400000, guid: 4f53c000a95ee8842a2cb825eac76404, type: 2}
   - {fileID: 11400000, guid: 0d157bab89903d944bae2df6151b16a3, type: 2}
   - {fileID: 11400000, guid: 416aade2e570a4e499692c32e47ef887, type: 2}
   - {fileID: 11400000, guid: a28fc26147e86324fbb2ba6c3715bcbd, type: 2}
-  specificConversationsSO: []
+  - {fileID: 11400000, guid: c6c8de5f0927c294987c375e6a492232, type: 2}
   typingSpeed: 0.02

@@ -303,6 +303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera rat
       objectReference: {fileID: 0}
+    - target: {fileID: 3404896450886296554, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 421362c6f29c7dc40aa5189d9bbc69ee, type: 3}
     - target: {fileID: 6363228171290885612, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
       propertyPath: m_Enabled
       value: 0
