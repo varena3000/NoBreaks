@@ -11,6 +11,7 @@ public interface IInteractable
 {
     Transform transform { get; }
     string DisplayName { get; }
+    string KeyHint { get; }
 
     bool CanInteract();
     void Interact();

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
+  m_Name: 2.BatteryToJenni
+  m_EditorClassIdentifier: 
+  actors: 020000000300000001000000020000000100000002000000010000000200000001000000020000000100000002000000020000000200000001000000
+  Dialogue:
+  - Oh my Divine Yota! Oh, excuse me Yota.
+  - It's all right little one.
+  - (How's he the little one between the to o' you?)
+  - "It's just- You actually found it. I\u2019m almost impressed."
+  - Yeah, crazy. I know.
+  - "Don\u2019t get smart with me. Daftness suits you quite\r\n"
+  - Why, I got no what you mean, preppy.
+  - "Mhmm. Well, it also seems you\u2019ve found the right one so I\u2019ll just
+    slot this in, start the car and see what\u2019s wrong."
+  - Well?
+  - J-just give me some space!
+  - "Don\u2019t be dramatic."
+  - 'I am not! '
+  - The mechanic does just as he said and the car comes to life with a high-pitched
+    hum. The mechanic rounds the car, checking this and that before returning.
+  - "I\u2019ll have you know I\u2019ve discovered the problem. The car it has\u2026
+    \nNo Breaks."
+  - No... Breaks?

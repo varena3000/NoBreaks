@@ -40,8 +40,13 @@ public class FPController : MonoBehaviour
     private bool hasCheckedPickUp = false;
     private bool isInteracting = false;
 
+    [HideInInspector]
+    public StaminaController _staminaController;
+
     private void Awake()
     {
+        _staminaController = GetComponent<StaminaController>();
+
         controller = GetComponent<CharacterController>();
 
         // Lock and hide cursor
@@ -51,23 +56,37 @@ public class FPController : MonoBehaviour
 
     public void Update()
     {
-        if (!enabled) return;
+        if (!enabled) 
+            return;
         
             HandleMovement();
             HandleLook();
             HandleCrouchTransition();
 
-            if (heldObject != null)
-            {
-                 heldObject.MoveToHoldPoint(holdPoint.position);
-            }
-        
-        
-    }
+        if (heldObject != null)
+        {
+            heldObject.MoveToHoldPoint(holdPoint.position);
+        }
 
-    public bool GetIsInteracting()
-    {
-        return isInteracting;
+        //calling Stamina drain
+        if (isSprinting && moveInput.magnitude > 0.1f)
+            _staminaController.Sprinting();
+        else
+            _staminaController.weAreSprinting = false;
+
+        //stop stamiba drain when !sprinting and crouching
+        if (isCrouching)
+        {
+            _staminaController.weAreSprinting = false;
+            _staminaController.hasRegenerated = false;
+        }
+        else
+        {
+            _staminaController.hasRegenerated = true;
+        }
+            
+            
+    
     }
 
     #region Input Callbacks
@@ -84,7 +103,16 @@ public class FPController : MonoBehaviour
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        isSprinting = context.ReadValueAsButton();
+        if (context.started && moveInput.magnitude > 0.1f)
+        {
+            isSprinting = true;
+            _staminaController.weAreSprinting = true;
+        }
+        else if (context.canceled)
+        {
+            isSprinting = false;
+            _staminaController.weAreSprinting = false;
+        }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
@@ -181,6 +209,11 @@ public class FPController : MonoBehaviour
         {
             controller.height = Mathf.Lerp(controller.height, targetHeight, crouchTransitionSpeed * Time.deltaTime);
         }
+    }
+
+    public void SetSprintSpeed(float speed)
+    {
+        sprintSpeed = speed;
     }
     #endregion
 
