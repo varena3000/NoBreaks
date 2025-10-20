@@ -8555,6 +8555,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 15448795815104251, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
   m_PrefabInstance: {fileID: 679341537}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &581054474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581054472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569b8b4ad73f6774f97986dc3650af06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation:
+  - {fileID: 11400000, guid: fe5e0f46fb89ba646aa286f92333e528, type: 2}
+  hasBattery: 0
 --- !u!1 &589915786
 GameObject:
   m_ObjectHideFlags: 0
@@ -10308,6 +10323,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 63bb6b6b9db2bf94e992612f22b0f81d, type: 2}
+    - target: {fileID: 510191239151802324, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 510191239151802324, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7761255797423847202, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
       propertyPath: m_Name
       value: Yota Variant
@@ -10317,7 +10340,10 @@ PrefabInstance:
     - {fileID: 4524929907572843073, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7761255797423847202, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 581054474}
   m_SourcePrefab: {fileID: 100100000, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
 --- !u!43 &683079762
 Mesh:
