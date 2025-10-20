@@ -19,8 +19,6 @@ public class AdvanceDialogueManager : MonoBehaviour
         set => dialogueActivated = value;
     }
     
-
-
     // UI References
     public GameObject dialogueCanvas;
     private TMP_Text actor;
@@ -52,6 +50,7 @@ public class AdvanceDialogueManager : MonoBehaviour
         // Find the "Interact" action
         onInteract = InputSystem.actions.FindAction("Interact");
 
+        dialogueCanvas = GameObject.Find("DialogueCanvas");
         actor = GameObject.Find("ActorText")?.GetComponent<TMP_Text>();
         portrait = GameObject.Find("Portrait")?.GetComponent<Image>();
         dialogueText = GameObject.Find("DialogueText")?.GetComponent<TMP_Text>();
