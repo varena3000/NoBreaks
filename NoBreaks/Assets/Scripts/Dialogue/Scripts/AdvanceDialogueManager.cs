@@ -208,4 +208,5 @@ public enum DialogueActors
     Mochi,
     Mechanic,
     Yota,
+    NewsReporter,
 }
