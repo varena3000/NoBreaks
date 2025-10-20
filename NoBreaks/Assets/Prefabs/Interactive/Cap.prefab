@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8077981593495163}
   - component: {fileID: 553379090979721781}
   - component: {fileID: 727259395409167254}
+  - component: {fileID: 6459957284658953803}
+  - component: {fileID: 4315982563930905764}
   m_Layer: 0
   m_Name: Cap
   m_TagString: Untagged
@@ -8655,6 +8657,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &6459957284658953803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793797178377117051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a698cd08387cfbd4dbdb348d23b65c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'Old Cap. Label reads: Yuvak''s Autorepair, Est. 2020'
+--- !u!114 &4315982563930905764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793797178377117051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576bcf967439af944960e2ef4d1b8751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: To Inspect/close Inspection
+  keyHint: '[E]'
+  isEnabled: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5391556032799046896
 GameObject:
   m_ObjectHideFlags: 0

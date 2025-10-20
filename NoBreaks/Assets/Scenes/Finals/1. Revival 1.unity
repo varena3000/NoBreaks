@@ -8540,6 +8540,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &567486844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7865382341694939845, guid: 7ae6dafe18170194daa4ac952f69b2ce, type: 3}
+  m_PrefabInstance: {fileID: 129001400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &581054472 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7761255797423847202, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
@@ -8811,7 +8816,7 @@ PrefabInstance:
     - target: {fileID: 6637352367038417516, guid: 83031331b9bec2b42b9466502b5645a6, type: 3}
       propertyPath: dialogueCanvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 567486844}
     - target: {fileID: 8372386750581083927, guid: 83031331b9bec2b42b9466502b5645a6, type: 3}
       propertyPath: m_Name
       value: DialogueManager

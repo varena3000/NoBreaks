@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6739189859506528456
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1038456454771407097, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Name
+      value: Bible Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893417442190695451, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: description
+      value: 'A Holy Bible: clean and seemingly unread. A label on it reads: Happy
+        Birthday 4th Gennifer, Mom'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.658142
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.0880594
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.52486
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ed44719623be2548863b1532d202b48, type: 3}
