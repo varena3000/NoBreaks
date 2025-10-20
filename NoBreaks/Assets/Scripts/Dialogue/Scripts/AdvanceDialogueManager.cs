@@ -2,18 +2,23 @@ using System;
 using System.Collections;
 using NUnit.Framework;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class AdvanceDialogueManager : MonoBehaviour
 {
-    // The NPC dialogue we are currently stepping through
+    // The NPC dialogue we are currently stepping through.
     private AdvancedDialogueSO currentConversation;
-    public int conversationID = 0;
     private int stepNum;
     private bool dialogueActivated;
-
+    public bool DialogueActivated
+    {
+        get => dialogueActivated;
+        set => dialogueActivated = value;
+    }
+    
     // UI References
     public GameObject dialogueCanvas;
     private TMP_Text actor;
@@ -24,105 +29,108 @@ public class AdvanceDialogueManager : MonoBehaviour
     private Sprite currentPortrait;
 
     public ActorSO[] actorSO;
-    public AdvancedDialogueSO[] specificConversationsSO;
 
-    [SerializeField] private float typingSpeed = 0.02f;
+    [SerializeField]
+    private float typingSpeed = 0.02f;
+    
     private Coroutine typeWriterRoutine;
     private bool canContinueText = true;
-
-    // Specific Conversations
-    private bool hasQuestObject = false;
-    private AdvancedDialogueSO specificConversations;
-
-    // Player Freeze
-    private FPController playerMove;
 
     // Input Action
     private InputAction onInteract;
 
-    // Reference to the PlayerSwapManager
+    // Reference to the PlayerSwapManager and player freeze
     private PlayerSwapManager swapManager;
+
+    private NPCDialogue npc;
+    private GameObject Battery;
 
     private void Awake()
     {
         // Find the "Interact" action
         onInteract = InputSystem.actions.FindAction("Interact");
 
+        dialogueCanvas = GameObject.Find("DialogueCanvas");
+        actor = GameObject.Find("ActorText")?.GetComponent<TMP_Text>();
+        portrait = GameObject.Find("Portrait")?.GetComponent<Image>();
+        dialogueText = GameObject.Find("DialogueText")?.GetComponent<TMP_Text>();
+        
         // Find PlayerSwapManager in scene
         swapManager = UnityEngine.Object.FindAnyObjectByType<PlayerSwapManager>();
-        if (swapManager == null)
-            Debug.LogError("AdvanceDialogueManager: PlayerSwapManager not found in scene!");
     }
 
     private void Start()
     {
-        if (swapManager == null) return;
+        Battery = GameObject.Find("Battery");
+        npc = FindAnyObjectByType<NPCDialogue>();
 
-        // Get the active player from swap manager
-        playerMove = swapManager.activeController;
-
-       
-        actor = GameObject.Find("ActorText")?.GetComponent<TMP_Text>();
-        portrait = GameObject.Find("Portrait")?.GetComponent<Image>();
-        dialogueText = GameObject.Find("DialogueText")?.GetComponent<TMP_Text>();
-
-        dialogueCanvas.SetActive(false);
+        if (dialogueCanvas != null)
+            dialogueCanvas.SetActive(false);
     }
 
     private void Update()
     {
-        if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
-
-        IUpdateDialogue();
-    }
-
-    private void IUpdateDialogue()
-    {
-        if (dialogueActivated && onInteract != null && onInteract.WasPerformedThisFrame() && canContinueText)
+        if (dialogueActivated && onInteract.WasPerformedThisFrame() && canContinueText)
         {
-            // Freeze player movement
-            if (playerMove != null)
-                playerMove.enabled = false;
+            //Freeze player
+            swapManager.activeController.enabled = false;
 
-            // End dialogue if finished
+            //Cancel dialogue if there are no lines of dialogue remaining
             if (stepNum >= currentConversation.actors.Length)
             {
                 TurnOffDialogue();
+                npc.DialogueInitiated = false;
             }
+
+            //Continue dialogue
             else
-            {
                 PlayDialogue();
-            }
+            
         }
     }
 
-    private void PlayDialogue()
+    public void PlayDialogue()
     {
-        if (currentConversation == null) return;
-
+        if (swapManager.jenniStamina != null)
+        {
+            swapManager.jenniStamina.enabled = false;
+            swapManager.jenniStamina.playerStamina = 100.0f;
+        }
+            
+        
         SetActorInfo();
 
-        // Display dialogue
-        if (actor != null) actor.text = currentSpeaker;
-        if (portrait != null) portrait.sprite = currentPortrait;
+        //Display Dialogue
+        actor.text = currentSpeaker;
+        portrait.sprite = currentPortrait;
 
-        // Stop previous typewriter
+        ///Keep the routine from running multiple times at the same time.
         if (typeWriterRoutine != null)
             StopCoroutine(typeWriterRoutine);
 
-        if (stepNum < currentConversation.Dialogue.Length && dialogueText != null)
-        {
-            typeWriterRoutine = StartCoroutine(TypeWriterEffect(currentConversation.Dialogue[stepNum]));
-        }
+        if (stepNum < currentConversation.Dialogue.Length)
+            typeWriterRoutine = StartCoroutine(TypeWriterEffect(dialogueText.text = currentConversation.Dialogue[stepNum]));
 
         dialogueCanvas.SetActive(true);
-        stepNum++;
+        stepNum += 1;
+
+        if (npc.ConversationIndex == 2 && npc.HasBattery == true)
+        {
+            if(Battery != null)
+            {
+                Battery.SetActive(false);
+                Battery = null;
+            }
+        }
+
     }
 
     private void SetActorInfo()
     {
-        if (currentConversation == null) return;
 
+        if (currentConversation == null || currentConversation.actors == null || stepNum >= currentConversation.actors.Length)
+            return;
+        
         for (int i = 0; i < actorSO.Length; i++)
         {
             if (actorSO[i].name == currentConversation.actors[stepNum].ToString())
@@ -131,82 +139,124 @@ public class AdvanceDialogueManager : MonoBehaviour
                 currentPortrait = actorSO[i].actorPortrait;
             }
         }
+        
     }
 
     private IEnumerator TypeWriterEffect(string line)
     {
-        if (dialogueText == null) yield break;
-
         dialogueText.text = "";
         canContinueText = false;
         bool addingRichTextTag = false;
-        yield return new WaitForSeconds(0.5f);
+        bool skip = false;
+
+        yield return new WaitForSeconds(.5f);
 
         foreach (char letter in line.ToCharArray())
         {
-            if (onInteract != null && onInteract.WasPerformedThisFrame())
+            if (!skip && onInteract.WasPerformedThisFrame())
+            {
+                skip = true;
+            }
+
+            if (skip)
             {
                 dialogueText.text = line;
                 break;
             }
 
+            //Check to see if we are working with rich text tags
             if (letter == '<' || addingRichTextTag)
             {
                 addingRichTextTag = true;
                 dialogueText.text += letter;
+
                 if (letter == '>')
                     addingRichTextTag = false;
             }
+
+            //If not using rich text tags
             else
             {
                 dialogueText.text += letter;
                 yield return new WaitForSeconds(typingSpeed);
             }
+
         }
 
+        yield return new WaitForSeconds(1f);  
         canContinueText = true;
     }
 
-    public void InitiateDialogue(NPCDialogue npcDialogue)
+    public void InitiateDialogue(NPCDialogue npcDialogue, int convoIndex)
     {
-        if (npcDialogue == null || swapManager == null) return;
-        if (swapManager.activeController != swapManager.jenniController) return;
+        if (npcDialogue == null || swapManager == null)
+            return; 
+            
+        if (swapManager.activeController != swapManager.jenniController)
+            return; 
 
-        currentConversation = npcDialogue.conversation[conversationID];
+        if (convoIndex >= 0 && convoIndex < npcDialogue.conversation.Length)
+            currentConversation = npcDialogue.conversation[convoIndex];
+
+        else
+            currentConversation = npcDialogue.conversation[0];
+
         dialogueActivated = true;
+    }
+    
+    public void InitiateDialogueWithoutPlayer(AdvancedDialogueSO dialogue)
+    {
+        if (dialogue == null) return;
+
+        currentConversation = dialogue;
         stepNum = 0;
+        dialogueActivated = true;
+
+        if (dialogueCanvas != null)
+            dialogueCanvas.SetActive(true);
+
+        // Ensure player is frozen
+        if (swapManager != null && swapManager.activeController != null)
+        {
+            swapManager.activeController.enabled = false;
+        }
+
+        PlayDialogue();
     }
 
     public void TurnOffDialogue()
     {
+        if (swapManager.jenniStamina.enabled == false)
+            swapManager.jenniStamina.enabled = true;
+
         stepNum = 0;
         dialogueActivated = false;
+        dialogueCanvas.SetActive(false);
 
-        if (dialogueCanvas != null)
-            dialogueCanvas.SetActive(false);
+        //Unfreeze player
+        swapManager.activeController.enabled = true;
 
-        if (playerMove != null)
-            playerMove.enabled = true;
-    }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        if (swapManager == null || swapManager.activeController != swapManager.jenniController) return;
-
-        if (collision != null && collision.CompareTag("QuestObject"))
+        // Dialogue conditions
+        if (npc.ConversationIndex == 1 && npc.HasBattery == false)
         {
-            hasQuestObject = true;
-            conversationID = 1;
-            Debug.Log("Is working");
+            npc.ConversationIndex = 0;
         }
+        else
+            npc.ConversationIndex++;
+        
     }
+
+    #region Conditions for dialogue to continue
+
+    
+    
+    #endregion
 }
 
 public enum DialogueActors
 {
     Jenni,
+    Yota,
     Mochi,
     Mechanic,
-    Yota,
-    NewsReporter,
 }

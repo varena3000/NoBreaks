@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
+  m_Name: 1.FindTheBattery
+  m_EditorClassIdentifier: 
+  actors: 020000000300000002000000010000000200000001000000030000000200000001000000030000000100000002000000010000000300000001000000030000000100000003000000010000000100000003000000020000000100000002000000
+  Dialogue:
+  - 'Jenni? I thought you disappeared!
+
+'
+  - "Not Jenni exactly. Her spirit was too fractured. This is a friend, they\u2019ve
+    taken over Jenni\u2019s form to help! \r\n"
+  - "Oh\u2026 a pity. Well, simply put, the car won\u2019t start\r\n"
+  - 'So? (Don''t get how fixing a toy car is supposed to solve apocalyptic issue)
+    What do I gotta do about that? (I''ll just do what they tell me for now)
+
+'
+  - "Don't mistake this as me needing you or divine intervention or anyone else for
+    that matter for anything but if it wasn\u2019t as obvious as it should\u2019ve
+    been before: you need to find the starter"
+  - I gathered but what the hell's is a starter?
+  - Language!
+  - Certainly, Divine Yota - how uncouth! The starter is something that st-
+  - Starts the car. I got it wise guy but, what is that, exactly? Engine? Key?
+  - "Wow, I didn\u2019t know your kind knew so much about cars, being non-human,
+    a hermit and all.\r\n"
+  - 'Have a little faith, peanut.
+
+'
+  - "If you\u2019re all quite finished\u2026 No, the starter is nothing like that.
+    It\u2019s like a key: when pushed into the correct slot it gives the car power
+    to start."
+  - "Mhmm a key, huh? Last I checked\u2026 Toy cars don\u2019t have keys.\r\n"
+  - "That\u2019s because it probably doesn\u2019t. What might be considered one thing
+    here is likely referred to as something else out there. "
+  - "well, that\u2019s just real dandy. Do you know what he\u2019s talking about?\r\n"
+  - 'Mmm no. Real world vocabulary isn''t exactly on my list of duties.
+
+'
+  - What in the hell do you know exactly?
+  - "Hey, I said watch the language! Remember you\u2019re talking to children\u2019s
+    toys, for ages 2+. \r\n"
+  - Jeez - my bad. Force of habit, y'know?
+  - 'What in the heck am I supposed to do now? Better, butterfly?
+
+'
+  - '*sigh* I''ll allow it.'
+  - "Since you lot are so incompetent, I\u2019ve perused the manual: it goes in underneath
+    car. They come in pairs, one missing.  "
+  - "\"Ages 2\" and he can say \u201Cperuse\u201D but I can\u2019t say h-"
+  - 'Run along now. I have work to do.
+
+'

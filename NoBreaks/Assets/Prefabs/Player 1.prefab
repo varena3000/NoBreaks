@@ -398,6 +398,7 @@ MonoBehaviour:
   pickupRange: 3
   holdPoint: {fileID: 1314152912044855994}
   characterCamera: {fileID: 0}
+  _staminaController: {fileID: 0}
 --- !u!114 &6363228171290885612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be59a8846532d574b995a4ae9e85b868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1
+  radius: 2.5
   interactableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
