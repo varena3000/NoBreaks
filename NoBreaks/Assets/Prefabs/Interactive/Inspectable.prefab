@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 1360534512267476987}
   - component: {fileID: 6572661414973383552}
   - component: {fileID: 6498424899317388509}
+  - component: {fileID: 6916908280478680077}
   - component: {fileID: 4437221154109455730}
-  m_Layer: 0
+  - component: {fileID: 1893417442190695451}
+  m_Layer: 5
   m_Name: Inspectable
   m_TagString: Inspectable
   m_Icon: {fileID: 0}
@@ -28,9 +30,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038456454771407097}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -290.9855, y: -294.1343, z: -11.864}
-  m_LocalScale: {x: 0.3784, y: 0.2114, z: 0.5279}
+  m_LocalScale: {x: 0.37839976, y: 0.21139999, z: 0.52789974}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,6 +111,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6916908280478680077
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038456454771407097}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &4437221154109455730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,9 +150,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576bcf967439af944960e2ef4d1b8751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: PIckUP/Drop
+  displayName: To Inspect/close Inspection
   keyHint: '[E]'
   isEnabled: 1
   onInteract:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1893417442190695451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038456454771407097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a698cd08387cfbd4dbdb348d23b65c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'This is just a cube for now so yeah here we go '
