@@ -355,8 +355,8 @@ GameObject:
   - component: {fileID: 4484712239623175279}
   - component: {fileID: 8468863993954865514}
   - component: {fileID: 7139125673075980912}
-  - component: {fileID: 6363228171290885612}
   - component: {fileID: 3404896450886296554}
+  - component: {fileID: 8319673243269836547}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -486,156 +486,6 @@ MonoBehaviour:
   holdPoint: {fileID: 1314152912044855994}
   characterCamera: {fileID: 0}
   _staminaController: {fileID: 0}
---- !u!114 &6363228171290885612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7629106223853730624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 421362c6f29c7dc40aa5189d9bbc69ee, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7139125673075980912}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c1f8da73-101a-4230-b74f-42cec84f3014
-    m_ActionName: 'OnFoot/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7139125673075980912}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnSprint
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7847b469-d8c5-41ac-bf81-faba3e3bf0f9
-    m_ActionName: 'OnFoot/Sprint[/Keyboard/shift]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0dea2b46-5c14-4323-b9ae-5bf485079805
-    m_ActionName: Driving/Movement
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7139125673075980912}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnLook
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 317f128d-00ef-4205-9c78-1f9b7371b03f
-    m_ActionName: 'OnFoot/Look[/Mouse/delta,/XInputControllerWindows/rightStick]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7139125673075980912}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 3f795e79-514e-4be3-96ec-893215bae1c2
-    m_ActionName: 'OnFoot/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7139125673075980912}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnCrouch
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 40463f66-2365-43d4-b472-be4dff9ca703
-    m_ActionName: 'OnFoot/Crouch[/Keyboard/ctrl,/XInputControllerWindows/buttonEast]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7139125673075980912}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnInteract
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 31363b95-524e-420a-8c4e-ac3cc5974baf
-    m_ActionName: 'OnFoot/Interact[/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7139125673075980912}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnPickUp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: aa5a742b-b529-4b7c-a8e1-3a14d57f625f
-    m_ActionName: 'OnFoot/PickUP[/Keyboard/f]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 42639058-9d84-479b-8533-5b9ba3dd2268
-    m_ActionName: 'OnFoot/Imbue[/Keyboard/r]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard and Mouse
-  m_DefaultActionMap: OnFoot
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &3404896450886296554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,3 +504,25 @@ MonoBehaviour:
     m_Bits: 4294967295
   prompt: {fileID: 0}
   input: {fileID: 0}
+--- !u!114 &8319673243269836547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629106223853730624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5281ecdb97fa4a44a51ff24a41ef044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStamina: 60
+  maxStamina: 60
+  hasRegenerated: 1
+  weAreSprinting: 0
+  staminaDrain: 50
+  staminaRegen: 20
+  slowedRunSpeed: 6
+  normalRunSpeed: 10
+  staminaProgressUI: {fileID: 0}
+  sliderCanvasGroup: {fileID: 0}

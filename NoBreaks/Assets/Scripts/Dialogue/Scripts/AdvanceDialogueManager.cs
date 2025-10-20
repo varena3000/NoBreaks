@@ -236,7 +236,7 @@ public class AdvanceDialogueManager : MonoBehaviour
         swapManager.activeController.enabled = true;
 
         // Dialogue conditions
-        if (npc.ConversationIndex == 1 && npc.HasBattery == false)
+        if (npc.ConversationIndex == 0 && npc.HasBattery == false)
         {
             npc.ConversationIndex = 0;
         }

@@ -156,6 +156,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Imbue"",
+                    ""type"": ""Button"",
+                    ""id"": ""e944bc10-4d3d-4446-854e-28eed0562745"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""0bfc3aad-e3d0-4f35-807a-acee6c5544db"",
@@ -389,7 +398,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4ec450bb-21a7-40e4-857c-bfa3afdfb484"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard and Mouse"",
@@ -400,7 +409,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d1457671-7680-4e37-b695-eda15fe4bbc4"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -427,6 +436,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51d4025c-375e-4e9a-8f78-e00bc499da32"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard and Mouse"",
+                    ""action"": ""Imbue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b150dc1b-288b-4708-9380-9a3ba3a9fa3e"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Imbue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -500,6 +531,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_OnFoot_Crouch = m_OnFoot.FindAction("Crouch", throwIfNotFound: true);
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
         m_OnFoot_PickUP = m_OnFoot.FindAction("PickUP", throwIfNotFound: true);
+        m_OnFoot_Imbue = m_OnFoot.FindAction("Imbue", throwIfNotFound: true);
         m_OnFoot_Pause = m_OnFoot.FindAction("Pause", throwIfNotFound: true);
         // Driving
         m_Driving = asset.FindActionMap("Driving", throwIfNotFound: true);
@@ -592,6 +624,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Crouch;
     private readonly InputAction m_OnFoot_Interact;
     private readonly InputAction m_OnFoot_PickUP;
+    private readonly InputAction m_OnFoot_Imbue;
     private readonly InputAction m_OnFoot_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "OnFoot".
@@ -632,6 +665,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "OnFoot/PickUP".
         /// </summary>
         public InputAction @PickUP => m_Wrapper.m_OnFoot_PickUP;
+        /// <summary>
+        /// Provides access to the underlying input action "OnFoot/Imbue".
+        /// </summary>
+        public InputAction @Imbue => m_Wrapper.m_OnFoot_Imbue;
         /// <summary>
         /// Provides access to the underlying input action "OnFoot/Pause".
         /// </summary>
@@ -683,6 +720,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @PickUP.started += instance.OnPickUP;
             @PickUP.performed += instance.OnPickUP;
             @PickUP.canceled += instance.OnPickUP;
+            @Imbue.started += instance.OnImbue;
+            @Imbue.performed += instance.OnImbue;
+            @Imbue.canceled += instance.OnImbue;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
@@ -718,6 +758,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @PickUP.started -= instance.OnPickUP;
             @PickUP.performed -= instance.OnPickUP;
             @PickUP.canceled -= instance.OnPickUP;
+            @Imbue.started -= instance.OnImbue;
+            @Imbue.performed -= instance.OnImbue;
+            @Imbue.canceled -= instance.OnImbue;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
@@ -932,6 +975,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPickUP(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Imbue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnImbue(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

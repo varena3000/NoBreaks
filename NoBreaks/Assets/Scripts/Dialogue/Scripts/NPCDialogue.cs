@@ -23,6 +23,7 @@ public class NPCDialogue : MonoBehaviour
 
 
     //Conditions
+    [SerializeField]
     private bool hasBattery = false;
     public bool HasBattery
     {
@@ -41,9 +42,9 @@ public class NPCDialogue : MonoBehaviour
         {
             advanceDialogueManager.InitiateDialogue(this, conversationIndex);
 
-            if (hasBattery == true && conversationIndex < 2)
+            if (hasBattery == true)
             {
-                conversationIndex = 2;
+                conversationIndex = 1;
             }
 
 
