@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
   m_Name: 2.BatteryToJenni
   m_EditorClassIdentifier: 
-  actors: 020000000300000001000000020000000100000002000000010000000200000001000000020000000100000002000000020000000200000001000000
+  actors: 02000000030000000100000002000000010000000200000001000000020000000100000002000000010000000200000002000000020000000100000003000000
   Dialogue:
   - Oh my Divine Yota! Oh, excuse me Yota.
   - It's all right little one.
@@ -32,3 +32,4 @@ MonoBehaviour:
   - "I\u2019ll have you know I\u2019ve discovered the problem. The car it has\u2026
     \nNo Breaks."
   - No... Breaks?
+  - You've done all you can for now! why not explore in the meantime
