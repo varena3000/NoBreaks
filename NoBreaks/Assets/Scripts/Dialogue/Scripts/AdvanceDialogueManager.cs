@@ -211,7 +211,7 @@ public class AdvanceDialogueManager : MonoBehaviour
         stepNum = 0;
         dialogueActivated = true;
 
-        if (dialogueCanvas != null)
+        if (dialogueCanvas == null)
             dialogueCanvas.SetActive(true);
 
         // Ensure player is frozen
@@ -221,6 +221,16 @@ public class AdvanceDialogueManager : MonoBehaviour
         }
 
         PlayDialogue();
+
+        if (stepNum >= currentConversation.actors.Length)
+            {
+                stepNum = 0;
+                dialogueActivated = false;
+                dialogueCanvas.SetActive(false);
+                dialogueActivated = false;
+
+                swapManager.activeController.enabled = true;
+            }
     }
 
     public void TurnOffDialogue()

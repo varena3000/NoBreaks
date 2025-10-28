@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: NewsReporter
   m_EditorClassIdentifier: 
   actorName: NewsReporter
-  actorPortrait: {fileID: 0}
+  actorPortrait: {fileID: 21300000, guid: a56812fdcb42fad45b2683adfb6da56a, type: 3}
