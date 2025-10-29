@@ -51,11 +51,7 @@ public class SceneDialogueTrigger : MonoBehaviour
 
         if (Yota != null)
         {
-            Yota.SetActive(true);
-            itemCanvas.SetActive(false);
-            Hud.SetActive(false);
-            playerIcon.SetActive(false);
-            instructionText.SetActive(false);
+            HudOff();
 
             imageOn = true;
         }
@@ -67,11 +63,7 @@ public class SceneDialogueTrigger : MonoBehaviour
 
         if (imageOn && Yota != null)
         {
-            Yota.SetActive(false);
-            itemCanvas.SetActive(true);
-            Hud.SetActive(true);
-            playerIcon.SetActive(true);
-            instructionText.SetActive(true);
+            HudOn();
 
             tmp1.enabled = true;
             tmp2.enabled = true;
@@ -79,5 +71,23 @@ public class SceneDialogueTrigger : MonoBehaviour
 
             imageOn = false;
         }
+    }
+
+    public void HudOff()
+    {
+        Yota.SetActive(true);
+        itemCanvas.SetActive(false);
+        Hud.SetActive(false);
+        playerIcon.SetActive(false);
+        instructionText.SetActive(false);
+    }
+
+    public void HudOn()
+    {
+        Yota.SetActive(false);
+        itemCanvas.SetActive(true);
+        Hud.SetActive(true);
+        playerIcon.SetActive(true);
+        instructionText.SetActive(true);
     }
 }
