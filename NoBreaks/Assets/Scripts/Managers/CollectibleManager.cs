@@ -21,7 +21,6 @@ public class CollectibleManager : MonoBehaviour
 
     private void Start()
     {
-        PlayNextSound();
         remainingItems = itemsNeededToTrigger;
         UpdateCounterUI();
     }

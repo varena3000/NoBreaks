@@ -6,7 +6,9 @@ public class ParticleController : MonoBehaviour
     private GameObject[] activeParticle;
     [SerializeField]
     private GameObject[] inactiveParticle;
-    
+
+    public AudioSource source;
+    public AudioClip areYouReady;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +16,6 @@ public class ParticleController : MonoBehaviour
         {
            obj.SetActive(false);
         }
-        
     }
 
     private void OnTriggerExit(Collider other)
@@ -23,6 +24,9 @@ public class ParticleController : MonoBehaviour
         {
             obj.SetActive(false);
         }
+
+        source.clip = areYouReady;
+        source.Play();
             
     }
 }
