@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Jenni
   m_EditorClassIdentifier: 
   actorName: Jenni
-  actorPortrait: {fileID: 21300000, guid: 746436e0e2c0c304c9aefc5823c588a3, type: 3}
+  actorPortrait: {fileID: 21300000, guid: 39e16c78dde6efb4688de8c17a496e52, type: 3}

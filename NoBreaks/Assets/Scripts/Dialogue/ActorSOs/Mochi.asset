@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mochi
   m_EditorClassIdentifier: 
   actorName: Mochi
-  actorPortrait: {fileID: 21300000, guid: c6a5dceea194fc94bb31394575539a0d, type: 3}
+  actorPortrait: {fileID: 21300000, guid: 6edd094d3bda9a0428eac843174e72c5, type: 3}
