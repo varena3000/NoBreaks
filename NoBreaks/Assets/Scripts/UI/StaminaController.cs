@@ -47,8 +47,8 @@ public class StaminaController : MonoBehaviour
 
                 if (playerStamina >= maxStamina)
                 {
-                    playerController.SetSprintSpeed(normalRunSpeed);
                     sliderCanvasGroup.alpha = 0;
+                    playerController.SetSprintSpeed(normalRunSpeed);
                     hasRegenerated = true;
                 }
             }
@@ -68,9 +68,9 @@ public class StaminaController : MonoBehaviour
 
             if (playerStamina <= 0)
             {
+                sliderCanvasGroup.alpha = 0;
                 weAreSprinting = false;
                 playerController.SetSprintSpeed(slowedRunSpeed);
-                sliderCanvasGroup.alpha = 0;
             }
             else
             {
