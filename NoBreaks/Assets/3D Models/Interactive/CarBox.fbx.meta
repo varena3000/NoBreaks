@@ -3,7 +3,17 @@ guid: b2e513d3c4ef06b4181b74d532215acc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic
+    second: {fileID: 2100000, guid: 51ce3391348c6ea4caac9d53805966ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ToyBox
+    second: {fileID: 2100000, guid: 6307a47d62ac502439c51c1bd4c790e2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

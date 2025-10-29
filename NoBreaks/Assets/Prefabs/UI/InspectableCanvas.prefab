@@ -144,15 +144,15 @@ MonoBehaviour:
   m_text: "Mochi's Cheese \nMochi's Cheese Mochi's Cheese Mochi's Cheese Mochi's
     Cheese Mochi's Cheese Mochi's Cheese"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1e317eb0c2742934ebf365899815104a, type: 2}
+  m_sharedMaterial: {fileID: -8215064048694036378, guid: 1e317eb0c2742934ebf365899815104a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285268039
-  m_fontColor: {r: 0.2784314, g: 0, b: 0.42352945, a: 1}
+    rgba: 4294110704
+  m_fontColor: {r: 0.94043505, g: 0.92751163, b: 0.94716984, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
