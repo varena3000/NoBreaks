@@ -2,6 +2,6 @@ using UnityEngine;
 
 public class InspectText : MonoBehaviour
 {
-    [TextArea(2, 5)]
+    [TextArea]
     public string description;
 }

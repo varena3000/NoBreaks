@@ -6,8 +6,8 @@ using Cursor = UnityEngine.Cursor;
 
 public class InspectSystem : MonoBehaviour
 {
+
     [SerializeField] private TMP_Text infoText;
-    [SerializeField] private string[] objectDescription;
 
     [SerializeField] private Canvas inspectableCanvas;
     [SerializeField] private GameObject offset;
@@ -16,6 +16,8 @@ public class InspectSystem : MonoBehaviour
     private float rotationSensitivity = 100f;
 
     [SerializeField] private InputActionAsset input;
+
+    private SceneDialogueTrigger hud;
 
     private PlayerSwapManager activePlayer;
     private Interactable interactable;
@@ -34,6 +36,8 @@ public class InspectSystem : MonoBehaviour
 
     void Start()
     {
+        hud = FindAnyObjectByType<SceneDialogueTrigger>();
+
         if (input == null)
         {
             return;
@@ -69,13 +73,11 @@ public class InspectSystem : MonoBehaviour
 
     void Update()
     {
-        // Toggle examine mode when interact is pressed
         if (onInteract != null && onInteract.WasPressedThisFrame())
         {
             HandleInteraction();
         }
 
-        // While examining, rotate object using mouse or controller
         if (isExamining)
         {
             RotateExaminedObject();
@@ -123,7 +125,6 @@ public class InspectSystem : MonoBehaviour
         }
         else
         {
-            // Stop examining current object
             StopExamination();
         }
     }
@@ -132,15 +133,13 @@ public class InspectSystem : MonoBehaviour
     {
         isExamining = true;
         inspectableCanvas.enabled = true;
+        hud.HudOff();
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
         if (activePlayer != null)
             activePlayer.activeController.enabled = false;
-
-        interactable.OnfocusLost();
-        prompt.Hide();
 
         // Move object to offset and parent it
         examinedObject.SetParent(offset.transform, true);
@@ -152,6 +151,7 @@ public class InspectSystem : MonoBehaviour
     {
         isExamining = false;
         inspectableCanvas.enabled = false;
+        hud.HudOn();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
