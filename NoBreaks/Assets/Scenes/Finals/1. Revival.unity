@@ -11545,6 +11545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yota Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7761255797423847202, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2749215657477922916, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
     - {fileID: 4524929907572843073, guid: ffd292e60cb1a4046b00a061e0814c39, type: 3}
