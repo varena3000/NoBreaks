@@ -611,15 +611,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7739591268986557505, guid: c5554114646cee041b1bd20d29e68214, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 707.1254
+      value: -2.57
       objectReference: {fileID: 0}
     - target: {fileID: 7739591268986557505, guid: c5554114646cee041b1bd20d29e68214, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.298061
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7739591268986557505, guid: c5554114646cee041b1bd20d29e68214, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.4916787
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 7739591268986557505, guid: c5554114646cee041b1bd20d29e68214, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37250,7 +37250,7 @@ PrefabInstance:
     - target: {fileID: 4517199977584780509, guid: 62be9847ea8b4c74db1b450fc1d9b003, type: 3}
       propertyPath: conversation
       value: 
-      objectReference: {fileID: 11400000, guid: 93bfe1426f27b10459728f09642d9047, type: 2}
+      objectReference: {fileID: 11400000, guid: 93c26f5ecc458b14f9f9c3aab06b0d9a, type: 2}
     - target: {fileID: 4517199977584780509, guid: 62be9847ea8b4c74db1b450fc1d9b003, type: 3}
       propertyPath: instructionText
       value: 
