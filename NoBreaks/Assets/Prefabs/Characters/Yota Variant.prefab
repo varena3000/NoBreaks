@@ -4964,12 +4964,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2751340165618737123, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2751340165618737123, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6d05ae6a2e4f3684880b89fc2cc3ad39, type: 2}
+      objectReference: {fileID: 2100000, guid: 63bb6b6b9db2bf94e992612f22b0f81d, type: 2}
     - target: {fileID: 2810663207026522370, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -5094,6 +5094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversation:
   - {fileID: 11400000, guid: fe5e0f46fb89ba646aa286f92333e528, type: 2}
+  hasBattery: 0
 --- !u!114 &4524929907572843073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5108,6 +5109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversation:
   - {fileID: 0}
+  hasBattery: 0
 --- !u!1001 &6187231232979440383
 PrefabInstance:
   m_ObjectHideFlags: 0
