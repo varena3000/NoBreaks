@@ -12,7 +12,14 @@ public class PauseMenuController : MonoBehaviour
     private InputAction esc;
     private bool isPaused = false;
 
-    void Start()
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = FindAnyObjectByType<AudioManager>();
+    }
+
+    private void Start()
     {
         var map = pauseInput.FindActionMap("OnFoot", true);
         esc = map.FindAction("Pause", true);
@@ -25,6 +32,7 @@ public class PauseMenuController : MonoBehaviour
     {
         isPaused = !isPaused;
         pauseMenu.SetActive(isPaused);
+        audioManager.PlaySFX(audioManager.Menu);
 
         // Pause or resume time
         Time.timeScale = isPaused ? 0 : 1;
@@ -45,5 +53,6 @@ public class PauseMenuController : MonoBehaviour
     private void OnDestroy()
     {
         esc.performed -= _ => TogglePause();
+        audioManager.PlaySFX(audioManager.Menu);
     }
 }

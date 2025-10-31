@@ -43,8 +43,11 @@ public class FPController : MonoBehaviour
     [HideInInspector]
     public StaminaController _staminaController;
 
+    AudioManager audioManager;
+
     private void Awake()
     {
+        audioManager = FindAnyObjectByType<AudioManager>();
         _staminaController = GetComponent<StaminaController>();
 
         controller = GetComponent<CharacterController>();
@@ -60,6 +63,7 @@ public class FPController : MonoBehaviour
             return;
         
             HandleMovement();
+            HandleFootsteps();
             HandleLook();
             HandleCrouchTransition();
 
@@ -84,9 +88,6 @@ public class FPController : MonoBehaviour
         {
             _staminaController.hasRegenerated = true;
         }
-            
-            
-    
     }
 
     #region Input Callbacks
@@ -117,8 +118,12 @@ public class FPController : MonoBehaviour
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (context.started) // Toggle crouch
+        if (context.started)
+        {
             isCrouching = !isCrouching;
+            audioManager.PlaySFX(audioManager.Jump);
+        }
+            
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -126,6 +131,7 @@ public class FPController : MonoBehaviour
         if (context.performed && controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            audioManager.PlaySFX(audioManager.Jump);
         }
     }
 
@@ -151,6 +157,7 @@ public class FPController : MonoBehaviour
                         {
                             pickUp.PickUp(holdPoint);
                             heldObject = pickUp;
+                            audioManager.PlaySFX(audioManager.Interact);
                         }
                     }
                 }
@@ -159,6 +166,7 @@ public class FPController : MonoBehaviour
                 {
                     heldObject.Drop();
                     heldObject = null;
+                    audioManager.PlaySFX(audioManager.Interact);
                 }
             }
         }
@@ -210,6 +218,23 @@ public class FPController : MonoBehaviour
             controller.height = Mathf.Lerp(controller.height, targetHeight, crouchTransitionSpeed * Time.deltaTime);
         }
     }
+
+    private void HandleFootsteps()
+    {
+        bool isMoving = moveInput.magnitude > 0.1f && controller.isGrounded;
+
+        if (isMoving && !audioManager.sfxSource.isPlaying)
+        {
+            if (!isCrouching)
+                audioManager.PlaySFX(audioManager.Walk);
+        }
+
+        if (!isMoving && audioManager.sfxSource.isPlaying)
+        {
+            audioManager.StopSFX(audioManager.Walk);
+        }
+    }
+
 
     public void SetSprintSpeed(float speed)
     {

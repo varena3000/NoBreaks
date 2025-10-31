@@ -40,7 +40,9 @@ public class PlayerInteractor : MonoBehaviour
         if (focused != null && onInteract.IsPressed())
         {
             if (focused.CanInteract())
+            {
                 focused.Interact();
+            }
         }
         if (focused != null && focused is MonoBehaviour mb && mb.gameObject.name == "Imbue" && onImbue.triggered)
         {

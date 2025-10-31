@@ -30,12 +30,15 @@ public class InspectSystem : MonoBehaviour
 
     private bool isExamining = false;
 
+    AudioManager audioManager;
+
     private Dictionary<Transform, Vector3> originalPositions = new Dictionary<Transform, Vector3>();
     private Dictionary<Transform, Quaternion> originalRotations = new Dictionary<Transform, Quaternion>();
     private Dictionary<Transform, Rigidbody> originalRigidbodies = new Dictionary<Transform, Rigidbody>();
 
     void Start()
     {
+        audioManager = FindAnyObjectByType<AudioManager>();
         hud = FindAnyObjectByType<SceneDialogueTrigger>();
 
         if (input == null)
@@ -134,6 +137,7 @@ public class InspectSystem : MonoBehaviour
         isExamining = true;
         inspectableCanvas.enabled = true;
         hud.HudOff();
+        audioManager.PlaySFX(audioManager.Interact);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -152,6 +156,7 @@ public class InspectSystem : MonoBehaviour
         isExamining = false;
         inspectableCanvas.enabled = false;
         hud.HudOn();
+        audioManager.PlaySFX(audioManager.Interact);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
