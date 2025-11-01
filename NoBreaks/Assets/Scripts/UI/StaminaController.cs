@@ -49,8 +49,8 @@ public class StaminaController : MonoBehaviour
             }
 
             // Stop sprint SFX when not sprinting
-            if (audioManager.actionSource.isPlaying && audioManager.actionSource.clip == audioManager.Sprint)
-                audioManager.StopActionSFX(audioManager.Sprint);
+            if (audioManager.playerSource.isPlaying && audioManager.playerSource.clip == audioManager.Sprint)
+                audioManager.StopPlayerSFX(audioManager.Sprint);
         }
 
         if (playerStamina < 0)
@@ -73,8 +73,8 @@ public class StaminaController : MonoBehaviour
                 playerController.SetSprintSpeed(slowedRunSpeed);
 
                 // Stop sprint sound
-                if (audioManager.actionSource.clip == audioManager.Sprint && audioManager.actionSource.isPlaying)
-                    audioManager.actionSource.Stop();
+                if (audioManager.playerSource.clip == audioManager.Sprint && audioManager.playerSource.isPlaying)
+                    audioManager.playerSource.Stop();
             }
             else
             {
@@ -84,15 +84,15 @@ public class StaminaController : MonoBehaviour
                 audioManager.StopSFX(audioManager.Walk);
 
                 // Play sprint sound if not already playing
-                if (audioManager.actionSource.clip != audioManager.Sprint)
+                if (audioManager.playerSource.clip != audioManager.Sprint)
                 {
-                    audioManager.actionSource.clip = audioManager.Sprint;
-                    audioManager.actionSource.loop = true;
-                    audioManager.actionSource.Play();
+                    audioManager.playerSource.clip = audioManager.Sprint;
+                    audioManager.playerSource.loop = true;
+                    audioManager.playerSource.Play();
                 }
-                else if (!audioManager.actionSource.isPlaying)
+                else if (!audioManager.playerSource.isPlaying)
                 {
-                    audioManager.actionSource.Play();
+                    audioManager.playerSource.Play();
                 }
             }
         }
@@ -121,6 +121,6 @@ public class StaminaController : MonoBehaviour
 
         // Stop any sprinting SFX when disabled
         if (audioManager != null)
-            audioManager.StopSFX(audioManager.Sprint);
+            audioManager.StopPlayerSFX(audioManager.Sprint);
     }
 }
