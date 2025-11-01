@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 3009700743898540011}
   - component: {fileID: 7246098422122615280}
   - component: {fileID: 1650790714354021349}
-  - component: {fileID: 3893905257164455201}
-  - component: {fileID: -3828710410673957924}
   m_Layer: 0
   m_Name: Pic1
   m_TagString: Untagged
@@ -349,40 +347,8 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &3893905257164455201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453099314806199496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576bcf967439af944960e2ef4d1b8751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: To Inspect/close Inspection
-  keyHint: '[E]'
-  isEnabled: 1
-  onInteract:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &-3828710410673957924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453099314806199496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a698cd08387cfbd4dbdb348d23b65c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: 'Photo Dated: 2023-02-07. Shows a young girl held up by an older man.
-    They stand in the stands at a race track. A crack over the man''s face'
