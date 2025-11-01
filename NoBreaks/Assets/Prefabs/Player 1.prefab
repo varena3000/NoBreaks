@@ -516,8 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5281ecdb97fa4a44a51ff24a41ef044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStamina: 60
-  maxStamina: 60
+  playerStamina: 100
+  maxStamina: 100
   hasRegenerated: 1
   weAreSprinting: 0
   staminaDrain: 50

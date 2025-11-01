@@ -20701,6 +20701,135 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215762178}
   m_CullTransparentMesh: 1
+--- !u!1 &1216124193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1216124195}
+  - component: {fileID: 1216124194}
+  m_Layer: 0
+  m_Name: Actions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1216124194
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216124193}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.215
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1216124195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216124193}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1916282336}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1222444673
 Mesh:
   m_ObjectHideFlags: 0
@@ -25693,7 +25822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3413566906296232025, guid: 62be9847ea8b4c74db1b450fc1d9b003, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4517199977584780509, guid: 62be9847ea8b4c74db1b450fc1d9b003, type: 3}
       propertyPath: Hud
@@ -36711,6 +36840,7 @@ Transform:
   m_Children:
   - {fileID: 886047964}
   - {fileID: 2073256708}
+  - {fileID: 1216124195}
   m_Father: {fileID: 372905261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1916282337
@@ -36727,6 +36857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2073256707}
   sfxSource: {fileID: 886047965}
+  actionSource: {fileID: 1216124194}
   background: {fileID: 8300000, guid: 5d8a9de49062dd84f999b480faa87d57, type: 3}
   Menu: {fileID: 8300000, guid: 51210b6c4a4e1de4982c0d18c194a60f, type: 3}
   menuButton: {fileID: 8300000, guid: 2de762302c0d39043831e938fd0138f3, type: 3}
@@ -36736,6 +36867,7 @@ MonoBehaviour:
   Walk: {fileID: 8300000, guid: d7e620a737db87342a1e8df567c4f83b, type: 3}
   Sprint: {fileID: 8300000, guid: 56eae7dfdee57bb4382d1799cc211f53, type: 3}
   Jump: {fileID: 8300000, guid: 8a2d246964e23c34dbe2806533606564, type: 3}
+  Crouch: {fileID: 8300000, guid: b4bb48416f5e928409887de8a050503d, type: 3}
 --- !u!43 &1917983773
 Mesh:
   m_ObjectHideFlags: 0
@@ -39582,7 +39714,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073256706}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -42956,10 +43088,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 244665308}
     m_Modifications:
     - target: {fileID: 333845075122825978, guid: 11263f6c3d564874a849bb50acb361dd, type: 3}
-      propertyPath: staminaDrain
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 333845075122825978, guid: 11263f6c3d564874a849bb50acb361dd, type: 3}
       propertyPath: sliderCanvasGroup
       value: 
       objectReference: {fileID: 499876721}
@@ -43858,7 +43986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4187170442079914072, guid: 41885ec582e2d704c9e8a5e950747616, type: 3}
       propertyPath: maxStamina
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4187170442079914072, guid: 41885ec582e2d704c9e8a5e950747616, type: 3}
       propertyPath: staminaDrain
@@ -43870,7 +43998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4187170442079914072, guid: 41885ec582e2d704c9e8a5e950747616, type: 3}
       propertyPath: playerStamina
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4187170442079914072, guid: 41885ec582e2d704c9e8a5e950747616, type: 3}
       propertyPath: sliderCanvasGroup

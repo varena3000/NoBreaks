@@ -121,7 +121,7 @@ public class FPController : MonoBehaviour
         if (context.started)
         {
             isCrouching = !isCrouching;
-            audioManager.PlaySFX(audioManager.Jump);
+            audioManager.PlayActionSFX(audioManager.Crouch);
         }
             
     }
@@ -131,7 +131,7 @@ public class FPController : MonoBehaviour
         if (context.performed && controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-            audioManager.PlaySFX(audioManager.Jump);
+            audioManager.PlayActionSFX(audioManager.Jump);
         }
     }
 
