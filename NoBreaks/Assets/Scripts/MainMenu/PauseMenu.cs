@@ -32,7 +32,7 @@ public class PauseMenuController : MonoBehaviour
     {
         isPaused = !isPaused;
         pauseMenu.SetActive(isPaused);
-        audioManager.PlaySFX(audioManager.Menu);
+        audioManager.PlayMenuSFX(audioManager.Menu);
 
         // Pause or resume time
         Time.timeScale = isPaused ? 0 : 1;
@@ -53,6 +53,6 @@ public class PauseMenuController : MonoBehaviour
     private void OnDestroy()
     {
         esc.performed -= _ => TogglePause();
-        audioManager.PlaySFX(audioManager.Menu);
+        audioManager.PlayMenuSFX(audioManager.Menu);
     }
 }

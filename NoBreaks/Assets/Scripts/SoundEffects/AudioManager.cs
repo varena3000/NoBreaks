@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioSource sfxSource;
     [SerializeField] public AudioSource actionSource;
     [SerializeField] public AudioSource playerSource;
-
+    [SerializeField] public AudioSource menuSource;
 
     [Header("--- Audio  Clip ---")]
     public AudioClip background;
@@ -58,5 +58,16 @@ public class AudioManager : MonoBehaviour
     public void StopPlayerSFX(AudioClip clip)
     {
         playerSource.Stop();
+    }
+
+    //Menu
+    public void PlayMenuSFX(AudioClip clip)
+    {
+        menuSource.PlayOneShot(clip);
+    }
+
+    public void StopMenuSFX(AudioClip clip)
+    {
+        menuSource.Stop();
     }
 }

@@ -284,8 +284,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3404896450886296554, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 421362c6f29c7dc40aa5189d9bbc69ee, type: 3}
+    - target: {fileID: 3404896450886296554, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6363228171290885612, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
       propertyPath: m_Enabled
@@ -293,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7139125673075980912, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7139125673075980912, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
       propertyPath: characterCamera
