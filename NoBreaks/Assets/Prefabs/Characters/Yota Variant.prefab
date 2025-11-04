@@ -5069,10 +5069,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5513000592403103963, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2749215657477922916}
+      addedObject: {fileID: 5640612712862556951}
     - targetCorrespondingSourceObject: {fileID: 5513000592403103963, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5640612712862556951}
+      addedObject: {fileID: 6804737636481916040}
   m_SourcePrefab: {fileID: 100100000, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
 --- !u!4 &15448795815104251 stripped
 Transform:
@@ -5084,21 +5084,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5513000592403103963, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
   m_PrefabInstance: {fileID: 2825896420649154553}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2749215657477922916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7761255797423847202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 569b8b4ad73f6774f97986dc3650af06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conversation:
-  - {fileID: 11400000, guid: fe5e0f46fb89ba646aa286f92333e528, type: 2}
-  hasBattery: 0
 --- !u!114 &5640612712862556951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5118,6 +5103,21 @@ MonoBehaviour:
   followSmoothness: 5
   hoverAmplitude: 0.2
   hoverSpeed: 2
+--- !u!114 &6804737636481916040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7761255797423847202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569b8b4ad73f6774f97986dc3650af06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation:
+  - {fileID: 11400000, guid: fe5e0f46fb89ba646aa286f92333e528, type: 2}
+  hasBattery: 0
 --- !u!1001 &6187231232979440383
 PrefabInstance:
   m_ObjectHideFlags: 0

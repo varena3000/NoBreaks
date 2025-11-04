@@ -54,18 +54,24 @@ public class PlayerSwapManager : MonoBehaviour
     // Swaps the active player
     public void SwapCharacter()
     {
+
         if(activeController == ratController)
         {
             FPController toActivate = jenniController;
-             SetActiveCharacter(toActivate);
-             audioManager.PlaySFX(audioManager.jenniImbue);
+            SetActiveCharacter(toActivate);
 
+            audioManager.StopImbueSFX(audioManager.mochiImbue);
+            audioManager.PlayImbueSFX(audioManager.jenniImbue);
+ 
         }
         else
         {
             FPController toActivate = ratController;
-             SetActiveCharacter(toActivate);
-             audioManager.PlaySFX(audioManager.mochiImbue);
+            SetActiveCharacter(toActivate);
+
+            audioManager.StopImbueSFX(audioManager.jenniImbue);
+            audioManager.PlayImbueSFX(audioManager.mochiImbue);
+              
         }
        
 
