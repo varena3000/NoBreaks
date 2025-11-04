@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 31619648692904399}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.025024414, y: 0.07502794, z: -2.6375008}
+  m_LocalPosition: {x: -0.56, y: 0.07502794, z: -0.05}
   m_LocalScale: {x: 1.25, y: 1.2499999, z: 1.2499999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4964,35 +4964,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2751340165618737123, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2751340165618737123, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6d05ae6a2e4f3684880b89fc2cc3ad39, type: 2}
+      objectReference: {fileID: 2100000, guid: 63bb6b6b9db2bf94e992612f22b0f81d, type: 2}
     - target: {fileID: 2810663207026522370, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 2810663207026522370, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 2810663207026522370, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 2810663207026522370, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -79
+      value: -28.46
       objectReference: {fileID: 0}
     - target: {fileID: 2810663207026522370, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.4
+      value: 15.5
       objectReference: {fileID: 0}
     - target: {fileID: 2810663207026522370, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -57
+      value: 15.58
       objectReference: {fileID: 0}
     - target: {fileID: 2810663207026522370, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5050,6 +5050,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5513000592403103963, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -5068,7 +5072,7 @@ PrefabInstance:
       addedObject: {fileID: 2749215657477922916}
     - targetCorrespondingSourceObject: {fileID: 5513000592403103963, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4524929907572843073}
+      addedObject: {fileID: 5640612712862556951}
   m_SourcePrefab: {fileID: 100100000, guid: eda5dc5be0f98ca41b6e480de8f594f8, type: 3}
 --- !u!4 &15448795815104251 stripped
 Transform:
@@ -5094,7 +5098,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversation:
   - {fileID: 11400000, guid: fe5e0f46fb89ba646aa286f92333e528, type: 2}
---- !u!114 &4524929907572843073
+  hasBattery: 0
+--- !u!114 &5640612712862556951
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5103,11 +5108,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7761255797423847202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 569b8b4ad73f6774f97986dc3650af06, type: 3}
+  m_Script: {fileID: 11500000, guid: 310c8463f607e9848890d077c8ae4b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversation:
-  - {fileID: 0}
+  playerOne: {fileID: 0}
+  playerTwo: {fileID: 0}
+  followDistance: 2
+  heightOffset: 1.5
+  followSmoothness: 5
+  hoverAmplitude: 0.2
+  hoverSpeed: 2
 --- !u!1001 &6187231232979440383
 PrefabInstance:
   m_ObjectHideFlags: 0
