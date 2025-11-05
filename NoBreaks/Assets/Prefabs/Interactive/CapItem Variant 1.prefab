@@ -73,7 +73,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6916908280478680077, guid: 3ed44719623be2548863b1532d202b48, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
@@ -94,14 +95,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5470145717551755603}
     m_Modifications:
-    - target: {fileID: 553379090979721781, guid: 267a8888d81a2944bb5e9ec49857d896, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 727259395409167254, guid: 267a8888d81a2944bb5e9ec49857d896, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 727259395409167254, guid: 267a8888d81a2944bb5e9ec49857d896, type: 3}
       propertyPath: m_Enabled
       value: 0
