@@ -1,9 +1,9 @@
 using UnityEngine;
 using TMPro;
 
-public class VisualCue : MonoBehaviour
+public class MochiVisualCue : MonoBehaviour
 {
-    [TextArea] [SerializeField] 
+   [TextArea] [SerializeField] 
     private string errorMessage;
     
     [SerializeField] private TMP_Text errorText;
@@ -24,7 +24,7 @@ public class VisualCue : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && controller.activeController == controller.jenniController)
+        if (other.CompareTag("Player") && controller.activeController == controller.ratController)
         {
             if (errorCanvas != null && errorText != null)
             {
@@ -39,7 +39,7 @@ public class VisualCue : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && controller.activeController == controller.jenniController)
+        if (other.CompareTag("Player") && controller.activeController == controller.ratController)
         {
             if (errorCanvas != null && errorText != null)
             {

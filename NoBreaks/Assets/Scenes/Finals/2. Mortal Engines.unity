@@ -33975,7 +33975,7 @@ PrefabInstance:
       objectReference: {fileID: 1962156413}
     - target: {fileID: 2430372697176701761, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: m_VersionIndex
-      value: 7792
+      value: 7795
       objectReference: {fileID: 0}
     - target: {fileID: 2452529771765708303, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: errorText
@@ -34007,7 +34007,7 @@ PrefabInstance:
       objectReference: {fileID: 303468276}
     - target: {fileID: 4441316653230502102, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: m_VersionIndex
-      value: 7792
+      value: 7795
       objectReference: {fileID: 0}
     - target: {fileID: 6564007650597924503, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: m_Mesh
@@ -34015,7 +34015,7 @@ PrefabInstance:
       objectReference: {fileID: 1532181812}
     - target: {fileID: 6564007650597924503, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: m_VersionIndex
-      value: 7792
+      value: 7795
       objectReference: {fileID: 0}
     - target: {fileID: 6734020194919608019, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: errorText
@@ -34075,7 +34075,7 @@ PrefabInstance:
       objectReference: {fileID: 200125844}
     - target: {fileID: 7557089461935094761, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: m_VersionIndex
-      value: 7792
+      value: 7795
       objectReference: {fileID: 0}
     - target: {fileID: 8295063418630748708, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: m_Mesh
@@ -34083,7 +34083,7 @@ PrefabInstance:
       objectReference: {fileID: 81649344}
     - target: {fileID: 8295063418630748708, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: m_VersionIndex
-      value: 7792
+      value: 7795
       objectReference: {fileID: 0}
     - target: {fileID: 8435738390394659535, guid: 71c0ba10af7f56c499fb6b89f84d60fd, type: 3}
       propertyPath: m_Mesh
@@ -37641,13 +37641,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1920593042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2817642a077e9c46b5296f078118f06, type: 3}
+  m_Script: {fileID: 11500000, guid: be1bc39a8240fd448a55b8f70b5ab6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   errorMessage: ONLY JENNI CAN SPEAK TO NPCs
   errorText: {fileID: 132687942}
   errorCanvas: {fileID: 603030332}
-  playerCollider: {fileID: 8323369447337096388}
 --- !u!43 &2067856676
 Mesh:
   m_ObjectHideFlags: 0
@@ -43449,11 +43448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5281ecdb97fa4a44a51ff24a41ef044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!143 &8323369447337096388 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 166657380738176147, guid: 11263f6c3d564874a849bb50acb361dd, type: 3}
-  m_PrefabInstance: {fileID: 3219829074335070858}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
