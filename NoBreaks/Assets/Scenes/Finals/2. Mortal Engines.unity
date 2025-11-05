@@ -26146,6 +26146,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!223 &1425311786 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5938406893354637086, guid: 8186a260f93befa4ca3b2381f52d5724, type: 3}
+  m_PrefabInstance: {fileID: 1833765753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1427619663
 Mesh:
   m_ObjectHideFlags: 0
@@ -34126,6 +34131,10 @@ PrefabInstance:
       propertyPath: collectedText
       value: 
       objectReference: {fileID: 1103095425}
+    - target: {fileID: 270615500200974317, guid: c1cff363022a44641a99156be1d69a43, type: 3}
+      propertyPath: counterCanvas
+      value: 
+      objectReference: {fileID: 1425311786}
     - target: {fileID: 270615500200974317, guid: c1cff363022a44641a99156be1d69a43, type: 3}
       propertyPath: OnRequiredItemsCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
