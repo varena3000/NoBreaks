@@ -20,7 +20,7 @@ public class TemporaryTMP : MonoBehaviour
     {
         tmpText = GetComponent<TextMeshProUGUI>();
 
-        // Add a CanvasGroup dynamically if it’s not there (for easy fading)
+        // Add a CanvasGroup dynamically if itï¿½s not there (for easy fading)
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();

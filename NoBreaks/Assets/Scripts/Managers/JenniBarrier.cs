@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -65,4 +66,5 @@ public class JenniBarrier : MonoBehaviour
             barrierCollider.enabled = false;
         }
     }
+
 }

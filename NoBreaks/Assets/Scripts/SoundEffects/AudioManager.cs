@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioSource playerSource;
     [SerializeField] public AudioSource menuSource;
     [SerializeField] public AudioSource imbueSource;
+    [SerializeField] public AudioSource errorSource;
 
     [Header("--- Audio  Clip ---")]
     public AudioClip background;
@@ -21,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Sprint;
     public AudioClip Jump;
     public AudioClip Crouch;
+    public AudioClip Error;
 
     private void Start()
     {
@@ -81,5 +83,16 @@ public class AudioManager : MonoBehaviour
     public void StopImbueSFX(AudioClip clip)
     {
         imbueSource.Stop();
+    }
+
+    //Error
+    public void PlayErrorSFX(AudioClip clip)
+    {
+        errorSource.PlayOneShot(clip);
+    }
+
+    public void StopErrorSFX(AudioClip clip)
+    {
+        errorSource.Stop();
     }
 }
