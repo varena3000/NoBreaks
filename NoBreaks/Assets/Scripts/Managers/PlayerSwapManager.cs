@@ -22,6 +22,8 @@ public class PlayerSwapManager : MonoBehaviour
 
     public FPController activeController;
 
+    AudioManager audioManager;
+
     public event Action OnActiveCharacterChanged;
 
     // Static ensures last active character persists across scenes
@@ -29,6 +31,7 @@ public class PlayerSwapManager : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = FindAnyObjectByType<AudioManager>();
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -51,8 +54,26 @@ public class PlayerSwapManager : MonoBehaviour
     // Swaps the active player
     public void SwapCharacter()
     {
-        FPController toActivate = (activeController == ratController) ? jenniController : ratController;
-        SetActiveCharacter(toActivate);
+
+        if(activeController == ratController)
+        {
+            FPController toActivate = jenniController;
+            SetActiveCharacter(toActivate);
+
+            audioManager.StopImbueSFX(audioManager.mochiImbue);
+            audioManager.PlayImbueSFX(audioManager.jenniImbue);
+ 
+        }
+        else
+        {
+            FPController toActivate = ratController;
+            SetActiveCharacter(toActivate);
+
+            audioManager.StopImbueSFX(audioManager.jenniImbue);
+            audioManager.PlayImbueSFX(audioManager.mochiImbue);
+              
+        }
+       
 
         // Auto-load next scene if Jenni is active and scene matches
         if (activeController == jenniController)
@@ -68,7 +89,8 @@ public class PlayerSwapManager : MonoBehaviour
     // Activates the selected controller and disables the other
     private void SetActiveCharacter(FPController controller)
     {
-        if (activeController == controller) return; // Already active, no changes needed
+        if (activeController == controller) 
+            return; // Already active, no changes needed
 
         activeController = controller;
         lastActiveCharacter = (controller == ratController) ? "Rat" : "Jenni";

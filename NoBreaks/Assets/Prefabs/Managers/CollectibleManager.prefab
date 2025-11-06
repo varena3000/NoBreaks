@@ -45,6 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsNeededToTrigger: 5
+  collectedText: {fileID: 0}
+  audioSource: {fileID: 0}
+  collectSounds:
+  - {fileID: 8300000, guid: 69abbbbe7cb45134985b8d628b5b04ef, type: 3}
+  - {fileID: 8300000, guid: 0666eea16d4e69048ba4507c06b9dac3, type: 3}
+  - {fileID: 8300000, guid: 4051dd51ff3322e4ba048c173367a983, type: 3}
+  - {fileID: 8300000, guid: a169ed5ca65d56f49bfe36e4fd6f8bb9, type: 3}
+  - {fileID: 8300000, guid: ecf36b5342617a747a283e6f20e2b022, type: 3}
   OnRequiredItemsCollected:
     m_PersistentCalls:
       m_Calls:

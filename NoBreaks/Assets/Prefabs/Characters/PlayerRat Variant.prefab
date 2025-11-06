@@ -328,12 +328,16 @@ PrefabInstance:
       value: PlayerRat Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8319673243269836547, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
-      propertyPath: staminaDrain
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8319673243269836547, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
       propertyPath: staminaRegen
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319673243269836547, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
+      propertyPath: sliderCanvasGroup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319673243269836547, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
+      propertyPath: staminaProgressUI
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8872539072448313469, guid: 055e145241a43bd49be8064be3bef39e, type: 3}
       propertyPath: m_LocalPosition.x

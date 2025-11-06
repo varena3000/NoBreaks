@@ -28,8 +28,12 @@ public class SceneDialogueTrigger : MonoBehaviour
 
     private bool imageOn = false;
 
+    public FollowPlayer follow;
+
     private void Awake()
     {
+        follow.enabled = false;
+
         tmp1.enabled = false;
         tmp2.enabled = false;
         tmp3.enabled = false;
@@ -64,6 +68,7 @@ public class SceneDialogueTrigger : MonoBehaviour
         if (imageOn && Yota != null)
         {
             HudOn();
+            follow.enabled = true;
 
             tmp1.enabled = true;
             tmp2.enabled = true;
@@ -84,7 +89,6 @@ public class SceneDialogueTrigger : MonoBehaviour
 
     public void HudOn()
     {
-        Yota.SetActive(false);
         itemCanvas.SetActive(true);
         Hud.SetActive(true);
         playerIcon.SetActive(true);

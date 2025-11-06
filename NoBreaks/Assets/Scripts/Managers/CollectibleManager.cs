@@ -10,6 +10,7 @@ public class CollectibleManager : MonoBehaviour
 
     private int remainingItems;
     public TMP_Text collectedText;
+    public Canvas counterCanvas;
 
     [Header("SoundEffects")]
     public AudioSource audioSource;
@@ -41,15 +42,14 @@ public class CollectibleManager : MonoBehaviour
             return;
 
         remainingItems--;
-        Debug.Log($"Remaining items: {remainingItems}/{itemsNeededToTrigger}");
 
         PlayNextSound();
         UpdateCounterUI();
 
         if (remainingItems <= 0)
         {
-            Debug.Log("Collected required number of items!");
             OnRequiredItemsCollected?.Invoke();
+            counterCanvas.enabled = false;
         }
     }
 

@@ -13,7 +13,8 @@ public class ImbueStation : MonoBehaviour
     public void HandleImbue()
     {
         // Only swap if a player is active
-        if (swapManager == null || swapManager.activeController == null) return;
+        if (swapManager == null || swapManager.activeController == null) 
+            return;
 
         // Add distance check if needed
         swapManager.SwapCharacter();
