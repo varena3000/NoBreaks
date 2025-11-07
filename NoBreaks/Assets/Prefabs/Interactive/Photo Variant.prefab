@@ -18,8 +18,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1893417442190695451, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: description
-      value: 'Photo Dated: 2023-02-07. Shows a young girl held up by an older man.
-        They stand in the stands at a race track. A crack over the man''s face.'
+      value: 'Photo Dated: 2023-02-07. Shows Gennifer beside an older man. They stand
+        in the stands at a race track. A crack over the man''s face.'
       objectReference: {fileID: 0}
     - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: m_Size.x

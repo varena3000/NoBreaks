@@ -136,6 +136,18 @@ PrefabInstance:
       value: 'A worn cap. A patch on it reads: '
       objectReference: {fileID: 0}
     - target: {fileID: 5470145717551755603, guid: 131f5226f02477745bb1fc726f79cc5d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.73508006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470145717551755603, guid: 131f5226f02477745bb1fc726f79cc5d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.410666
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470145717551755603, guid: 131f5226f02477745bb1fc726f79cc5d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.025499
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470145717551755603, guid: 131f5226f02477745bb1fc726f79cc5d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.269
       objectReference: {fileID: 0}
@@ -547,10 +559,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toolkit
       objectReference: {fileID: 0}
+    - target: {fileID: 1487497256231294325, guid: 93ae72d3c4115b84eb7bff3b8957fe13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.029
+      objectReference: {fileID: 0}
     - target: {fileID: 1862773496563025776, guid: 93ae72d3c4115b84eb7bff3b8957fe13, type: 3}
       propertyPath: description
-      value: 'A toy toolkit. The slot for the screwdriver is empty. A note on it
-        reads: "You''re the mech of the house now, kiddo. Happy 6th from, Love Pops."'
+      value: 'A toy toolkit. The slot for the screwdriver is empty. A note in unsteady
+        writing on it reads: "Your te mech of the hous now, kiddo. Happy 6th , Lov
+        Pops."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565958582992235928, guid: 93ae72d3c4115b84eb7bff3b8957fe13, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5221858
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565958582992235928, guid: 93ae72d3c4115b84eb7bff3b8957fe13, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.28791195
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565958582992235928, guid: 93ae72d3c4115b84eb7bff3b8957fe13, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5364937
       objectReference: {fileID: 0}
     - target: {fileID: 7565958582992235928, guid: 93ae72d3c4115b84eb7bff3b8957fe13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -558,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565958582992235928, guid: 93ae72d3c4115b84eb7bff3b8957fe13, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.7280617
+      value: -4.994
       objectReference: {fileID: 0}
     - target: {fileID: 7565958582992235928, guid: 93ae72d3c4115b84eb7bff3b8957fe13, type: 3}
       propertyPath: m_LocalPosition.z
