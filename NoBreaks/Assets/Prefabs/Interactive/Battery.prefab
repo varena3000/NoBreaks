@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Interact
-  keyHint: '[E]'
+  keyHint: '[F]'
   isEnabled: 1
   onInteract:
     m_PersistentCalls:

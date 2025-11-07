@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Level1Draft.unity
     guid: dc5f37ed65379c645a7abd063ea3c428
   - enabled: 0
-    path: Assets/Scenes/Finals/2.MortalEngines.unity
+    path: Assets/Scenes/Drafts/2.MortalEngines.unity
     guid: 71ea1c4422ee62d47a6fc5baebf19930
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 421362c6f29c7dc40aa5189d9bbc69ee, type: 3}
