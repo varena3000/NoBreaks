@@ -33,7 +33,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WhatsApp Image 2025-08-22 at 18.41.26_d936ce59
+  m_Name: Box
   m_Shader: {fileID: 4800000, guid: 8547ec39534635c4289065e5c5033f43, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

@@ -17,6 +17,26 @@ PrefabInstance:
       value: 'A worn cap - too big for a little girl. A patch on it reads: <i> Yuvak
         Autorepairs. Est. 2019.</i>'
       objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Size.x
+      value: 2.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Size.y
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Size.z
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Center.x
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Center.y
+      value: 0.34
+      objectReference: {fileID: 0}
     - target: {fileID: 6572661414973383552, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: m_Enabled
       value: 0
