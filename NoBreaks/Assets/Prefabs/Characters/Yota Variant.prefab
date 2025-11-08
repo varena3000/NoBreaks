@@ -5250,7 +5250,7 @@ MonoBehaviour:
   playerOne: {fileID: 0}
   playerTwo: {fileID: 0}
   followDistance: 2
-  heightOffset: 1.5
+  heightOffset: 1
   followSmoothness: 5
   hoverAmplitude: 0.2
   hoverSpeed: 2
