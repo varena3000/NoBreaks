@@ -42464,7 +42464,7 @@ PrefabInstance:
       value: 'A Holy Bible: clean and seemingly unread. A label on it reads: Happy
         Birthday 4th Gennifer, Mom
 
-        [E] to Exit Inspection'
+        [E/West Button] to Exit Inspection.'
       objectReference: {fileID: 0}
     - target: {fileID: 1087507241462792565, guid: c5554114646cee041b1bd20d29e68214, type: 3}
       propertyPath: m_Mesh
@@ -42492,7 +42492,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1610930087247537732, guid: c5554114646cee041b1bd20d29e68214, type: 3}
       propertyPath: description
-      value: "A worn cap. A patch on it reads: \n[E] to Exit Inspection"
+      value: 'A worn cap - too big for a little girl. A patch on it reads: <i> Yuvak
+        Autorepairs. Est. 2019.</i>
+
+        [E/West Button] to Exit Inspection.'
       objectReference: {fileID: 0}
     - target: {fileID: 1829144965924920306, guid: c5554114646cee041b1bd20d29e68214, type: 3}
       propertyPath: m_Mesh
@@ -42554,8 +42557,8 @@ PrefabInstance:
       propertyPath: description
       value: 'A stack of story books and comic books. They are dirty and frayed.
 
-        [E]
-        to Exit Inspection'
+        [E/West
+        Button] to Exit Inspection.'
       objectReference: {fileID: 0}
     - target: {fileID: 3889322254361451430, guid: c5554114646cee041b1bd20d29e68214, type: 3}
       propertyPath: m_Mesh
@@ -42614,8 +42617,8 @@ PrefabInstance:
       value: 'A dusty box labelled: "Formula Z Remote Control Car." A faded note
         reads: "Go zoom just like me, kiddo. Happy 4th. Love, Pops."
 
-        [E]
-        to Exit Inspection
+        [E/West
+        Button] to Exit Inspection.
 
 '
       objectReference: {fileID: 0}
@@ -42731,7 +42734,7 @@ PrefabInstance:
         writing on it reads: "Your te mech of the hous now, kiddo. Happy 6th , Lov
         Pops."
 
-        [E] to Exit Inspection'
+        [E/West Button] to Exit Inspection.'
       objectReference: {fileID: 0}
     - target: {fileID: 9004222821360038715, guid: c5554114646cee041b1bd20d29e68214, type: 3}
       propertyPath: m_Mesh
@@ -46612,6 +46615,10 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2895352068942765920, guid: 1ec7ec1f4adbc2749970cc104c3b9c9b, type: 3}
+      propertyPath: keyHint
+      value: '[F/North Button]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895352068942765920, guid: 1ec7ec1f4adbc2749970cc104c3b9c9b, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -46945,7 +46952,7 @@ PrefabInstance:
       objectReference: {fileID: 1821281648}
     - target: {fileID: 1815998464369742218, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 1168
+      value: 1270
       objectReference: {fileID: 0}
     - target: {fileID: 1831265113518968420, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -46969,7 +46976,7 @@ PrefabInstance:
       objectReference: {fileID: 786315917}
     - target: {fileID: 2400070961855219633, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 397
+      value: 499
       objectReference: {fileID: 0}
     - target: {fileID: 2400070961855219633, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_Faces.Array.size
@@ -47441,7 +47448,7 @@ PrefabInstance:
       objectReference: {fileID: 979280061}
     - target: {fileID: 3204542254629651944, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 1168
+      value: 1270
       objectReference: {fileID: 0}
     - target: {fileID: 3214109453064716543, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_Mesh
@@ -47449,7 +47456,7 @@ PrefabInstance:
       objectReference: {fileID: 94924632}
     - target: {fileID: 3214109453064716543, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 8687
+      value: 8789
       objectReference: {fileID: 0}
     - target: {fileID: 3502023326487403009, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_Name
@@ -47465,7 +47472,7 @@ PrefabInstance:
       objectReference: {fileID: 486008201}
     - target: {fileID: 3727209429471367003, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 1764
+      value: 1866
       objectReference: {fileID: 0}
     - target: {fileID: 4199689575984154995, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_Mesh
@@ -47473,7 +47480,7 @@ PrefabInstance:
       objectReference: {fileID: 1854373567}
     - target: {fileID: 4199689575984154995, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 71
+      value: 173
       objectReference: {fileID: 0}
     - target: {fileID: 4328757809519168528, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_Mesh
@@ -47509,7 +47516,7 @@ PrefabInstance:
       objectReference: {fileID: 648195447}
     - target: {fileID: 5320339908998313391, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 376
+      value: 478
       objectReference: {fileID: 0}
     - target: {fileID: 5445522547019474965, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -47525,7 +47532,7 @@ PrefabInstance:
       objectReference: {fileID: 1737296810}
     - target: {fileID: 5893488181286121012, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 8687
+      value: 8789
       objectReference: {fileID: 0}
     - target: {fileID: 6156250297775605385, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -47537,7 +47544,7 @@ PrefabInstance:
       objectReference: {fileID: 653992693}
     - target: {fileID: 6456952157991361778, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 420
+      value: 522
       objectReference: {fileID: 0}
     - target: {fileID: 6481777423177997032, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_Mesh
@@ -47545,7 +47552,7 @@ PrefabInstance:
       objectReference: {fileID: 1049022039}
     - target: {fileID: 6481777423177997032, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 420
+      value: 522
       objectReference: {fileID: 0}
     - target: {fileID: 6516032738470306008, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_Mesh
@@ -47601,7 +47608,7 @@ PrefabInstance:
       objectReference: {fileID: 391685416}
     - target: {fileID: 7422918354929576024, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_VersionIndex
-      value: 17
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 7635481490072359445, guid: 89d10364920d8ea4486dfb4b91a8fe82, type: 3}
       propertyPath: m_Mesh
@@ -49229,6 +49236,14 @@ PrefabInstance:
     - target: {fileID: 8141233677702020368, guid: b4bde55ef58b15b49bf560d39576ceb5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177334892315334927, guid: b4bde55ef58b15b49bf560d39576ceb5, type: 3}
+      propertyPath: description
+      value: 'Photo Dated: 2018-02-07. Yota tells you the girl in the photo is not
+        Gennifer (she wasn''t born yet) but they do look alike.
+
+        [E/West
+        Button] to Exit Inspection.'
       objectReference: {fileID: 0}
     - target: {fileID: 8560409578133670604, guid: b4bde55ef58b15b49bf560d39576ceb5, type: 3}
       propertyPath: m_Mesh

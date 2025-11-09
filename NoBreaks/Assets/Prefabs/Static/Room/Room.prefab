@@ -8122,8 +8122,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1893417442190695451, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: description
-      value: A black jumpsuit. Yota thinks its too formal and dark for Gennifer's
+      value: 'A black jumpsuit. Yota thinks its too formal and dark for Gennifer''s
         style.
+
+        [E/West Button] to Exit Inspection.'
       objectReference: {fileID: 0}
     - target: {fileID: 6572661414973383552, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: m_Enabled
