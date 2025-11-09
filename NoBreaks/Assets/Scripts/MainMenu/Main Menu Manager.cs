@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("1. Revival");
+        Time.timeScale = 1;
     }
 
     public void OnApplicationQuit()
