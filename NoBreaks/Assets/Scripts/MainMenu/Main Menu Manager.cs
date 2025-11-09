@@ -15,6 +15,10 @@ public class MainMenuManager : MonoBehaviour
         // Load the next scene referencing the build index
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("1. Revival");
+    }
 
     public void OnApplicationQuit()
     {
