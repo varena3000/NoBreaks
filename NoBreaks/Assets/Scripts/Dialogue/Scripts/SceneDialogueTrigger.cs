@@ -83,6 +83,7 @@ public class SceneDialogueTrigger : MonoBehaviour
         Hud.SetActive(false);
         playerIcon.SetActive(false);
         instructionText.SetActive(false);
+        
     }
 
     public void HudOn()

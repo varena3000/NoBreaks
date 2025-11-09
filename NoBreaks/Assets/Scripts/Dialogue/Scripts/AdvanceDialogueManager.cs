@@ -209,8 +209,9 @@ public class AdvanceDialogueManager : MonoBehaviour
     
     public void InitiateDialogueWithoutPlayer(AdvancedDialogueSO dialogue)
     {
-        if (dialogue == null) return;
-
+        if (dialogue == null)
+            return;
+        
         currentConversation = dialogue;
         stepNum = 0;
         dialogueActivated = true;
