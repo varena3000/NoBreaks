@@ -102,8 +102,10 @@ PrefabInstance:
     - target: {fileID: 1893417442190695451, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: description
       value: 'A toy toolkit. The slot for the screwdriver is empty. A note in unsteady
-        writing on it reads: "Your te mech of the hous now, kiddo. Happy 6th , Lov
-        Pops."'
+        writing on it reads: "Your te mech of the hous now, kiddo. Happy 5th , Lov
+        Pops."
+
+        [E/West Button] to Exit Inspection.'
       objectReference: {fileID: 0}
     - target: {fileID: 6572661414973383552, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

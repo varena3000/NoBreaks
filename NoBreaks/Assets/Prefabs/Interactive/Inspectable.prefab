@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576bcf967439af944960e2ef4d1b8751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: To Inspect/close Inspection
-  keyHint: '[E]'
+  displayName: To Inspect
+  keyHint: '[E/West Button]'
   isEnabled: 1
   onInteract:
     m_PersistentCalls:
