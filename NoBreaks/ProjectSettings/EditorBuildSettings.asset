@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Drafts/Intro.unity
     guid: 9e8c35856d307884abad37c63f4693ee
   - enabled: 0
-    path: Assets/Scenes/Finals/2. Mortal Engines.unity
+    path: Assets/Scenes/Drafts/2. Mortal Engines.unity
     guid: 7f2c184989c723c42ae35f90fc0a7bec
   - enabled: 0
     path: Assets/Scenes/Finals/3. A Break After All.unity

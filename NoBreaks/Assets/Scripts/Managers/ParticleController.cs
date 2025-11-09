@@ -10,6 +10,9 @@ public class ParticleController : MonoBehaviour
     public AudioSource source;
     public AudioClip areYouReady;
 
+    private bool ready = false;
+
+
     private void OnTriggerEnter(Collider other)
     {
         foreach(GameObject obj in activeParticle)
@@ -24,9 +27,12 @@ public class ParticleController : MonoBehaviour
         {
             obj.SetActive(false);
         }
-
-        source.clip = areYouReady;
-        source.Play();
-            
+        if (ready == false)
+        {
+            source.clip = areYouReady;
+            source.PlayOneShot(areYouReady); 
+            ready = true;
+        }
+      
     }
 }

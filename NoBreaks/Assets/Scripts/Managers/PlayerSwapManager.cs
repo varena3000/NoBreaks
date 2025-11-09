@@ -48,9 +48,6 @@ public class PlayerSwapManager : MonoBehaviour
         SetActiveCharacter(toActivate);
     }
 
-
-
-    
     // Swaps the active player
     public void SwapCharacter()
     {
@@ -120,7 +117,7 @@ public class PlayerSwapManager : MonoBehaviour
         OnActiveCharacterChanged?.Invoke();
     }
 
-    private void DisableFPController()
+    public void DisableFPController()
     {
         if (activeController == ratController)
         {

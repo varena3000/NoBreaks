@@ -1,5 +1,4 @@
 using System.Collections;
-using Mono.Cecil.Cil;
 using UnityEngine;
 
 public class SceneDialogueTrigger : MonoBehaviour
@@ -80,7 +79,6 @@ public class SceneDialogueTrigger : MonoBehaviour
 
     public void HudOff()
     {
-        Yota.SetActive(true);
         itemCanvas.SetActive(false);
         Hud.SetActive(false);
         playerIcon.SetActive(false);

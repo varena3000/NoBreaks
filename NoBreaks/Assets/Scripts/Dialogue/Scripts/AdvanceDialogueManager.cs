@@ -45,8 +45,11 @@ public class AdvanceDialogueManager : MonoBehaviour
     private NPCDialogue npc;
     private GameObject Battery;
 
+    public GameObject audioSource;
+
     private void Awake()
     {
+       
         // Find the "Interact" action
         onInteract = InputSystem.actions.FindAction("Interact");
 
@@ -121,7 +124,8 @@ public class AdvanceDialogueManager : MonoBehaviour
                 Battery = null;
             }
         }
-
+        
+        audioSource.SetActive(false);
     }
 
     private void SetActorInfo()
@@ -252,6 +256,8 @@ public class AdvanceDialogueManager : MonoBehaviour
         }
         else
             npc.ConversationIndex++;
+
+        audioSource.SetActive(true);
         
     }
 
