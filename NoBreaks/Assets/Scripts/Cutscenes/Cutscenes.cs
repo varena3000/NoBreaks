@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class Cutscenes : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Cutscenes : MonoBehaviour
     public GameObject cineBrain;
 
     private PlayerSwapManager controller;
-    private AdvanceDialogueManager pauseAudio;
+    private AdvanceDialogueManager manager;
     private SceneDialogueTrigger hud;
 
     private bool hasPlayed = false;
@@ -19,7 +20,7 @@ public class Cutscenes : MonoBehaviour
     private void Start()
     {
         hud = FindAnyObjectByType<SceneDialogueTrigger>();
-        pauseAudio = FindAnyObjectByType<AdvanceDialogueManager>();
+        manager = FindAnyObjectByType<AdvanceDialogueManager>();
         controller = FindAnyObjectByType<PlayerSwapManager>();
     }
 
@@ -35,13 +36,18 @@ public class Cutscenes : MonoBehaviour
     private IEnumerator PlayCutscene()
     {
         yield return new WaitForSeconds(1f);
-        controller.activeController.enabled = false;
+
+        if (SceneManager.GetActiveScene().name == "2. MortalEngines")
+        {
+            yield return new WaitUntil( () => manager.DialogueActivated == false);
+            controller.activeController.enabled = false;
+        }
 
         cineCamera.SetActive(true);
         cineBrain.SetActive(true);
         cutscene1.Play();
         hud.HudOff();
-        pauseAudio.audioSource.SetActive(false);
+        manager.audioSource.SetActive(false);
         staminaCanvas.SetActive(false);
 
         yield return new WaitForSeconds((float) cutscene1.duration);
@@ -49,7 +55,7 @@ public class Cutscenes : MonoBehaviour
         cineCamera.SetActive(false);
         cineBrain.SetActive(false);
         controller.activeController.enabled = true;
-        pauseAudio.audioSource.SetActive(true);
+        manager.audioSource.SetActive(true);
         hud.HudOn();
         staminaCanvas.SetActive(true);
     }

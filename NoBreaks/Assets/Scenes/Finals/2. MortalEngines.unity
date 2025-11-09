@@ -11495,6 +11495,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &630785598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4453940594183622879, guid: 760ed8ec00e3552428a0414f26687d74, type: 3}
+  m_PrefabInstance: {fileID: 5154932086654723612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &645266829
 Mesh:
   m_ObjectHideFlags: 0
@@ -29578,6 +29583,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6637352367038417516, guid: 83031331b9bec2b42b9466502b5645a6, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 630785598}
+    - target: {fileID: 6637352367038417516, guid: 83031331b9bec2b42b9466502b5645a6, type: 3}
       propertyPath: dialogueCanvas
       value: 
       objectReference: {fileID: 1475630118}
@@ -31806,6 +31815,7 @@ GameObject:
   - component: {fileID: 1550453398}
   - component: {fileID: 1550453400}
   - component: {fileID: 1550453399}
+  - component: {fileID: 1550453401}
   m_Layer: 0
   m_Name: ParticleTrigger
   m_TagString: Untagged
@@ -31822,7 +31832,7 @@ Transform:
   m_GameObject: {fileID: 1550453397}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.282, y: -0.372, z: 0.078}
+  m_LocalPosition: {x: -17.38, y: -0.07, z: 30.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31867,6 +31877,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.74, y: 1, z: 1.9919407}
   m_Center: {x: 0.13999999, y: 0, z: 0.11902977}
+--- !u!114 &1550453401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550453397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637ebea6869cca74ca7e73cb02710a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutscene1: {fileID: 836043972}
+  cineCamera: {fileID: 836043970}
+  cineBrain: {fileID: 1967304011}
+  staminaCanvas: {fileID: 2012615628}
 --- !u!43 &1555442380
 Mesh:
   m_ObjectHideFlags: 0
@@ -43632,6 +43658,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &2012615628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2534926353164296850, guid: 106950f41ad50a04dbf99276f920a4bf, type: 3}
+  m_PrefabInstance: {fileID: 1713552165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &2014564427
 Mesh:
   m_ObjectHideFlags: 0
