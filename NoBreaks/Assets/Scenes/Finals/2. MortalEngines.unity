@@ -21802,6 +21802,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3048632927008430192, guid: dea547f40aba951468ad193e947d6cf7, type: 3}
   m_PrefabInstance: {fileID: 1144249346}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1144249351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8718775882069622552, guid: dea547f40aba951468ad193e947d6cf7, type: 3}
+  m_PrefabInstance: {fileID: 1144249346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1144921291
 Mesh:
   m_ObjectHideFlags: 0
@@ -30260,7 +30265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495361174fe295849848815715e30550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 1144249351}
   pauseInput: {fileID: -944628639613478452, guid: 421362c6f29c7dc40aa5189d9bbc69ee, type: 3}
 --- !u!1 &1488541603
 GameObject:
