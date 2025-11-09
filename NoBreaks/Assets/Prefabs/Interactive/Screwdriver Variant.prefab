@@ -14,7 +14,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1893417442190695451, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: description
-      value: A toy screw driver... What's it doing here?
+      value: 'A toy screw driver... What''s it doing here?
+
+        [E/West Button]
+        to Exit Inspection.'
       objectReference: {fileID: 0}
     - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: m_Size.x
