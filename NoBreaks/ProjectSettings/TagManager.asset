@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - Interactable
+  - Inspectable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerRat
   - Water
   - UI
-  - 
+  - JenniOnlyBarrier
   - 
   - 
   - 

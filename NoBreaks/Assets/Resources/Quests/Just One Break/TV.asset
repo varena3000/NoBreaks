@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
+  m_Name: TV
+  m_EditorClassIdentifier: 
+  actors: 04000000040000000400000004000000040000000400000004000000040000000400000000000000040000000000000000000000000000000000000000000000000000000000000000000000
+  Dialogue:
+  - Today we look back on the racing legend Tyger Yuvak.
+  - In 2019, the 7 time world champion experienced a tragedy like no other.
+  - Due to faulty breaks that went unnoticed [name] was unable to control his car
+    in the turns and ended up in a violent collision.
+  - 'At the time, he was able to make a recovery but his health never fully returned.
+
+'
+  - 'After being diagnosed with severe liver failure, he soon retired to open an
+    auto repair shop and spend the remainder of his life with his family.
+
+'
+  - 'Just last week, the father and husband unfortunately lost his life to his illness.
+
+    In
+    light of his funeral, today we honour his life, his memory and the family he
+    left behind.
+
+'
+  - "\u2026"
+  - "Let\u2019s take a moment now to speak to Kim Jenni. The 2 time world champion
+    was quite close to Yuvak during his final racing years and she has a few words
+    to share about her former racing colleague.\r\n"
+  - "Let\u2019s take a moment now to speak to Kim Jenni. The 2 time world champion
+    was quite close to Yuvak during his final racing years and she has a few words
+    to share about her former racing colleague.\r\n"
+  - 'Hello, Asha. Thank you for having me.
+
+'
+  - "It\u2019s always a pleasure. Although, today it is under more sorrowful circumstances.\r\n"
+  - "Sorrowful indeed. You know back in 2020 when Tyger first announced his retirement
+    I found it to be an exit worth grieving and mourning over. \r"
+  - "Sure his legacy left big shoes to fill but his absence left an even bigger void
+    in Formula Z. I\u2019d always looked up to him since I was a kid - even before
+    my karting days. \r"
+  - "When I finally got the chance to stand beside him on that podium in his final
+    year - I felt more accomplished than I had ever been in my life. Even after he
+    left I still kept chasing him, seeing his tail lights in front of me, urging
+    me to keep pushing. \r"
+  - "He supported me when no one else would and it\u2019s because of him that I am
+    where I am now. Tyger Yuvak was- is one of a kind. I can\u2019t come to terms
+    with this. \r"
+  - "To me, he\u2019s still sitting in his auto shop, waiting for me with a cup of
+    tea and his daughter in his lap. My heart breaks for them - his family. \r"
+  - "Gennifer, his youngest daughter, clung to him with everything. I cannot imagine
+    how hard it must be for her.\r"
+  - "I can only hope the his family, myself, Formula Z and the whole world can one
+    day come to terms with this great loss. Rest in Peace Tyger Yuvak.\r"

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
+  m_Name: Mortal Engines
+  m_EditorClassIdentifier: 
+  actors: 030000000100000003000000010000000300000001000000030000000300000001000000030000000300000001000000030000000300000001000000030000000300000001000000030000000300000001000000
+  Dialogue:
+  - Oh, wow. We actually did it! Good job, Mochi.
+  - Uh-huh. Sounds like ya doubted me there, firefly.
+  - Doubt? I am Yota - I can't afford to have doubt. Everyone's depending on me!
+  - And you're dependin' on me.
+  - I guess I am - aren't I? Speaking of which, how're you feeling?
+  - 'Like a rat in a toy''s body: obviously not comfortable. There are iches I didn''t
+    know plastic could feel.'
+  - Right, sorry about that. Your true form will remain untouched, so you'll be able
+    to return to it whenever you want.
+  - You'll need to return to it when you have to make contact with anything in the
+    real world, though. Jenni's just a toy so she won't be able to.
+  - How do I know where the toy world stops and the real world ends?
+  - You see that pink mist floating around? That's a barrier I've set up to prevent
+    the toy world fragments from leaking out any further.
+  - Anything beyond that barrier is the real world. In Jenni's form you won't be
+    able to venture beyond it.
+  - Makes sense. So, what do I do know, o great Yota?
+  - Now, we help the mechanic. He's also fractured like Jenni was but luckily his
+    particles are still within the barrier I set up.
+  - Collect all his particles and he should reappear at his station in the garage.
+    He's the only one who'll know how to fix Gennifer's toy car.
+  - I hear ya, but what's fixin' the car gonna do about your end-of-the-world problem?
+  - It's a complicated question with a complicated answer that we don't have time
+    to get into right now.
+  - All I'll say for now is that that car is extremely important to the stability
+    of this toy world. It's like a beating heart that all the other toys rely on
+    to function.
+  - So, what happened to the car that it needs fixin' right now?
+  - I don't know. Kids can be aggressive when they play. It could be that Gennifer
+    accidentally broke it.
+  - Just focus on helping the mechanic before he disappears and we can figure out
+    the rest later.
+  - All right, then. Here we go again.
