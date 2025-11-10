@@ -59,7 +59,7 @@ public class FPController : MonoBehaviour
         audioManager = FindAnyObjectByType<AudioManager>();
         _staminaController = GetComponent<StaminaController>();
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        animator = FindAnyObjectByType<Animator>();
 
         // Lock and hide cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -99,8 +99,8 @@ public class FPController : MonoBehaviour
         }
 
         //walking
-        //isWalking = moveInput.magnitude > 0.1f && controller.isGrounded;
-        // animator.SetBool("isWalking", isWalking);
+        isWalking = moveInput.magnitude > 0.1f && controller.isGrounded;
+        animator.SetBool("isWalking", isWalking);
 
         //Jumping
         if (!controller.isGrounded)
@@ -118,6 +118,13 @@ public class FPController : MonoBehaviour
             audioManager.PlayActionSFX(audioManager.Landing);
             ////animator.SetBool("isGrounded", true)
         }
+
+        // --- ANIMATION LOGIC ---
+        animator.SetBool("isWalking", isWalking && !isSprinting && !isCrouching);
+        animator.SetBool("isSprinting", isSprinting && isWalking);
+        animator.SetBool("isCrouching", isCrouching);
+        animator.SetBool("isJumping", isJumping);
+        animator.SetBool("isFalling", isFalling);
     }
 
     #region Input Callbacks
@@ -126,17 +133,6 @@ public class FPController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
         isWalking = true;
-
-        if(isWalking == true)
-        {
-            //play walking animation
-            //animator.SetBool("isWalking", true);
-        }
-        else if(!isWalking && controller.isGrounded && isCrouching == false)
-        {
-            //play idle animation
-            //animator.SetBool("iswalking", false);
-        }
     }
 
     public void OnLook(InputAction.CallbackContext context)

@@ -30359,6 +30359,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1202115439}
     - target: {fileID: 4517199977584780509, guid: 62be9847ea8b4c74db1b450fc1d9b003, type: 3}
+      propertyPath: conversation
+      value: 
+      objectReference: {fileID: 11400000, guid: fe5e0f46fb89ba646aa286f92333e528, type: 2}
+    - target: {fileID: 4517199977584780509, guid: 62be9847ea8b4c74db1b450fc1d9b003, type: 3}
       propertyPath: instructionText
       value: 
       objectReference: {fileID: 1011952286}
@@ -51546,6 +51550,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 244665308}
     m_Modifications:
+    - target: {fileID: 2311281361304751387, guid: 41885ec582e2d704c9e8a5e950747616, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311281361304751387, guid: 41885ec582e2d704c9e8a5e950747616, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.99
+      objectReference: {fileID: 0}
     - target: {fileID: 2346019549513391131, guid: 41885ec582e2d704c9e8a5e950747616, type: 3}
       propertyPath: m_Name
       value: PlayerJenni
