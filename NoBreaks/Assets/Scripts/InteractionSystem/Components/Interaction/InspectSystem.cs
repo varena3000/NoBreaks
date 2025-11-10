@@ -35,6 +35,7 @@ public class InspectSystem : MonoBehaviour
     private Dictionary<Transform, Vector3> originalPositions = new Dictionary<Transform, Vector3>();
     private Dictionary<Transform, Quaternion> originalRotations = new Dictionary<Transform, Quaternion>();
     private Dictionary<Transform, Rigidbody> originalRigidbodies = new Dictionary<Transform, Rigidbody>();
+    private Dictionary<Transform, Transform> originalParents = new Dictionary<Transform, Transform>();
 
     void Start()
     {
@@ -99,9 +100,10 @@ public class InspectSystem : MonoBehaviour
                 {
                     examinedObject = hit.transform;
 
-                    // Store original transform
+                    // Store original transform and parent
                     originalPositions[examinedObject] = examinedObject.position;
                     originalRotations[examinedObject] = examinedObject.rotation;
+                    originalParents[examinedObject] = examinedObject.parent;
 
                     // Handle Rigidbody if present
                     Rigidbody rb = examinedObject.GetComponent<Rigidbody>();
@@ -169,8 +171,17 @@ public class InspectSystem : MonoBehaviour
 
         if (examinedObject != null)
         {
-            // Restore transform and parent
-            examinedObject.SetParent(null, true);
+            // Restore parent
+            if (originalParents.TryGetValue(examinedObject, out Transform originalParent))
+            {
+                examinedObject.SetParent(originalParent, true);
+                originalParents.Remove(examinedObject);
+            }
+            else
+            {
+                examinedObject.SetParent(null, true);
+            }
+            
             examinedObject.position = originalPositions[examinedObject];
             examinedObject.rotation = originalRotations[examinedObject];
 

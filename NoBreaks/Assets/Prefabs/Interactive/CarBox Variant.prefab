@@ -66,7 +66,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b2e513d3c4ef06b4181b74d532215acc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6162025258040639393}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e513d3c4ef06b4181b74d532215acc, type: 3}
 --- !u!4 &2340594881672965672 stripped
@@ -87,10 +90,18 @@ PrefabInstance:
       value: CarBox Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1893417442190695451, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893417442190695451, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: description
       value: "A dusty box labelled: \"Formula Z Remote Control Car.\" A faded note
         reads: \"Go zoom just like me, kiddo. Happy 4th. Love, Pops.\" \n[E/West
         Button] to Exit Inspection."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437221154109455730, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: m_Size.x
@@ -105,12 +116,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: m_Center.x
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: m_Center.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572661414973383552, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
       propertyPath: m_LocalScale.x
@@ -176,4 +195,112 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
   m_PrefabInstance: {fileID: 4147321220995484192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4531577715895437650
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2340594881672965672}
+    m_Modifications:
+    - target: {fileID: 1038456454771407097, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Name
+      value: Inspectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893417442190695451, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: description
+      value: "A dusty box labelled: \"Formula Z Remote Control Car.\" A faded note
+        reads: \"Go zoom just like me, kiddo. Happy 4th. Love, Pops.\" \n[E/West
+        Button] to Exit Inspection."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Size.x
+      value: 8.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Size.y
+      value: 6.75432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Size.z
+      value: 3.9688532
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Center.x
+      value: -0.95000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Center.y
+      value: 0.9071607
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498424899317388509, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Center.z
+      value: 0.007204612
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572661414973383552, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.79917675
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.46200582
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7551102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3605996
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.030999444
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6463308
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+--- !u!4 &6162025258040639393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7737338913239938803, guid: 3ed44719623be2548863b1532d202b48, type: 3}
+  m_PrefabInstance: {fileID: 4531577715895437650}
   m_PrefabAsset: {fileID: 0}

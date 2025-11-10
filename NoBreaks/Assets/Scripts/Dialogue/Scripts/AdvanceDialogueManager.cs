@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AdvanceDialogueManager : MonoBehaviour
@@ -46,6 +47,7 @@ public class AdvanceDialogueManager : MonoBehaviour
     private GameObject Battery;
 
     public GameObject audioSource;
+    private npcFocus npcFocus;
 
     private void Awake()
     {
@@ -63,6 +65,7 @@ public class AdvanceDialogueManager : MonoBehaviour
 
     private void Start()
     {
+        npcFocus = FindAnyObjectByType<npcFocus>();
         Battery = GameObject.Find("Battery");
         npc = FindAnyObjectByType<NPCDialogue>();
 
@@ -105,6 +108,9 @@ public class AdvanceDialogueManager : MonoBehaviour
         //Display Dialogue
         actor.text = currentSpeaker;
         portrait.sprite = currentPortrait;
+
+        if((SceneManager.GetActiveScene().name == "2. MortalEngines"))
+        npcFocus.FocusOnNPC();
 
         ///Keep the routine from running multiple times at the same time.
         if (typeWriterRoutine != null)
