@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b17a837ee29b942a5a85513233c468, type: 3}
   m_Name: Yota 1
   m_EditorClassIdentifier: 
-  actors: 010000000100000001000000
+  actors: 0100000001000000
   Dialogue:
-  - Hello my name is Yota... A very cute Fairy very very very very very very very
-    very cute Fairy
-  - I will be your guiding fairy, I hope I do not annoy you at all and I will be
-    a very good guide to you...
-  - By the way Hinata-Chan... I named the rat Mochi!!
+  - 'Yota '
+  - 'Yota '

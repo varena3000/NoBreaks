@@ -44,5 +44,9 @@ public class FollowPlayer : MonoBehaviour
 
         // Make the bird look in the player's forward direction
         transform.LookAt(currentPlayer.position + currentPlayer.forward * 2f);
+
+        //Yota's rotations
+        Vector3 currentRotation = transform.eulerAngles;
+        transform.rotation = Quaternion.Euler(0, currentRotation.y, 0);
     }
 }

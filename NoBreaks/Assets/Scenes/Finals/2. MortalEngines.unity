@@ -11500,6 +11500,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4453940594183622879, guid: 760ed8ec00e3552428a0414f26687d74, type: 3}
   m_PrefabInstance: {fileID: 5154932086654723612}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &630785600 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3519800830549451224, guid: 760ed8ec00e3552428a0414f26687d74, type: 3}
+  m_PrefabInstance: {fileID: 5154932086654723612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &645266829
 Mesh:
   m_ObjectHideFlags: 0
@@ -16301,11 +16306,6 @@ Mesh:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560730405877788994, guid: 8186a260f93befa4ca3b2381f52d5724, type: 3}
   m_PrefabInstance: {fileID: 1557017233}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &886047965 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1482040997364291351, guid: 760ed8ec00e3552428a0414f26687d74, type: 3}
-  m_PrefabInstance: {fileID: 5154932086654723612}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &886703819
 Mesh:
@@ -31862,7 +31862,7 @@ MonoBehaviour:
   - {fileID: 1238533627}
   inactiveParticle:
   - {fileID: 16892266}
-  source: {fileID: 886047965}
+  source: {fileID: 630785600}
   areYouReady: {fileID: 8300000, guid: 84f49838fe2a0894f993f11a8e189e09, type: 3}
 --- !u!65 &1550453400
 BoxCollider:
@@ -49323,7 +49323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2856219960849756798, guid: 41885ec582e2d704c9e8a5e950747616, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3625165351753735974, guid: 41885ec582e2d704c9e8a5e950747616, type: 3}
       propertyPath: m_LocalPosition.x

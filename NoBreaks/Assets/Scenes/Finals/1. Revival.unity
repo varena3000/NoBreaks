@@ -26672,8 +26672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e25041e3b1a164ca51ef01e6cac1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTime: 10
-  fadeDuration: 1
+  displayTime: 6
+  fadeDuration: 2
   bounceDuration: 0.5
   bounceScale: 1.2
 --- !u!1 &1305933501
@@ -32834,8 +32834,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e25041e3b1a164ca51ef01e6cac1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTime: 5
-  fadeDuration: 1
+  displayTime: 1
+  fadeDuration: 2
   bounceDuration: 0.5
   bounceScale: 1.2
 --- !u!43 &1544495109
@@ -40239,8 +40239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e25041e3b1a164ca51ef01e6cac1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTime: 18
-  fadeDuration: 1
+  displayTime: 12
+  fadeDuration: 2
   bounceDuration: 0.5
   bounceScale: 1.2
 --- !u!43 &1755318247

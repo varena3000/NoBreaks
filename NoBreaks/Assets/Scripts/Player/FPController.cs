@@ -116,7 +116,7 @@ public class FPController : MonoBehaviour
             isFalling = false;
 
             audioManager.PlayActionSFX(audioManager.Landing);
-            ////animator.SetBool("isGrounded = true", false)
+            ////animator.SetBool("isGrounded", true)
         }
     }
 
