@@ -189,7 +189,6 @@ MonoBehaviour:
   menuSource: {fileID: 7575205231109680475}
   imbueSource: {fileID: 3024722360930328706}
   errorSource: {fileID: 2919911308023085616}
-  startSource: {fileID: 3777947909254351011}
   background: {fileID: 8300000, guid: 5d8a9de49062dd84f999b480faa87d57, type: 3}
   Menu: {fileID: 8300000, guid: 51210b6c4a4e1de4982c0d18c194a60f, type: 3}
   menuButton: {fileID: 8300000, guid: a42600c6c5662724b8b6ef331e203af3, type: 3}
@@ -198,10 +197,10 @@ MonoBehaviour:
   mochiImbue: {fileID: 8300000, guid: e60097b59f7a46c4a91a80d4da3eba3b, type: 3}
   Walk: {fileID: 8300000, guid: d7e620a737db87342a1e8df567c4f83b, type: 3}
   Sprint: {fileID: 8300000, guid: 56eae7dfdee57bb4382d1799cc211f53, type: 3}
-  Jump: {fileID: 8300000, guid: 8a2d246964e23c34dbe2806533606564, type: 3}
+  Jump: {fileID: 8300000, guid: 501d46f623982e541b088e48c71690d6, type: 3}
+  Landing: {fileID: 8300000, guid: 93721a0133e545a45a4863c34822dba4, type: 3}
   Crouch: {fileID: 8300000, guid: b4bb48416f5e928409887de8a050503d, type: 3}
   Error: {fileID: 8300000, guid: df442483dda6fde4da873f7a4dced732, type: 3}
-  areYouReady: {fileID: 8300000, guid: 84f49838fe2a0894f993f11a8e189e09, type: 3}
 --- !u!1 &4039461722046461239
 GameObject:
   m_ObjectHideFlags: 0

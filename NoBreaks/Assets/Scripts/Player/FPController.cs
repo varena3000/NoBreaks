@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.LowLevelPhysics;
 
 public class FPController : MonoBehaviour
 {
@@ -38,7 +39,15 @@ public class FPController : MonoBehaviour
     private bool isSprinting = false;
     private bool isCrouching = false;
     private bool hasCheckedPickUp = false;
+    private bool isWalking = false;
     private bool isInteracting = false;
+
+
+    private bool isJumping = false;
+    private bool isFalling = false;
+    private bool isGrounded = false;
+
+    private Animator animator;
 
     [HideInInspector]
     public StaminaController _staminaController;
@@ -49,8 +58,8 @@ public class FPController : MonoBehaviour
     {
         audioManager = FindAnyObjectByType<AudioManager>();
         _staminaController = GetComponent<StaminaController>();
-
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
 
         // Lock and hide cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -88,6 +97,27 @@ public class FPController : MonoBehaviour
         {
             _staminaController.hasRegenerated = true;
         }
+
+        //walking
+        //isWalking = moveInput.magnitude > 0.1f && controller.isGrounded;
+        // animator.SetBool("isWalking", isWalking);
+
+        //Jumping
+        if (!controller.isGrounded)
+        {
+            isFalling = true;
+            //animator.SetBool("isFalling", true)
+        }
+
+        if (isFalling == true && controller.isGrounded)
+        {
+            isJumping = false;
+            isGrounded = true;
+            isFalling = false;
+
+            audioManager.PlayActionSFX(audioManager.Landing);
+            ////animator.SetBool("isGrounded = true", false)
+        }
     }
 
     #region Input Callbacks
@@ -95,6 +125,18 @@ public class FPController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        isWalking = true;
+
+        if(isWalking == true)
+        {
+            //play walking animation
+            //animator.SetBool("isWalking", true);
+        }
+        else if(!isWalking && controller.isGrounded && isCrouching == false)
+        {
+            //play idle animation
+            //animator.SetBool("iswalking", false);
+        }
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -114,6 +156,12 @@ public class FPController : MonoBehaviour
             isSprinting = false;
             _staminaController.weAreSprinting = false;
         }
+        
+        if (context.started && moveInput.magnitude > 0.1f && isGrounded == true)
+        {
+            isSprinting = true;
+            //animator.SetBool("isSprinting", true);
+        }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
@@ -122,6 +170,17 @@ public class FPController : MonoBehaviour
         {
             isCrouching = !isCrouching;
             audioManager.PlayActionSFX(audioManager.Crouch);
+
+            if(isCrouching == true)
+            {
+                //Crouching down animation
+                //animator.SetBool("isCrouching", true)
+            }
+            else
+            {
+                //crouching up animation
+                //animator.SetBool("isCrouching", false)
+            }
         }
             
     }
@@ -130,8 +189,14 @@ public class FPController : MonoBehaviour
     {
         if (context.performed && controller.isGrounded)
         {
+            isJumping = true;
+            isGrounded = false;
+            ////animator.SetBool("isGrounded", false)
+
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
             audioManager.PlayActionSFX(audioManager.Jump);
+
+            //animator.SetBool("isJumping", true);
         }
     }
 
@@ -216,6 +281,15 @@ public class FPController : MonoBehaviour
         if (controller.height != targetHeight)
         {
             controller.height = Mathf.Lerp(controller.height, targetHeight, crouchTransitionSpeed * Time.deltaTime);
+        }
+
+        if(controller.height == crouchHeight)
+        {
+            //play crouch up animation
+        }
+        else if(controller.height == standingHeight)
+        {
+            //play crouch down animation
         }
     }
 

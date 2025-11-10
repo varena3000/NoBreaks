@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Walk;
     public AudioClip Sprint;
     public AudioClip Jump;
+    public AudioClip Landing;
     public AudioClip Crouch;
     public AudioClip Error;
 

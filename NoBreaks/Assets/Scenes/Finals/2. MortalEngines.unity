@@ -30568,6 +30568,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1278514347}
     m_Modifications:
+    - target: {fileID: 694339171147384652, guid: 7ae6dafe18170194daa4ac952f69b2ce, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -31.81543
+      objectReference: {fileID: 0}
     - target: {fileID: 702753703440290962, guid: 7ae6dafe18170194daa4ac952f69b2ce, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -30655,6 +30659,10 @@ PrefabInstance:
     - target: {fileID: 7865382341694939845, guid: 7ae6dafe18170194daa4ac952f69b2ce, type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8793250153271093253, guid: 7ae6dafe18170194daa4ac952f69b2ce, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.9194336
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
