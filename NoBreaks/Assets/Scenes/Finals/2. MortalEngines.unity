@@ -29421,7 +29421,7 @@ PrefabInstance:
     - target: {fileID: 4517199977584780509, guid: 62be9847ea8b4c74db1b450fc1d9b003, type: 3}
       propertyPath: conversation
       value: 
-      objectReference: {fileID: 11400000, guid: 93bfe1426f27b10459728f09642d9047, type: 2}
+      objectReference: {fileID: 11400000, guid: 93c26f5ecc458b14f9f9c3aab06b0d9a, type: 2}
     - target: {fileID: 4517199977584780509, guid: 62be9847ea8b4c74db1b450fc1d9b003, type: 3}
       propertyPath: instructionText
       value: 
@@ -31567,7 +31567,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550453397}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 637ebea6869cca74ca7e73cb02710a93, type: 3}
   m_Name: 
